@@ -1,5 +1,8 @@
+/**
+ * La classe <code>VerifRappel</code> est utilisee en tant que Modele.
+ * Cette classe verifie les conditions lors de creation d'un rappel pour un titre et pour le contenu.
+ */
 public VerifRappel {
-	
 
 	/**
 	 * On verifie le titre
@@ -69,6 +72,6 @@ public VerifRappel {
 			}
 		}
 
-		return true;
+		return true; // On return true si tout est bon et que le contenu respecte toutes les conditions
 	}
 }
