@@ -1,0 +1,38 @@
+# Cibles
+.PHONY: all run clean jar javadoc
+
+# Cible principale 
+all: build/Main.class 
+	@echo "Compilation terminée."
+
+# Compilation manuelle des fichiers
+build/Requete.class: src/fr/iutfbleau/papillon/Requete.java
+	javac -d build -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
+
+build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
+	javac -d build -cp build $<
+
+build/Fenetre.class: src/fr/iutfbleau/papillon/Fenetre.java build/Bouton.class
+	javac -d build -cp build $<
+
+build/Main.class: src/fr/iutfbleau/papillon/Main.java build/Fenetre.class 
+	javac -d build -cp build $<
+
+# Exécution du programme
+run: 
+	java -cp build:res/lib/mariadb-java-client-3.5.4.jar Main
+
+#Création de la javadoc
+javadoc: 
+	javadoc -d doc/ -sourcepath src fr iutfbleau papillon \
+		-encoding UTF-8 -charset UTF-8 -windowtitle "Documentation SAE DEV 3.1"
+
+# Création de l'archive jar
+jar: all
+	jar cfe papillon.jar papillon.Main -C build .
+
+# Nettoyage des fichiers compilés
+clean:
+	rm -rf build/*
+	@echo "Dossier build nettoyé."
+
