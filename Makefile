@@ -9,10 +9,16 @@ all: build/Main.class
 build/Requete.class: src/fr/iutfbleau/papillon/Requete.java
 	javac -d build -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
 
+build/PanelRappels.class: src/fr/iutfbleau/papillon/PanelRappels.java build/Rappel.class
+	javac -d build -cp build $<
+	
+build/Rappel.class: src/fr/iutfbleau/papillon/Rappel.java
+	javac -d build -cp build $<
+
 build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
 	javac -d build -cp build $<
 
-build/Fenetre.class: src/fr/iutfbleau/papillon/Fenetre.java build/Bouton.class
+build/Fenetre.class: src/fr/iutfbleau/papillon/Fenetre.java build/Bouton.class build/PanelRappels.class
 	javac -d build -cp build $<
 
 build/Main.class: src/fr/iutfbleau/papillon/Main.java build/Fenetre.class 
