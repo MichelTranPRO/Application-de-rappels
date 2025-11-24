@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Rappel extends JComponent{
-    private int largeur;
-    private int hauteur;
+    private int largeur = 362;
+    private int hauteur = 49;
     private int hauteurTexte;
     private String titre;
     private String contexte;
@@ -25,8 +25,6 @@ public class Rappel extends JComponent{
     private int yTexte;
 
     public Rappel(String titre, String contexte, int theme, int rang){
-        this.largeur=362;
-        this.hauteur=49;
         this.titre=titre;
         this.contexte=contexte;
         this.theme=theme;
