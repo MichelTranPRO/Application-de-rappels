@@ -9,7 +9,7 @@ all: build/Main.class
 build/Requete.class: src/fr/iutfbleau/papillon/Requete.java
 	javac -d build -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
 
-build/PanelHeader.class: src/fr/iutfbleau/papillon/PanelHeader.java build/Bouton.class
+build/PanelHeader.class: src/fr/iutfbleau/papillon/PanelHeader.java build/Bouton.class build/Controlleur_ajouterBtn.class build/Controlleur_modifBtn.class build/Controlleur_supprBtn.class
 	javac -d build -cp build $<
 
 build/PanelRappels.class: src/fr/iutfbleau/papillon/PanelRappels.java build/Rappel.class
@@ -19,6 +19,15 @@ build/Rappel.class: src/fr/iutfbleau/papillon/Rappel.java
 	javac -d build -cp build $<
 
 build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
+	javac -d build -cp build $<
+
+build/Controlleur_ajouterBtn.class : src/fr/iutfbleau/papillon/Controlleur_ajouterBtn.java build/Bouton.class
+	javac -d build -cp build $<
+
+build/Controlleur_modifBtn.class : src/fr/iutfbleau/papillon/Controlleur_modifBtn.java build/Bouton.class
+	javac -d build -cp build $<
+
+build/Controlleur_supprBtn.class : src/fr/iutfbleau/papillon/Controlleur_supprBtn.java build/Bouton.class
 	javac -d build -cp build $<
 
 build/Fenetre.class: src/fr/iutfbleau/papillon/Fenetre.java build/PanelHeader.class build/PanelRappels.class

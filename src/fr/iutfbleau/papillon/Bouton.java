@@ -1,25 +1,98 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * La classe <code>Bouton</code> permet de créer un bouton personnalisé
+ * 
+ * @version 1.0
+ * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
+
 public class Bouton extends JComponent{
+
+    /**
+     * Largeur du bouton.
+     */
     private int largeur;
+
+    /**
+     * Hauteur du bouton.
+     */
     private int hauteur;
+
+    /**
+     * Position X du texte à afficher.
+     */
     private int xTexte;
+
+    /**
+     * Postion Y du texte à afficher.
+     */
     private int yTexte;
+
+    /** 
+     * Dimension, hauteur du texte.
+     */
     private int texteHauteur;
+
+    /**
+     * Dimension, largeur du texte.
+     */
     private int texteLargeur;
+
+    /**
+     * Couleur du fond par défaut.
+     */
     private Color fond;
+
+    /**
+     * Couleur du fond actuel.
+     */
+    private Color couleurActuelle;
+
+    /**
+     * Couleur du texte actuel.
+     */
+    private Color texteCouleurActuelle;
+
+    /**
+     * Couleur du texte par défaut.
+     */
     private Color texteCouleur;
+
+    /**
+     * Texte à afficher.
+     */
     private String texte;
+
+    /**
+     * Outil qui permet de pendre les mesures du texte.
+     */
     private FontMetrics mesureTexte;
 
+    /**
+     * Le contructeur de la classe <code>Bouton</code> initialise les mesures et parametres 
+     */
     public Bouton(int l, int h, String t, Color f, Color txtCouleur){
         this.largeur=l;
         this.hauteur=h;
+        this.couleurActuelle=f;
+        this.texteCouleurActuelle=txtCouleur;
         this.texte=t;
         this.fond=f;
         this.texteCouleur=txtCouleur;
         this.setPreferredSize(new Dimension(largeur, hauteur));
+    }
+
+    public void setHover(boolean statut, Color couleurHover, Color texteHover){
+        if (statut){
+            this.couleurActuelle = couleurHover;
+            this.texteCouleurActuelle = texteHover;
+        } else {
+            this.couleurActuelle=fond;
+            this.texteCouleurActuelle=texteCouleur;
+        }
+        repaint();
     }
     @Override
     protected void paintComponent(Graphics pinceau) {
@@ -30,10 +103,10 @@ public class Bouton extends JComponent{
         secondPinceau.setColor(this.getBackground());
         secondPinceau.fillRect(0, 0, this.getWidth(), this.getHeight());
         }
-        secondPinceau.setColor(fond);
+        secondPinceau.setColor(couleurActuelle);
         secondPinceau.fillRoundRect(0, 0, largeur, hauteur, 10, 10);
 
-        secondPinceau.setColor(texteCouleur);
+        secondPinceau.setColor(texteCouleurActuelle);
         secondPinceau.setFont(new Font("Inter", Font.BOLD, 18));
         mesureTexte = secondPinceau.getFontMetrics();
         texteLargeur = mesureTexte.stringWidth(texte);

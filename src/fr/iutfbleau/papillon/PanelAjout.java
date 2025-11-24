@@ -4,6 +4,9 @@ import java.awt.*;
 /**
  * Cette classe <code>PanelAjout</code> represente le formulaire qui permet de creer un rappel
  * Elle contient le titre, le contenu, les differents themes et des boutons
+ * 
+ * @version 1.0
+ * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 public class PanelAjout {
 
