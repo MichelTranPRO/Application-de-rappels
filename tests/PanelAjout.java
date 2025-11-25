@@ -16,8 +16,6 @@ public class PanelAjout extends JPanel{
 
     public PanelAjout(){
         this.contraintes = new GridBagConstraints();
-        this.largeur=421;
-        this.hauteur=264;
 
         this.titre=new JLabel("Titre (50 caractères maximum) :");
         titre.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -34,7 +32,6 @@ public class PanelAjout extends JPanel{
         validerBtn.addMouseListener(new Controlleur_validerBtn(validerBtn));
         this.grisFond= new Color(255, 249, 227);
 
-        this.setPreferredSize(new Dimension(largeur,hauteur));
         this.setLayout(new GridBagLayout());
         this.setBackground(grisFond);
 
@@ -43,13 +40,11 @@ public class PanelAjout extends JPanel{
         contraintes.gridy=0;
         contraintes.weightx=1.0;
         contraintes.anchor = GridBagConstraints.WEST;
-        contraintes.insets = new Insets(0, 20, 0, 20); 
+        contraintes.insets = new Insets(10, 20, 0, 20); 
         this.add(titre,contraintes);
         
         //Theme
         contraintes.gridx=1;
-        contraintes.anchor = GridBagConstraints.WEST;
-        contraintes.insets = new Insets(0, 20, 5, 20); 
         this.add(theme,contraintes);
         
         //Champs titre
@@ -72,12 +67,12 @@ public class PanelAjout extends JPanel{
 
         //Champs contexte
         contraintes.gridy=3;
-        champContenu.setPreferredSize(new Dimension(380,105));
+        champContenu.setPreferredSize(new Dimension(400,105));
         this.add(champContenu,contraintes);
 
         //Valider
         contraintes.gridy=4;
-        contraintes.insets = new Insets(10, 20, 5, 20); 
+        contraintes.insets = new Insets(10, 30, 10, 0); 
         this.add(validerBtn,contraintes);
         
     }

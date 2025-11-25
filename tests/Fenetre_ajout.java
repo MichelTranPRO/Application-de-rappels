@@ -9,13 +9,10 @@ public class Fenetre_ajout extends JFrame{
     private JPanel marges;
 
     public Fenetre_ajout(){
-        largeur = 461;
-        hauteur = 367;
         header = new PanelAjoutHeader();
         ajout = new PanelAjout();
-        marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
-        this.setSize(largeur,hauteur);
         this.setAlwaysOnTop(true);
         this.setLocationRelativeTo(null);
 
@@ -25,6 +22,7 @@ public class Fenetre_ajout extends JFrame{
         marges.add(ajout);
         this.add(marges, BorderLayout.CENTER);
 
+        this.pack();
         this.setResizable(false);
         this.setVisible(true);
     }

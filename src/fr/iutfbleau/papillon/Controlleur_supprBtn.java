@@ -15,7 +15,7 @@ public class Controlleur_supprBtn implements MouseListener{
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-	Bouton bouton;
+	private Bouton bouton;
 
     /**
      * Le constructeur de la classe <code>Controlleur_supprBtn</code> 

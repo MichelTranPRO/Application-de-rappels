@@ -21,12 +21,12 @@ public class PanelAjoutHeader extends JPanel{
      */
     public PanelAjoutHeader(){
 
-        retourBtn = new Bouton(441,43, "Retour",Color.WHITE, new Color(255, 184, 0));
+        retourBtn = new Bouton(440, 43, "Retour", Color.WHITE, new Color(255, 184, 0));
+
         retourBtn.addMouseListener(new Controlleur_retourBtn(retourBtn));
 
         this.add(retourBtn);
         this.setBackground(new Color(255, 235, 153));
-        this.setPreferredSize(new Dimension(461, 63));
-        this.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
     }
 }

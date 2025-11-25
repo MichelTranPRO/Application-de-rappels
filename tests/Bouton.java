@@ -1,14 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-/**
- * La classe <code>Bouton</code> permet de créer un bouton personnalisé
- * 
- * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
- */
-
-public class Bouton extends JComponent{
+public class Bouton extends JComponent {
 
     /**
      * Largeur du bouton.
@@ -70,50 +63,48 @@ public class Bouton extends JComponent{
      */
     private FontMetrics mesureTexte;
 
-    /**
-     * Le contructeur de la classe <code>Bouton</code> initialise les mesures et parametres 
-     */
-    public Bouton(int l, int h, String t, Color f, Color txtCouleur){
-        this.largeur=l;
-        this.hauteur=h;
-        this.couleurActuelle=f;
-        this.texteCouleurActuelle=txtCouleur;
-        this.texte=t;
-        this.fond=f;
-        this.texteCouleur=txtCouleur;
+    public Bouton(int l, int h, String t, Color f, Color txtCouleur) {
+        this.largeur = l;
+        this.hauteur = h;
+
+        this.couleurActuelle = f;
+        this.texteCouleurActuelle = txtCouleur;
+
+        this.texte = t;
+        this.fond = f;
+        this.texteCouleur = txtCouleur;
+
         this.setPreferredSize(new Dimension(largeur, hauteur));
     }
 
-    public void setHover(boolean statut, Color couleurHover, Color texteHover){
-        if (statut){
+    public void setHover(boolean statut, Color couleurHover, Color texteHover) {
+        if (statut) {
             this.couleurActuelle = couleurHover;
             this.texteCouleurActuelle = texteHover;
         } else {
-            this.couleurActuelle=fond;
-            this.texteCouleurActuelle=texteCouleur;
+            this.couleurActuelle = fond;
+            this.texteCouleurActuelle = texteCouleur;
         }
         repaint();
     }
+
     @Override
     protected void paintComponent(Graphics pinceau) {
         Graphics secondPinceau = pinceau.create();
 
-        if (this.isOpaque()) {
-
-        secondPinceau.setColor(this.getBackground());
-        secondPinceau.fillRect(0, 0, this.getWidth(), this.getHeight());
-        }
         secondPinceau.setColor(couleurActuelle);
         secondPinceau.fillRoundRect(0, 0, largeur, hauteur, 10, 10);
 
         secondPinceau.setColor(texteCouleurActuelle);
         secondPinceau.setFont(new Font("Dialog", Font.BOLD, 18));
+
         mesureTexte = secondPinceau.getFontMetrics();
         texteLargeur = mesureTexte.stringWidth(texte);
         texteHauteur = mesureTexte.getAscent();
-        xTexte=(largeur - texteLargeur) / 2;
-        yTexte = (hauteur + texteHauteur) / 2;
+
+        xTexte = (largeur - texteLargeur) / 2;
+        yTexte = (hauteur + texteHauteur) / 2 - 2; // petit ajustement esthetique
+
         secondPinceau.drawString(texte, xTexte, yTexte);
     }
 }
-
