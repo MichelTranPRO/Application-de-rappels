@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+
+
 public class Rappel extends JComponent{
     private int largeur = 362;
     private int hauteur = 49;
