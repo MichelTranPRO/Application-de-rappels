@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -15,7 +14,7 @@ public class Controlleur_modifBtn implements MouseListener{
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-    Bouton bouton;
+    private Bouton bouton;
 
     /**
      * Le constructeur de la classe <code>Controlleur_modifBtn</code> 

@@ -14,7 +14,7 @@ public class Controlleur_validerBtn implements MouseListener{
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-    Bouton bouton;
+    private Bouton bouton;
 
     /**
      * Le constructeur de la classe <code>Controlleur_validerBtn</code> 

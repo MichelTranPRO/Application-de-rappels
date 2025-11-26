@@ -9,6 +9,8 @@ all: build/Main.class
 build/Requete.class: src/fr/iutfbleau/papillon/Requete.java
 	javac -d build -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
 
+
+
 build/PanelHeader.class: src/fr/iutfbleau/papillon/PanelHeader.java build/Bouton.class build/Controlleur_ajouterBtn.class build/Controlleur_modifBtn.class build/Controlleur_supprBtn.class
 	javac -d build -cp build $<
 
@@ -33,6 +35,8 @@ build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
 build/JThemeArea.class : src/fr/iutfbleau/papillon/JThemeArea.java build/Theme.class build/Controlleur_themes.class
 	javac -d build -cp build $<
 
+# === Controlleurs === #
+
 build/Controlleur_ajouterBtn.class : src/fr/iutfbleau/papillon/Controlleur_ajouterBtn.java build/Bouton.class
 	javac -d build -cp build $<
 
@@ -44,6 +48,8 @@ build/Controlleur_themes.class : src/fr/iutfbleau/papillon/Controlleur_themes.ja
 
 build/Controlleur_supprBtn.class : src/fr/iutfbleau/papillon/Controlleur_supprBtn.java build/Bouton.class
 	javac -d build -cp build $<
+
+# ==================== #
 
 build/Fenetre_ajout.class: src/fr/iutfbleau/papillon/Fenetre_ajout.java build/PanelAjoutHeader.class /buildPanelAjout.class
 	javac -d build -cp build $<	

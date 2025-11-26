@@ -14,7 +14,7 @@ public class Controlleur_retourBtn implements MouseListener{
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-    Bouton bouton;
+    private Bouton bouton;
 
     /**
      * Le constructeur de la classe <code>Controlleur_retourBtn</code> 
