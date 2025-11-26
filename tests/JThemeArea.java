@@ -63,5 +63,10 @@ public class JThemeArea extends JPanel{
         }
         repaint();
     }
+    
+    public boolean getStatut(int numTheme) {
+        return tabStatutCliqueThemes[numTheme];
+    }
+
 
 }
