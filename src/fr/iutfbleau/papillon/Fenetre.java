@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class Fenetre extends JFrame{
     private int largeur;
@@ -9,8 +9,6 @@ public class Fenetre extends JFrame{
     private JScrollPane scrollPanel;
     
     public Fenetre(){
-        largeur = 461;
-        hauteur = 367;
         header = new PanelHeader();
         rappels = new PanelRappels();
         scrollPanel = new JScrollPane(rappels);
@@ -36,7 +34,7 @@ public class Fenetre extends JFrame{
         this.setLayout(new BorderLayout());
         this.add(header, BorderLayout.NORTH);
         this.add(scrollPanel, BorderLayout.CENTER);
-
+        this.pack();
         this.setVisible(true);
     }
 }

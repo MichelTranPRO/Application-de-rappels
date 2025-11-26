@@ -14,11 +14,23 @@ build/PanelHeader.class: src/fr/iutfbleau/papillon/PanelHeader.java build/Bouton
 
 build/PanelRappels.class: src/fr/iutfbleau/papillon/PanelRappels.java build/Rappel.class
 	javac -d build -cp build $<
+
+build/PanelAjoutHeader.class: src/fr/iutfbleau/papillon/PanelAjoutHeader.java build/Bouton.class
+	javac -d build -cp build $<
+
+build/PanelAjout.class: src/fr/iutfbleau/papillon/PanelAjout.java build/Bouton.class build/JThemeArea.class
+	javac -d build -cp build $<
 	
 build/Rappel.class: src/fr/iutfbleau/papillon/Rappel.java
 	javac -d build -cp build $<
 
+build/Theme.class: src/fr/iutfbleau/papillon/Theme.java
+	javac -d build -cp build $<
+
 build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
+	javac -d build -cp build $<
+
+build/JThemeArea.class : src/fr/iutfbleau/papillon/JThemeArea.java build/Theme.class build/Controlleur_themes.class
 	javac -d build -cp build $<
 
 build/Controlleur_ajouterBtn.class : src/fr/iutfbleau/papillon/Controlleur_ajouterBtn.java build/Bouton.class
@@ -27,8 +39,14 @@ build/Controlleur_ajouterBtn.class : src/fr/iutfbleau/papillon/Controlleur_ajout
 build/Controlleur_modifBtn.class : src/fr/iutfbleau/papillon/Controlleur_modifBtn.java build/Bouton.class
 	javac -d build -cp build $<
 
+build/Controlleur_themes.class : src/fr/iutfbleau/papillon/Controlleur_themes.java build/Theme.class build/JThemeArea.class
+	javac -d build -cp build $<
+
 build/Controlleur_supprBtn.class : src/fr/iutfbleau/papillon/Controlleur_supprBtn.java build/Bouton.class
 	javac -d build -cp build $<
+
+build/Fenetre_ajout.class: src/fr/iutfbleau/papillon/Fenetre_ajout.java build/PanelAjoutHeader.class /buildPanelAjout.class
+	javac -d build -cp build $<	
 
 build/Fenetre.class: src/fr/iutfbleau/papillon/Fenetre.java build/PanelHeader.class build/PanelRappels.class
 	javac -d build -cp build $<

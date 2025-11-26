@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * La classe <code>PanelHeader</code> est utilisée pour gérer le panneau du haut de la fenetre
@@ -69,7 +69,6 @@ public class PanelHeader extends JPanel{
         panelGauche.setBackground(new Color(255, 235, 153));
 
         this.setBackground(new Color(255, 235, 153));
-        this.setPreferredSize(new Dimension(461, 63));
         this.setLayout(new BorderLayout());
         this.add(panelGauche,BorderLayout.WEST);
         this.add(panelDroite,BorderLayout.EAST);

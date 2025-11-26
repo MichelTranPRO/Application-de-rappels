@@ -1,109 +1,88 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
-/**
- * Cette classe <code>PanelAjout</code> represente le formulaire qui permet de creer un rappel
- * Elle contient le titre, le contenu, les differents themes et des boutons
- * 
- * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
- */
-public class PanelAjout {
+public class PanelAjout extends JPanel{
+    private int largeur;
+    private int hauteur;
+    private JLabel titre;
+    private JLabel theme;
+    private JLabel contexte; 
+    private JTextField champTitre;
+    private JThemeArea zoneThemes;
+    private JTextArea champContenu;
+    private Bouton validerBtn;
+    private Color grisFond;
+    private GridBagConstraints contraintes;
 
-	/**
-	 * Champ de texte qui permet à l'utilisateur d'ecrire le titre du rappel
-	 */
-	private JTextField champTitre;
+    public PanelAjout(){
+        this.contraintes = new GridBagConstraints();
 
-	/**
-	 * Zone de texte sur plusieurs lignes qui permet a l'utilisateur d'ecrire le contenu du rappel
-	 */
-	private JTextArea champContenu;
+        this.titre=new JLabel("Titre (50 caractères maximum) :");
+        titre.setFont(new Font("Dialog", Font.BOLD, 15));
+        this.theme=new JLabel("Thème :");
+        theme.setFont(new Font("Dialog", Font.BOLD, 15));
+        this.contexte=new JLabel("Contenu (200 caractères maximum) :");
+        contexte.setFont(new Font("Dialog", Font.BOLD, 15));
+        
+        this.zoneThemes=new JThemeArea();
+        this.champTitre= new JTextField();
+        this.champContenu= new JTextArea(4,0);
+        champContenu.setLineWrap(true);
+        champContenu.setWrapStyleWord(true);
 
-	/**
-	 * Bouton venant de la classe <code>Bouton</code> qui permet d'enregistrer et valider la creation du rappel
-	 */
-	private Bouton btnValider;
+        this.validerBtn= new Bouton(380,43,"Valider", new Color(0, 200, 83), Color.WHITE);
+        validerBtn.addMouseListener(new Controlleur_validerBtn(validerBtn));
+        this.grisFond= new Color(255, 249, 227);
 
-	/**
-	 * Bouton venant de la classe <code>Bouton</code> qui permet de retourner sur la page principale
-	 */
-	private Bouton btnRetour;
+        this.setLayout(new GridBagLayout());
+        this.setBackground(grisFond);
 
-	/**
-	 * Indice qui indique l'index du theme selectione
-	 */
-	private int indexThemeSelectionne = 0; // Par defaut le premier
+        //Titre
+        contraintes.gridx=0;
+        contraintes.gridy=0;
+        contraintes.weightx=1.0;
+        contraintes.anchor = GridBagConstraints.WEST;
+        contraintes.insets = new Insets(10, 10, 0, 10); 
+        this.add(titre,contraintes);
+        
+        //Theme
+        contraintes.gridx=1;
+        contraintes.insets = new Insets(10, 10, 0, 10); 
+        this.add(theme,contraintes);
+        
+        //Champs titre
+        contraintes.gridx=0;
+        contraintes.gridy=1;
+        contraintes.insets = new Insets(0, 10, 5, 10); 
+        contraintes.fill = GridBagConstraints.BOTH;
 
-	/**
-	 * Tableau constant qui contient les differentes couleurs de theme disponible 
-	 */
-	private final Color[] COULEURS_THEMES = {
-        new Color(139, 92, 246), // Violet
-        new Color(26, 115, 234), // Bleu
-        new Color(0, 168, 107),  // Vert
-        new Color(255, 59, 48),  // Rouge
-        new Color(255, 127, 0)   // Orange
-    };
+        this.add(champTitre,contraintes);
 
-    /**
-     * Constructeur de la classe <code>PanelAjout</code> 
-     * Initialise la disposition en GridBagLayout, les couleurs et ajoute tous les composants
-     */
-    public PanelAjout() {
-    	this.setBackground(Color.WHITE);
-    	this.setLayout(new GridBagLayout());
-    	GridBagConstraints contrainte = new GridBagConstraints();
-    	contrainte.insets = new Insets(5, 10, 5, 10);
-        contrainte.fill = GridBagConstraints.HORIZONTAL;
-        contrainte.gridx = 0;
+        //Champs theme
+        contraintes.gridx=1;
+        contraintes.fill = GridBagConstraints.BOTH;
+        contraintes.insets = new Insets(0, 10, 5, 10); 
+        this.add(zoneThemes,contraintes);
+        
+        //Contexte
+        contraintes.gridx=0;
+        contraintes.gridy=2;
+        contraintes.gridwidth=2;
+        contraintes.insets = new Insets(0, 10, 5, 10); 
+        this.add(contexte,contraintes);
 
-        // Le titre
-        JLabel labelTitre = new JLabel("Titre (Au moins une lettre ou un chiffre)");
-        labelTitre.setFont(new Font("Inter", Font.BOLD, 12));
-        contrainte.gridy = 0;
-        this.add(labelTitre, contrainte);
+        //Champs contexte
+        contraintes.gridy=3;
+        contraintes.fill = GridBagConstraints.BOTH;
+        this.add(champContenu,contraintes);
 
-        this.champTitre = new JTextField();
-        this.champTitre.setPreferredSize(new Dimension(300,30));
-        contrainte.gridy = 1;
-        this.add(this.champTitre, contrainte);
-
-        // Le contenu
-        JLabel labelContenu = new JLabel("Contenu (max 4 lignes)");
-        labelContenu.setFont(new Font("Inter", Font.BOLD, 12));
-        contrainte.gridy = 2;
-        contrainte.insets = new Insets(15, 10, 5, 10);
-        this.add(labelContenu, contrainte);
-
-        this.champContenu = new JTextArea(4, 30);
-        this.champContenu.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
-        JScrollPane scroll = new JScrollPane(this.champContenu);
-        scroll.setPreferredSize(new Dimension(300, 80));
-        contrainte.gridy = 3;
-        contrainte.insets = new Insets(0, 10, 5, 10);
-        this.add(scroll, containte);
-
-        // Le theme
-        JLabel labelTheme = new JLabel("Choisissez un thème");
-        labelTheme.setFont(new Font("Inter", Font.BOLD, 12));
-        contrainte.gridy = 4;
-        contrainte.insets = new Insets(15, 10, 5, 10);
-        this.add(labelTheme, contrainte);
-
-        /* a partir de la jsp comment representer les differents themes...
-				à remplir de code utile 
-		*/
-
-		// Bouton Valider
-		JPanel panelBtnValider = new JPanel();
-		panelBtnValider.setBackground(Color.WHITE);
-		this.btnValider = new Bouton(120, 40, "Valider", new Color(255, 184, 0), Color.WHITE);
-		panelBtnValider.add(this.btnValider);
-
-		contrainte.gridy = ...;
-		contrainte.insets = new Insets(20, 10, 10, 10);
-		this.add(panelBtnValider, contrainte);
+        //Valider
+        contraintes.gridy=4;
+        contraintes.fill = GridBagConstraints.NONE;
+        contraintes.anchor = GridBagConstraints.CENTER;
+        contraintes.insets = new Insets(10, 0, 15, 0); 
+        this.add(validerBtn,contraintes);
+        
     }
 
     /**
@@ -129,16 +108,7 @@ public class PanelAjout {
      * 
      * @return le bouton de validation
      */
-    public Bouton getBtnValider() {
-    	return this.btnValider;
-    }
-
-    /**
-     * getter de type Bouton pour le bouton Retour et obtenir ses parametres
-     * 
-     * @return le bouton de retour
-     */
-    public Bouton getBtnRetour() {
-    	return this.btnRetour;
+    public Bouton getvaliderBtn() {
+    	return this.validerBtn;
     }
 }

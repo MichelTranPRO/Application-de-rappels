@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class PanelRappels extends JPanel{
     private GridBagConstraints contraintes;
@@ -14,7 +14,7 @@ public class PanelRappels extends JPanel{
         contraintes.gridx = 0;
         contraintes.gridy = rang;
         contraintes.weightx = 1.0;
-        contraintes.insets = new Insets(10, 0, 0, 0); 
+        contraintes.insets = new Insets(10, 10, 0, 10); 
         this.add(new Rappel(titre,contexte,theme,rang),contraintes);
     }
 

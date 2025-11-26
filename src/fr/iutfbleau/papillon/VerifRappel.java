@@ -1,8 +1,9 @@
+
 /**
  * La classe <code>VerifRappel</code> est utilisee en tant que Modele.
  * Cette classe verifie les conditions lors de creation d'un rappel pour un titre et pour le contenu.
  */
-public VerifRappel {
+public class VerifRappel {
 
 	/**
 	 * On verifie le titre
@@ -64,7 +65,7 @@ public VerifRappel {
 			}
 
 			if(nombreLignes > 4) {
-				retrun false; // Pas plus de 4 lignes
+				return false; // Pas plus de 4 lignes
 			}
 
 			if(nbCharLignes > 50) {
