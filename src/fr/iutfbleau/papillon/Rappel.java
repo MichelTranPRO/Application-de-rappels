@@ -1,11 +1,11 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 
 
 public class Rappel extends JComponent{
-    private int largeur = 362;
-    private int hauteur = 49;
+    private int largeur;
+    private int hauteur;
     private int hauteurTexte;
     private String titre;
     private String contexte;
@@ -13,13 +13,7 @@ public class Rappel extends JComponent{
     private int rang;
     private Color fond;
     private Color texteCouleur;
-    private Color[][] tabTheme = {
-        {new Color(243, 232, 255),new Color(227, 212, 255),new Color(139, 92, 246)}, // violet : Couleur principale, couleur secondaire, couleur texte 
-        {new Color(238, 244, 255),new Color(207, 225, 255),new Color(26, 115, 234)}, // bleu
-        {new Color(221, 255, 223),new Color(191, 255, 208),new Color(0, 168, 107)}, // vert
-        {new Color(255, 237, 235),new Color(255, 207, 203),new Color(255, 59, 48)}, // rouge
-        {new Color(255, 231, 207),new Color(255, 209, 164),new Color(255, 127, 0)}  // orange
-    };
+    private Color[][] tabTheme;
     private FontMetrics mesureTexte;
     private int texteHauteur;
     private int texteLargeur;
@@ -31,7 +25,18 @@ public class Rappel extends JComponent{
         this.contexte=contexte;
         this.theme=theme;
         this.rang=rang;
+
+        this.largeur=362;
+        this.hauteur=49;
         this.setPreferredSize(new Dimension(largeur, hauteur));
+
+        this.tabTheme = new Color[][]{
+        {new Color(243, 232, 255),new Color(227, 212, 255),new Color(139, 92, 246)}, // violet : Couleur principale, couleur secondaire, couleur texte 
+        {new Color(238, 244, 255),new Color(207, 225, 255),new Color(26, 115, 234)}, // bleu
+        {new Color(221, 255, 223),new Color(191, 255, 208),new Color(0, 168, 107)}, // vert
+        {new Color(255, 237, 235),new Color(255, 207, 203),new Color(255, 59, 48)}, // rouge
+        {new Color(255, 231, 207),new Color(255, 209, 164),new Color(255, 127, 0)}  // orange
+        };
     }
     @Override
     protected void paintComponent(Graphics pinceau) {
