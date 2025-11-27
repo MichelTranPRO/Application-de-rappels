@@ -39,17 +39,17 @@ public class PanelHeader extends JPanel{
     /**
      * Controlleur qui permet de gérer le bouton "Ajouter".
      */
-    private Controlleur_ajouterBtn ctrl_ajouter = new Controlleur_ajouterBtn(ajouterBtn);
+    private ControlleurAjouterBtn ctrl_ajouter = new ControlleurAjouterBtn(ajouterBtn);
 
     /**
      * Controlleur qui permet de gérer le bouton "⇄".
      */
-    private Controlleur_modifBtn ctrl_modif = new Controlleur_modifBtn(modifBtn);
+    private ControlleurModifBtn ctrl_modif = new ControlleurModifBtn(modifBtn);
 
     /**
      * Controlleur qui permet de gérer le bouton "✕".
      */
-    private Controlleur_supprBtn ctrl_suppr = new Controlleur_supprBtn(supprBtn);
+    private ControlleurSupprBtn ctrl_suppr = new ControlleurSupprBtn(supprBtn);
 
     /**
      * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 

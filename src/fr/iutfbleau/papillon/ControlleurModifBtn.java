@@ -2,14 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * La classe <code>Controlleur_ajouterBtn</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
+ * La classe <code>ControlleurModifBtn</code> est utilisée 
+ * pour gérer les interractions entre la souris et l'objet "modifBtn" de la classe <code>Bouton</code>." 
  * 
  * @version 1.0
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class Controlleur_ajouterBtn implements MouseListener{
+public class ControlleurModifBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
@@ -17,11 +17,11 @@ public class Controlleur_ajouterBtn implements MouseListener{
     private Bouton bouton;
 
     /**
-     * Le constructeur de la classe <code>Controlleur_ajouterBtn</code> 
+     * Le constructeur de la classe <code>ControlleurModifBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public Controlleur_ajouterBtn(Bouton bouton){
+	public ControlleurModifBtn(Bouton bouton){
         this.bouton=bouton;
 	}
 
