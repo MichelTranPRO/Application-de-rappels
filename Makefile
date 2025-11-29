@@ -9,8 +9,13 @@ JCFLAGS = -d build -sourcepath src -cp build
 .PHONY: all run clean jar javadoc
 
 # Cible principale 
-all: build/Main.class 
+all: build build/Main.class 
 	@echo "Compilation terminée."
+
+# Création du dossier build si il existe pas déjà
+
+build : 
+	mkdir -p build
 
 # Compilation manuelle des fichiers
 
