@@ -1,6 +1,7 @@
 package fr.iutfbleau.papillon;
 
 import java.sql.*;
+import org.mariadb.jdbc.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Requete{
         int rang = 1;
         List<Rappel> results = new ArrayList<>();
         while (rs.next()) {
-          Rappel rap = new Rappel(rs.getString("titre"), rs.getString("contenu"), rs.getInt("theme"), rang, rs.getInt("id"));
+          Rappel rap = new Rappel(rs.getString("titre"), rs.getString("contenu"), rs.getString("theme"), rang, rs.getInt("id"));
           results.add(rap);
           rang++; // Suivi du rang pour l'emplacement des rappels dans le layout
         }

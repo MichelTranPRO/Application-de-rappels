@@ -1,5 +1,3 @@
-package fr.iutfbleau.papillon;
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -78,24 +76,6 @@ public class Rappel extends JComponent{
         yTexte = (hauteur  + texteHauteur) / 2;
         secondPinceau.drawString(titre, xTexte, yTexte);
 
-    }
-    
-    // Getters pour pouvoir afficher le contenu du rappel
-
-    public int getId(){
-      return id;
-    }
-    
-    public String getTitle(){
-      return titre;
-    }
-
-    public String getContent(){
-      return contexte;
-    }
-
-    public int getTheme(){
-      return theme;
     }
 }
 

@@ -19,7 +19,7 @@ build :
 
 # Compilation manuelle des fichiers
 
-build/Requete.class: ${SRC}/Requete.java
+build/Requete.class: ${SRC}/Requete.java build/Rappel.class
 	${JC} ${JCFLAGS} -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
 
 
@@ -76,7 +76,7 @@ build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton
 build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
 	${JC} ${JCFLAGS} $<
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelHeader.class build/PanelRappels.class
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelHeader.class build/PanelRappels.class build/Requete.class
 	${JC} ${JCFLAGS} $<
 
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
@@ -102,6 +102,6 @@ jar: all
 
 # Nettoyage des fichiers compilés
 clean:
-	rm -rf build/*
+	rm -r build
 	@echo "Dossier build nettoyé."
 
