@@ -1,0 +1,49 @@
+###############
+# Java
+###############
+*.class
+*.jar
+*.war
+*.ear
+*.jmx
+*.log
+
+###############
+# IntelliJ IDEA
+###############
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# IntelliJ plugin-specific
+.idea_modules/
+atlassian-ide-plugin.xml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/libraries
+.idea/**/shelf/
+
+###############
+# VS Code
+###############
+.vscode/
+.code-workspace
+
+###############
+# Neovim
+###############
+# Swap, backup, and undo files
+*.swp
+*.swo
+*.swm
+*.tmp
+*~
+
+# LSP / language server artifacts
+.lsp/
+.cache/
+nvim-data/
+
