@@ -3,6 +3,8 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+import fr.iutfbleau.papillon.FenetreAjout;
+
 public class PanelAjout extends JPanel{
     private int largeur;
     private int hauteur;
@@ -15,8 +17,10 @@ public class PanelAjout extends JPanel{
     private Bouton validerBtn;
     private Color grisFond;
     private GridBagConstraints contraintes;
+    private FenetreAjout fenetreAjout;
 
-    public PanelAjout(){
+    public PanelAjout(FenetreAjout fenetreAjout){
+        this.fenetreAjout=fenetreAjout;
         this.contraintes = new GridBagConstraints();
 
         this.titre=new JLabel("Titre (50 caractères maximum) :");
@@ -33,7 +37,7 @@ public class PanelAjout extends JPanel{
         champContenu.setWrapStyleWord(true);
 
         this.validerBtn= new Bouton(380,43,"Valider", new Color(0, 200, 83), Color.WHITE);
-        validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn));
+        validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn,this));
         this.grisFond= new Color(255, 249, 227);
 
         this.setLayout(new GridBagLayout());
@@ -85,6 +89,10 @@ public class PanelAjout extends JPanel{
         contraintes.insets = new Insets(10, 0, 15, 0); 
         this.add(validerBtn,contraintes);
         
+    }
+
+    public void setFenetreRappelVisible(){
+        fenetreAjout.setFenetreRappelVisible();
     }
 
     /**

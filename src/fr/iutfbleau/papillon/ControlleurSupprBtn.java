@@ -27,11 +27,24 @@ public class ControlleurSupprBtn implements MouseListener{
         this.bouton=bouton;
 	}
 
+    
 	public void mouseClicked(MouseEvent e) {
 	}
+
+    /**
+     * Interraction lorsque la souris sort du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseExited(MouseEvent e) {
         bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
     }
+    
+    /**
+     * Interraction lorsque la souris sort du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseEntered(MouseEvent e) {
         bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
     }

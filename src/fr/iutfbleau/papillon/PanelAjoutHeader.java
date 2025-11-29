@@ -47,7 +47,7 @@ public class PanelAjoutHeader extends JPanel{
     	return this.retourBtn;
     }
 
-    public void setFenetreAjoutVisible(){
-        fenetreAjout.setFenetreAjoutVisible();
+    public void setFenetreRappelVisible(){
+        fenetreAjout.setFenetreRappelVisible();
     }
 }

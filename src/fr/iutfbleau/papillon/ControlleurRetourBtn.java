@@ -1,9 +1,9 @@
 package fr.iutfbleau.papillon;
-
+import fr.iutfbleau.papillon.PanelAjoutHeader;
 import java.awt.*;
 import java.awt.event.*;
 
-import fr.iutfbleau.papillon.PanelAjoutHeader;
+
 
 /**
  * La classe <code>ControlleurRetourBtn</code> est utilisée 
@@ -20,6 +20,9 @@ public class ControlleurRetourBtn implements MouseListener{
      */
     private Bouton bouton;
 
+    /**
+     * Lien avec la classe <code>panelAjoutHeader</code>.S
+     */
     private PanelAjoutHeader panelAjoutHeader;
 
     /**
@@ -32,12 +35,27 @@ public class ControlleurRetourBtn implements MouseListener{
         this.panelAjoutHeader=panelAjoutHeader;
 	}
 
+    /**
+     * Appelle une fonction pour afficher la fenetre rappel.
+     */
 	public void mouseClicked(MouseEvent e) {
-        panelAjoutHeader.setFenetreAjoutVisible();
+        panelAjoutHeader.setFenetreRappelVisible();
 	}
+
+    /**
+     * Interraction lorsque la souris sort du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseExited(MouseEvent e) {
         bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
     }
+
+    /**
+     * Interraction lorsque la souris sort du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseEntered(MouseEvent e) {
         bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
     }

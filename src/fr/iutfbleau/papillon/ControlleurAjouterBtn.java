@@ -20,6 +20,9 @@ public class ControlleurAjouterBtn implements MouseListener{
      */
     private Bouton bouton;
 
+    /**
+     * Lien avec la classe <code>PanelRappelsHeader</code>.S
+     */
     private PanelRappelsHeader panelRappelsHeader;
 
     /**
@@ -31,13 +34,27 @@ public class ControlleurAjouterBtn implements MouseListener{
         this.bouton=bouton;
         this.panelRappelsHeader = panelRappelsHeader;
 	}
-
+    /**
+     * Appelle une fonction pour afficher la fenetre ajouter.
+     */
 	public void mouseClicked(MouseEvent e) {
         panelRappelsHeader.setFenetreAjoutVisible();
 	}
+
+    /**
+     * Interraction lorsque la souris sort du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseExited(MouseEvent e) {
         bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
     }
+
+    /**
+     * Interraction lorsque la souris entre du bouton.
+     * Appelle la fonction qui change les couleurs du bouton.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseEntered(MouseEvent e) {
         bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
     }

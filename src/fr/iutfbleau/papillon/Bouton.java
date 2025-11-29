@@ -3,6 +3,14 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>Bouton</code> est utilisée 
+ * pour créer un bouton personnalisable. 
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
+
 public class Bouton extends JComponent {
 
     /**
@@ -65,6 +73,14 @@ public class Bouton extends JComponent {
      */
     private FontMetrics mesureTexte;
 
+    /** COnstructeur de la classe <code>Bouton<code>.
+     * Defini les paramtètres pour créer un objet de la classe.
+     * @param l Longeur du bouton.
+     * @param h Hauteur du bouton.
+     * @param t Texte à afficher.
+     * @param f Couleur en en fond du bouton.
+     * @param txtCouleur Couleur du texte.
+    */
     public Bouton(int l, int h, String t, Color f, Color txtCouleur) {
         this.largeur = l;
         this.hauteur = h;
@@ -79,6 +95,12 @@ public class Bouton extends JComponent {
         this.setPreferredSize(new Dimension(largeur, hauteur));
     }
 
+    /**
+     * Change l'état "hover" du bouton et change les couleurs du bouton en fonction de l'état.
+     * @param statut Etat du bouton.
+     * @param couleurHover Couleur du "hover" à changer.
+     * @param texteHover Couleur du texte à changer.
+     */
     public void setHover(boolean statut, Color couleurHover, Color texteHover) {
         if (statut) {
             this.couleurActuelle = couleurHover;
@@ -90,6 +112,9 @@ public class Bouton extends JComponent {
         repaint();
     }
 
+    /**
+     * Dessine le composant.
+     */
     @Override
     protected void paintComponent(Graphics pinceau) {
         Graphics secondPinceau = pinceau.create();

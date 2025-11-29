@@ -6,17 +6,34 @@ import javax.swing.*;
 import fr.iutfbleau.papillon.FenetreMain;
 
 public class FenetreAjout extends JPanel{
-    private int largeur;
-    private int hauteur;
+    /**
+     * Panel header de la fenetre, qui contient le boutou "Retour".
+     */
     private PanelAjoutHeader header;
+
+    /** 
+     * Panel qui contient le formulaire pour ajouter un rappel. 
+     */
     private PanelAjout ajout;
+
+    /**
+     * Panel qui permet de rajouter une marge à l'objet de la classe <code>PanelAjout</code>.
+     */
     private JPanel marges;
+
+    /**
+     * Variable pour contenir l'objet de la classe <code>FenetreMain</code> avec qui intéragir
+     */
     private FenetreMain fenetreMain;
+
+    /**
+     * Contructeur qui crée les objets nécéssaire, les agencent et les affichent.
+     */
 
     public FenetreAjout(FenetreMain fenetreMain){
         this.fenetreMain=fenetreMain;
         header = new PanelAjoutHeader(this);
-        ajout = new PanelAjout();
+        ajout = new PanelAjout(this);
         marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         this.setLayout(new BorderLayout());
@@ -26,7 +43,7 @@ public class FenetreAjout extends JPanel{
         this.add(marges, BorderLayout.CENTER);
     }
 
-    public void setFenetreAjoutVisible(){
+    public void setFenetreRappelVisible(){
         fenetreMain.setFenetre(1);
     }
 }

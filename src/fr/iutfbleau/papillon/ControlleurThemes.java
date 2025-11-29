@@ -1,30 +1,36 @@
 package fr.iutfbleau.papillon;
-
 import java.awt.event.*;
 
-// JAVADOC A FAIRE
 
 /**
  * La classe <code>ControlleurThemes</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
+ * pour gérer les interractions entre la souris et un objet de la classe <code>Theme</code>." 
  * 
  * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
 public class ControlleurThemes implements MouseListener{
-	
+
     /**
-     * Bouton ajouter de la classe <code>Panelheader</code>
+     * Variable pour contenir l'objet de la classe <code>Theme</code> avec qui intéragir
      */
     private Theme theme;
+
+    /**
+     * Variable contenant l'identifiant du thème
+     */
     private int numTheme;
+
+    /**
+     * Variable pour contenir l'objet de la classe <code>JThemeArea</code> avec qui intéragir
+     */
     private JThemeArea panelThemes;
 
     /**
-     * Le constructeur de la classe <code>ControlleurThemes</code> 
-     * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
-     * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
+     * Constructeur permettant relier des objets exterieurs avec la classe <code>ControlleurThemes</code>
+     * @param t Objet de la classe <code>Theme</code>
+     * @param panel Objet de la classe <code>JThemeArea</code>
      */
 	public ControlleurThemes(Theme t, JThemeArea panel){
         this.theme=t;
@@ -32,21 +38,45 @@ public class ControlleurThemes implements MouseListener{
         this.panelThemes=panel;
 	}
 
+    /**
+     * Interraction lorsque la souris clique sur l'objet Theme.
+     * Appelle la fonction qui défini si un thème est cliquer.
+     * @param evenement géré en dehors du code.
+     */
+    @Override
 	public void mouseClicked(MouseEvent e) {
         panelThemes.setClick(1, numTheme);
 	}
-	public void mouseExited(MouseEvent e) { // pas hover
+
+    /**
+     * Interraction lorsque la souris sort du l'objet Theme.
+     * Appelle la fonction qui change les couleurs du theme.
+     * @param evenement géré en dehors du code.
+     */
+    @Override
+	public void mouseExited(MouseEvent e) {
         if (!panelThemes.getStatut(numTheme)) {
             panelThemes.setHover(false, numTheme);
         }
     }
-	public void mouseEntered(MouseEvent e) { // hover
+
+    /**
+     * Interraction lorsque la souris sort de l'objet Theme.
+     * Appelle la fonction qui change les couleurs du theme.
+     * @param evenement géré en dehors du code.
+     */
+    @Override
+	public void mouseEntered(MouseEvent e) {
         if (!panelThemes.getStatut(numTheme)) {
             panelThemes.setHover(true, numTheme);
         }
     }
+
+    @Override
 	public void mousePressed(MouseEvent e) {
 	}
+
+    @Override
 	public void mouseReleased(MouseEvent e) {
 	}
 }
