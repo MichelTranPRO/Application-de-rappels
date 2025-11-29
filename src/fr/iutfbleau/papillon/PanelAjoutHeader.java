@@ -3,6 +3,8 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+import fr.iutfbleau.papillon.FenetreAjout;
+
 /**
  * La classe <code>PanelHeader</code> est utilisée pour gérer le panneau du haut de la fenetre
  * contenant les boutons pour ajouter un rappel, échanger un rappel et supprimer un rappel
@@ -18,14 +20,18 @@ public class PanelAjoutHeader extends JPanel{
      */
     private Bouton retourBtn;
 
+    private FenetreAjout fenetreAjout;
+
     /**
      * Le constructeur de la classe <code>PanelAjoutHeader</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelAjoutHeader(){
+    public PanelAjoutHeader(FenetreAjout fenetreAjout){
+
+        this.fenetreAjout=fenetreAjout;
 
         retourBtn = new Bouton(400, 43, "Retour", Color.WHITE, new Color(255, 184, 0));
 
-        retourBtn.addMouseListener(new ControlleurRetourBtn(retourBtn));
+        retourBtn.addMouseListener(new ControlleurRetourBtn(retourBtn,this));
 
         this.add(retourBtn);
         this.setBackground(new Color(255, 235, 153));
@@ -39,5 +45,9 @@ public class PanelAjoutHeader extends JPanel{
      */
     public Bouton getBtnRetour() {
     	return this.retourBtn;
+    }
+
+    public void setFenetreAjoutVisible(){
+        fenetreAjout.setFenetreAjoutVisible();
     }
 }

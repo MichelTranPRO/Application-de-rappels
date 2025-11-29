@@ -11,9 +11,11 @@ public class FenetreAjout extends JPanel{
     private PanelAjoutHeader header;
     private PanelAjout ajout;
     private JPanel marges;
+    private FenetreMain fenetreMain;
 
     public FenetreAjout(FenetreMain fenetreMain){
-        header = new PanelAjoutHeader();
+        this.fenetreMain=fenetreMain;
+        header = new PanelAjoutHeader(this);
         ajout = new PanelAjout();
         marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
@@ -22,5 +24,9 @@ public class FenetreAjout extends JPanel{
         marges.setBackground(Color.WHITE);
         marges.add(ajout);
         this.add(marges, BorderLayout.CENTER);
+    }
+
+    public void setFenetreAjoutVisible(){
+        fenetreMain.setFenetre(1);
     }
 }

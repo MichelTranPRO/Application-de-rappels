@@ -3,6 +3,8 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import java.awt.event.*;
 
+import fr.iutfbleau.papillon.PanelAjoutHeader;
+
 /**
  * La classe <code>ControlleurRetourBtn</code> est utilisée 
  * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
@@ -18,16 +20,20 @@ public class ControlleurRetourBtn implements MouseListener{
      */
     private Bouton bouton;
 
+    private PanelAjoutHeader panelAjoutHeader;
+
     /**
      * Le constructeur de la classe <code>ControlleurRetourBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurRetourBtn(Bouton bouton){
+	public ControlleurRetourBtn(Bouton bouton, PanelAjoutHeader panelAjoutHeader){
         this.bouton=bouton;
+        this.panelAjoutHeader=panelAjoutHeader;
 	}
 
 	public void mouseClicked(MouseEvent e) {
+        panelAjoutHeader.setFenetreAjoutVisible();
 	}
 	public void mouseExited(MouseEvent e) {
         bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
