@@ -6,13 +6,15 @@ import java.util.List;
 import java.util.Iterator;
 
 public class FenetreRappel extends JPanel{
-  private PanelHeader header;
+  private FenetreMain fenetreMain;
+  private PanelRappelsHeader header;
   private PanelRappels rappels;
   private JScrollPane scrollPanel;
   private List<Rappel> list;
 
-  public FenetreRappel(){
-    header = new PanelHeader();
+  public FenetreRappel(FenetreMain fenetreMain){
+    this.fenetreMain = fenetreMain;
+    header = new PanelRappelsHeader(this);
     rappels = new PanelRappels();
     scrollPanel = new JScrollPane(rappels);
     list = Requete.getAllRappels();
@@ -31,5 +33,9 @@ public class FenetreRappel extends JPanel{
     this.add(header, BorderLayout.NORTH);
     this.add(scrollPanel, BorderLayout.CENTER);
     this.setVisible(true);
+  }
+
+  public void setFenetreAjoutVisible(){
+    fenetreMain.setFenetre(2);
   }
 }

@@ -3,6 +3,8 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+import fr.iutfbleau.papillon.FenetreMain;
+
 public class FenetreAjout extends JPanel{
     private int largeur;
     private int hauteur;
@@ -10,7 +12,7 @@ public class FenetreAjout extends JPanel{
     private PanelAjout ajout;
     private JPanel marges;
 
-    public FenetreAjout(){
+    public FenetreAjout(FenetreMain fenetreMain){
         header = new PanelAjoutHeader();
         ajout = new PanelAjout();
         marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));

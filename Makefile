@@ -20,12 +20,10 @@ build :
 # Compilation manuelle des fichiers
 
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
-	${JC} ${JCFLAGS} -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
+	${JC} ${JCFLAGS} -cp build:libs/mariadb-java-client-3.5.4.jar $<
 
-
-
-build/PanelHeader.class: ${SRC}/PanelHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
-	${JC} ${JCFLAGS} $<
+build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+	${JC} ${JCFLAGS} ${SRC}/PanelRappelsHeader.java
 
 build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class
 	${JC} ${JCFLAGS} $<
@@ -73,14 +71,14 @@ build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton
 
 # ===== Fenetres ====== #
 
-build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
-	${JC} ${JCFLAGS} $<
+build/FenetreAjout.class: ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java build/PanelAjoutHeader.class build/PanelAjout.class
+	${JC} ${JCFLAGS} ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelHeader.class build/PanelRappels.class build/Requete.class
-	${JC} ${JCFLAGS} $<
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java build/PanelRappelsHeader.class build/PanelRappels.class build/Requete.class
+	${JC} ${JCFLAGS} ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java
 
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
-	${JC} ${JCFLAGS} $<
+	${JC} ${JCFLAGS} ${SRC}/FenetreMain.java
 
 # ===================== #
 
@@ -88,8 +86,8 @@ build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
-run: 
-	${JVM} -cp build:res/lib/mariadb-java-client-3.5.4.jar fr.iutfbleau.papillon.Main
+run:
+	${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
 
 #Création de la javadoc
 javadoc: 
