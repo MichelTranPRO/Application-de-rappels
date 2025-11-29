@@ -1,3 +1,5 @@
+package fr.iutfbleau.papillon;
+
 import java.awt.event.*;
 
 // JAVADOC A FAIRE

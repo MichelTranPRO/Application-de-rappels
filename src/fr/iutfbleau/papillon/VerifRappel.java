@@ -1,3 +1,4 @@
+package fr.iutfbleau.papillon;
 
 /**
  * La classe <code>VerifRappel</code> est utilisee en tant que Modele.

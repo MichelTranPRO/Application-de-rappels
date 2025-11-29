@@ -89,7 +89,7 @@ build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 
 # Exécution du programme
 run: 
-	${JVM} -cp build:res/lib/mariadb-java-client-3.5.4.jar Main
+	${JVM} -cp build:res/lib/mariadb-java-client-3.5.4.jar fr.iutfbleau.papillon.Main
 
 #Création de la javadoc
 javadoc: 
