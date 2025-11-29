@@ -1,3 +1,10 @@
+# Variables utiliées 
+JC = javac
+JVM = java
+SRC = src/fr/iutfbleau/papillon
+JCFLAGS = -d build -sourcepath src -cp build
+
+
 # Cibles
 .PHONY: all run clean jar javadoc
 
@@ -6,77 +13,78 @@ all: build/Main.class
 	@echo "Compilation terminée."
 
 # Compilation manuelle des fichiers
-build/Requete.class: src/fr/iutfbleau/papillon/Requete.java
-	javac -d build -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
+
+build/Requete.class: ${SRC}/Requete.java
+	${JC} ${JCFLAGS} -cp build:res/lib/mariadb-java-client-3.5.4.jar $<
 
 
 
-build/PanelHeader.class: src/fr/iutfbleau/papillon/PanelHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
-	javac -d build -cp build $<
+build/PanelHeader.class: ${SRC}/PanelHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+	${JC} ${JCFLAGS} $<
 
-build/PanelRappels.class: src/fr/iutfbleau/papillon/PanelRappels.java build/Rappel.class
-	javac -d build -cp build $<
+build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class
+	${JC} ${JCFLAGS} $<
 
-build/PanelAjoutHeader.class: src/fr/iutfbleau/papillon/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
-	javac -d build -cp build $<
+build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
+	${JC} ${JCFLAGS} $<
 
-build/PanelAjout.class: src/fr/iutfbleau/papillon/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControlleurValiderBtn.class
-	javac -d build -cp build $<
-	
-build/Rappel.class: src/fr/iutfbleau/papillon/Rappel.java
-	javac -d build -cp build $<
+build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControlleurValiderBtn.class
+	${JC} ${JCFLAGS} $<
 
-build/Theme.class: src/fr/iutfbleau/papillon/Theme.java
-	javac -d build -cp build $<
+build/Rappel.class: ${SRC}/Rappel.java
+	${JC} ${JCFLAGS} $<
 
-build/Bouton.class : src/fr/iutfbleau/papillon/Bouton.java
-	javac -d build -cp build $<
+build/Theme.class: ${SRC}/Theme.java
+	${JC} ${JCFLAGS} $<
 
-build/JThemeArea.class: src/fr/iutfbleau/papillon/JThemeArea.java src/fr/iutfbleau/papillon/ControlleurThemes.java build/Theme.class
-	javac -d build -cp build src/fr/iutfbleau/papillon/JThemeArea.java src/fr/iutfbleau/papillon/ControlleurThemes.java
+build/Bouton.class : ${SRC}/Bouton.java
+	${JC} ${JCFLAGS} $<
+
+build/JThemeArea.class: ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java build/Theme.class
+	${JC} ${JCFLAGS} ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java
 
 
 # === Controlleurs === #
 
-build/ControlleurAjouterBtn.class : src/fr/iutfbleau/papillon/ControlleurAjouterBtn.java build/Bouton.class
-	javac -d build -cp build $<
+build/ControlleurAjouterBtn.class : ${SRC}/ControlleurAjouterBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
 
-build/ControlleurModifBtn.class : src/fr/iutfbleau/papillon/ControlleurModifBtn.java build/Bouton.class
-	javac -d build -cp build $<
+build/ControlleurModifBtn.class : ${SRC}/ControlleurModifBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
 
-build/ControlleurThemes.class: src/fr/iutfbleau/papillon/ControlleurThemes.java src/fr/iutfbleau/papillon/JThemeArea.java build/Theme.class
-	javac -d build -cp build src/fr/iutfbleau/papillon/JThemeArea.java src/fr/iutfbleau/papillon/ControlleurThemes.java
+build/ControlleurThemes.class: ${SRC}/ControlleurThemes.java ${SRC}/JThemeArea.java build/Theme.class
+	${JC} ${JCFLAGS} ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java
 
-build/ControlleurSupprBtn.class : src/fr/iutfbleau/papillon/ControlleurSupprBtn.java build/Bouton.class
-	javac -d build -cp build $<
+build/ControlleurSupprBtn.class : ${SRC}/ControlleurSupprBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
 
-build/ControlleurValiderBtn.class : src/fr/iutfbleau/papillon/ControlleurValiderBtn.java build/Bouton.class
-	javac -d build -cp build $<
-	
-build/ControlleurRetourBtn.class : src/fr/iutfbleau/papillon/ControlleurRetourBtn.java build/Bouton.class
-	javac -d build -cp build $<
+build/ControlleurValiderBtn.class : ${SRC}/ControlleurValiderBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
+
+build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
 
 # ==================== #
 
 # ===== Fenetres ====== #
 
-build/FenetreAjout.class: src/fr/iutfbleau/papillon/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
-	javac -d build -cp build $<	
+build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
+	${JC} ${JCFLAGS} $<
 
-build/FenetreRappel.class: src/fr/iutfbleau/papillon/FenetreRappel.java build/PanelHeader.class build/PanelRappels.class
-	javac -d build -cp build $<
-	
-build/FenetreMain.class: src/fr/iutfbleau/papillon/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
-	javac -d build -cp build $<
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelHeader.class build/PanelRappels.class
+	${JC} ${JCFLAGS} $<
+
+build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
+	${JC} ${JCFLAGS} $<
 
 # ===================== #
 
-build/Main.class: src/fr/iutfbleau/papillon/Main.java build/FenetreMain.class 
-	javac -d build -cp build $<
+build/Main.class: ${SRC}/Main.java build/FenetreMain.class 
+	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
 run: 
-	java -cp build:res/lib/mariadb-java-client-3.5.4.jar Main
+	${JVM} -cp build:res/lib/mariadb-java-client-3.5.4.jar Main
 
 #Création de la javadoc
 javadoc: 
