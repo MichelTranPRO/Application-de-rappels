@@ -30,7 +30,7 @@ public class Rappel extends JComponent{
         this.rang=rang;
         this.id = id;
 
-        this.largeur=362;
+        this.largeur=375;
         this.hauteur=49;
         this.setPreferredSize(new Dimension(largeur, hauteur));
 

@@ -3,9 +3,22 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-public class PanelRappels extends JPanel{
-    private GridBagConstraints contraintes;
+/**
+ * La classe <code>PanelRappels</code> est utilisée l'affichage et la gestion des rappels.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 
+public class PanelRappels extends JPanel{
+    /**
+     * Contraintes pour GridBadLayout.
+     */
+    private GridBagConstraints contraintes;
+    
+    /**
+     * Le constructeur de la classe <code>PanelRappels</code> initialise tous les composants nécessaire à son affichage 
+     */
     public PanelRappels(){
         this.setLayout(new GridBagLayout());
         this.setBackground(Color.WHITE);

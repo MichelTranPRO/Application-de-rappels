@@ -15,7 +15,7 @@ public class PanelAjout extends JPanel{
     private JThemeArea zoneThemes;
     private JTextArea champContenu;
     private Bouton validerBtn;
-    private Color grisFond;
+    private Color fondPanel;
     private GridBagConstraints contraintes;
     private FenetreAjout fenetreAjout;
 
@@ -24,11 +24,11 @@ public class PanelAjout extends JPanel{
         this.contraintes = new GridBagConstraints();
 
         this.titre=new JLabel("Titre (50 caractères maximum) :");
-        titre.setFont(new Font("Dialog", Font.BOLD, 15));
+        titre.setFont(new Font("Dialog", Font.BOLD, 12));
         this.theme=new JLabel("Thème :");
-        theme.setFont(new Font("Dialog", Font.BOLD, 15));
-        this.contexte=new JLabel("Contenu (200 caractères maximum) :");
-        contexte.setFont(new Font("Dialog", Font.BOLD, 15));
+        theme.setFont(new Font("Dialog", Font.BOLD, 12));
+        this.contexte=new JLabel("Contenu (Optionnel, 200 caractères maximum) :");
+        contexte.setFont(new Font("Dialog", Font.BOLD, 12));
         
         this.zoneThemes=new JThemeArea();
         this.champTitre= new JTextField();
@@ -36,12 +36,12 @@ public class PanelAjout extends JPanel{
         champContenu.setLineWrap(true);
         champContenu.setWrapStyleWord(true);
 
-        this.validerBtn= new Bouton(380,43,"Valider", new Color(0, 200, 83), Color.WHITE);
+        this.validerBtn= new Bouton(340,43,"Valider", new Color(0, 200, 83), Color.WHITE);
         validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn,this));
-        this.grisFond= new Color(255, 249, 227);
+        this.fondPanel= new Color(255, 249, 227);
 
         this.setLayout(new GridBagLayout());
-        this.setBackground(grisFond);
+        this.setBackground(fondPanel);
 
         //Titre
         contraintes.gridx=0;
@@ -53,7 +53,7 @@ public class PanelAjout extends JPanel{
         
         //Theme
         contraintes.gridx=1;
-        contraintes.insets = new Insets(10, 10, 0, 10); 
+        contraintes.insets = new Insets(10, 5, 0, 10); 
         this.add(theme,contraintes);
         
         //Champs titre
@@ -67,7 +67,7 @@ public class PanelAjout extends JPanel{
         //Champs theme
         contraintes.gridx=1;
         contraintes.fill = GridBagConstraints.BOTH;
-        contraintes.insets = new Insets(0, 10, 5, 10); 
+        contraintes.insets = new Insets(0, 5, 5, 10); 
         this.add(zoneThemes,contraintes);
         
         //Contexte
@@ -86,7 +86,7 @@ public class PanelAjout extends JPanel{
         contraintes.gridy=4;
         contraintes.fill = GridBagConstraints.NONE;
         contraintes.anchor = GridBagConstraints.CENTER;
-        contraintes.insets = new Insets(10, 0, 15, 0); 
+        contraintes.insets = new Insets(5, 0, 10, 0); 
         this.add(validerBtn,contraintes);
         
     }
