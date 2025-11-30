@@ -18,16 +18,30 @@ public class ControlleurModifBtn implements MouseListener{
      */
     private Bouton bouton;
 
+    private PanelRappels panelRappels;
+    private int cpt;
+
     /**
      * Le constructeur de la classe <code>ControlleurModifBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurModifBtn(Bouton bouton){
+	public ControlleurModifBtn(Bouton bouton, PanelRappels panelRappels){
         this.bouton=bouton;
+        this.panelRappels=panelRappels;
 	}
 
 	public void mouseClicked(MouseEvent e) {
+        cpt++;
+        bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+        if (cpt!=1){
+            cpt=0;
+            bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
+            panelRappels.changeColorAllRappels(false);
+        }else{
+            bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+            panelRappels.changeColorAllRappels(true);
+        }
 	}
 
     /**

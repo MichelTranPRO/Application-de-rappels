@@ -22,6 +22,8 @@ public class Rappel extends JComponent{
     private int texteLargeur;
     private int xTexte;
     private int yTexte;
+    private Color couleurActuelle;
+    private Color texteCouleurActuelle;
 
     public Rappel(String titre, String contexte, int theme, int rang, int id){
         this.titre=titre;
@@ -41,7 +43,13 @@ public class Rappel extends JComponent{
         {new Color(255, 237, 235),new Color(255, 207, 203),new Color(255, 59, 48)}, // rouge
         {new Color(255, 231, 207),new Color(255, 209, 164),new Color(255, 127, 0)}  // orange
         };
+
+        this.couleurActuelle =tabTheme[theme][0];
+        this.texteCouleurActuelle= tabTheme[theme][2];
     }
+    /**
+     * Dessine le rappel.
+     */
     @Override
     protected void paintComponent(Graphics pinceau) {
         Graphics secondPinceau = pinceau.create();
@@ -53,26 +61,14 @@ public class Rappel extends JComponent{
         }
 
         //Fond
-        secondPinceau.setColor(tabTheme[theme][0]);
+        secondPinceau.setColor(couleurActuelle);
         secondPinceau.fillRoundRect(0, 0, largeur, hauteur, 10, 10);
-        
-        //Carré texte
-        secondPinceau.setColor(tabTheme[theme][1]);
-        secondPinceau.fillRoundRect(largeur-(10+24),(hauteur/2)-(24/2),24 ,24 ,10 ,10);
 
-        //Texte dans le carré
-        secondPinceau.setColor(tabTheme[theme][2]);
-        secondPinceau.setFont(new Font("Serif", Font.BOLD, 16));
         mesureTexte = secondPinceau.getFontMetrics();
-        texteLargeur = mesureTexte.stringWidth("⤢");
-        texteHauteur = mesureTexte.getAscent();
-        xTexte= largeur-(10+26)+(26 - texteLargeur) / 2+1;
-        yTexte = (hauteur/2)-(26/2)+(26 + texteHauteur) / 2-1;
-        secondPinceau.drawString("⤢", xTexte, yTexte);
 
         //Titre
-        secondPinceau.setColor(tabTheme[theme][2]);
-        secondPinceau.setFont(new Font("Dialog", Font.BOLD, 12));
+        secondPinceau.setColor(texteCouleurActuelle);
+        secondPinceau.setFont(new Font("Dialog", Font.BOLD, 14));
         texteHauteur = mesureTexte.getAscent();
         xTexte= 10;
         yTexte = (hauteur  + texteHauteur) / 2;
@@ -96,6 +92,17 @@ public class Rappel extends JComponent{
 
     public int getTheme(){
       return theme;
+    }
+
+    public void setColorModify(boolean statut){
+        if (statut) {
+            this.couleurActuelle = tabTheme[theme][1];
+            this.texteCouleurActuelle = tabTheme[theme][2];
+        } else {
+            this.couleurActuelle = tabTheme[theme][0];
+            this.texteCouleurActuelle = tabTheme[theme][2];
+        }
+        repaint();
     }
 }
 

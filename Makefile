@@ -22,10 +22,10 @@ build :
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
 	${JC} ${JCFLAGS} -cp build:libs/mariadb-java-client-3.5.4.jar $<
 
-build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControleurQuitterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/ControlleurAjouterBtn.class build/ControleurQuitterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
 	${JC} ${JCFLAGS} ${SRC}/PanelRappelsHeader.java
 
-build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class
+build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class build/Requete.class
 	${JC} ${JCFLAGS} $<
 
 build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
@@ -77,7 +77,7 @@ build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton
 build/FenetreAjout.class: ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java build/PanelAjoutHeader.class build/PanelAjout.class
 	${JC} ${JCFLAGS} ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java build/PanelRappelsHeader.class build/PanelRappels.class build/Requete.class
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java build/PanelRappelsHeader.class build/PanelRappels.class 
 	${JC} ${JCFLAGS} ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java
 
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class

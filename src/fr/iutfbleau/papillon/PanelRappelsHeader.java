@@ -61,11 +61,12 @@ public class PanelRappelsHeader extends JPanel{
     private ControlleurSupprBtn ctrl_suppr;
 
     private FenetreRappel fenetreRappel;
+    private PanelRappels panelRappels;
 
     /**
      * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelRappelsHeader(FenetreRappel fenetreRappel){
+    public PanelRappelsHeader(FenetreRappel fenetreRappel, PanelRappels panelRappels){
 
         this.fenetreRappel=fenetreRappel;
 
@@ -81,7 +82,7 @@ public class PanelRappelsHeader extends JPanel{
 
         // Controlleurs
         ctrl_ajouter = new ControlleurAjouterBtn(ajouterBtn,this);
-        ctrl_modif = new ControlleurModifBtn(modifBtn);
+        ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels);
         ctrl_suppr = new ControlleurSupprBtn(supprBtn);
         ctrl_quitter = new ControleurQuitterBtn(quitterBtn,this);
         
