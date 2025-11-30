@@ -27,6 +27,10 @@ public class FenetreMain extends JFrame{
         this.setVisible(true);
     }
 
+    public void quit(){
+        this.dispose();
+    }
+
     public void setFenetre(int indexFenetre){
         if(indexFenetre == 1){
             cardLayout.show(contenu, "FENETRE_RAPPELS");

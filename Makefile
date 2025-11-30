@@ -22,7 +22,7 @@ build :
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
 	${JC} ${JCFLAGS} -cp build:libs/mariadb-java-client-3.5.4.jar $<
 
-build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/Bouton.class build/ControlleurAjouterBtn.class build/ControleurQuitterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
 	${JC} ${JCFLAGS} ${SRC}/PanelRappelsHeader.java
 
 build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class
@@ -50,6 +50,9 @@ build/JThemeArea.class: ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java bui
 # === Controlleurs === #
 
 build/ControlleurAjouterBtn.class : ${SRC}/ControlleurAjouterBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
+
+build/ControleurQuitterBtn.class : ${SRC}/ControleurQuitterBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
 build/ControlleurModifBtn.class : ${SRC}/ControlleurModifBtn.java build/Bouton.class
