@@ -8,22 +8,19 @@ import javax.swing.*;
 public class Rappel extends JComponent{
     private int largeur;
     private int hauteur;
-    private int hauteurTexte;
     private String titre;
     private String contexte;
     private int theme;
     private int rang;
     private int id;
-    private Color fond;
-    private Color texteCouleur;
     private Color[][] tabTheme;
     private FontMetrics mesureTexte;
     private int texteHauteur;
-    private int texteLargeur;
     private int xTexte;
     private int yTexte;
     private Color couleurActuelle;
     private Color texteCouleurActuelle;
+    private Boolean statutModif;
 
     public Rappel(String titre, String contexte, int theme, int rang, int id){
         this.titre=titre;
@@ -46,6 +43,8 @@ public class Rappel extends JComponent{
 
         this.couleurActuelle =tabTheme[theme][0];
         this.texteCouleurActuelle= tabTheme[theme][2];
+
+        this.statutModif=false;
     }
     /**
      * Dessine le rappel.
@@ -94,15 +93,32 @@ public class Rappel extends JComponent{
       return theme;
     }
 
-    public void setColorModify(boolean statut){
-        if (statut) {
-            this.couleurActuelle = tabTheme[theme][1];
-            this.texteCouleurActuelle = tabTheme[theme][2];
+    public void setHover(Boolean statutHover){
+      if (statutHover) {
+            this.couleurActuelle = tabTheme[theme][2];
+            this.texteCouleurActuelle = tabTheme[theme][1];
         } else {
             this.couleurActuelle = tabTheme[theme][0];
             this.texteCouleurActuelle = tabTheme[theme][2];
         }
         repaint();
+    }
+
+    public void setColorModify(boolean statut){
+        if (statut) {
+            this.couleurActuelle = tabTheme[theme][1];
+            this.texteCouleurActuelle = tabTheme[theme][2];
+            statutModif=statut;
+        } else {
+            this.couleurActuelle = tabTheme[theme][0];
+            this.texteCouleurActuelle = tabTheme[theme][2];
+            statutModif=statut;
+        }
+        repaint();
+    }
+
+    public Boolean getStatutModifier(){
+      return statutModif;
     }
 }
 

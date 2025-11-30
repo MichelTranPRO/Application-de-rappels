@@ -16,32 +16,32 @@ public class Bouton extends JComponent {
     /**
      * Largeur du bouton.
      */
-    private int largeur;
+    protected int largeur;
 
     /**
      * Hauteur du bouton.
      */
-    private int hauteur;
+    protected int hauteur;
 
     /**
      * Position X du texte à afficher.
      */
-    private int xTexte;
+    protected int xTexte;
 
     /**
      * Postion Y du texte à afficher.
      */
-    private int yTexte;
+    protected int yTexte;
 
     /** 
      * Dimension, hauteur du texte.
      */
-    private int texteHauteur;
+    protected int texteHauteur;
 
     /**
      * Dimension, largeur du texte.
      */
-    private int texteLargeur;
+    protected int texteLargeur;
 
     /**
      * Couleur du fond par défaut.
@@ -51,12 +51,12 @@ public class Bouton extends JComponent {
     /**
      * Couleur du fond actuel.
      */
-    private Color couleurActuelle;
+    protected Color couleurActuelle;
 
     /**
      * Couleur du texte actuel.
      */
-    private Color texteCouleurActuelle;
+    protected Color texteCouleurActuelle;
 
     /**
      * Couleur du texte par défaut.
@@ -66,12 +66,12 @@ public class Bouton extends JComponent {
     /**
      * Texte à afficher.
      */
-    private String texte;
+    protected String texte;
 
     /**
      * Outil qui permet de pendre les mesures du texte.
      */
-    private FontMetrics mesureTexte;
+    protected FontMetrics mesureTexte;
 
     /** COnstructeur de la classe <code>Bouton<code>.
      * Defini les paramtètres pour créer un objet de la classe.

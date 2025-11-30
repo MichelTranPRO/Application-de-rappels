@@ -1,4 +1,6 @@
 package fr.iutfbleau.papillon;
+import fr.iutfbleau.papillon.ControleurRappel;
+
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -56,6 +58,7 @@ public class PanelRappels extends JPanel{
         tabRappels.add(new Rappel(titre,contexte,theme,tabRappels.size()+1, 1));
         contraintes.gridy = tabRappels.size()-1;
         contraintes.insets = new Insets(10, 10, 0, 10);
+        tabRappels.get(tabRappels.size()-1).addMouseListener(new ControleurRappel(tabRappels.get(tabRappels.size()-1)));
         this.add(tabRappels.get(tabRappels.size()-1), contraintes); 
     }
 

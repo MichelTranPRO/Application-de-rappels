@@ -26,7 +26,7 @@ public class PanelRappelsHeader extends JPanel{
     /**
      * Bouton "Ajouter", pour ajouter un rappel.
      */
-    private Bouton ajouterBtn;
+    private BoutonAjouterValider ajouterBtn;
 
     /**
      * Bouton "⇄", pour échanger des rappels.
@@ -46,7 +46,7 @@ public class PanelRappelsHeader extends JPanel{
     /**
      * Controlleur qui permet de gérer le bouton "Ajouter".
      */
-    private ControlleurAjouterBtn ctrl_ajouter;
+    private ControlleurAjouterValiderBtn ctrl_ajouter;
 
     /**
      * Controlleur qui permet de gérer le bouton "⇄".
@@ -62,27 +62,28 @@ public class PanelRappelsHeader extends JPanel{
 
     private FenetreRappel fenetreRappel;
     private PanelRappels panelRappels;
+    private boolean statutModifBtn;
 
     /**
      * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 
      */
     public PanelRappelsHeader(FenetreRappel fenetreRappel, PanelRappels panelRappels){
-
         this.fenetreRappel=fenetreRappel;
+        statutModifBtn=false;
 
         //JPanel
         panelDroite= new JPanel();
         panelGauche= new JPanel();
 
         // Boutons
-        ajouterBtn = new Bouton(124,43, "Ajouter",Color.WHITE, new Color(255, 184, 0));
+        ajouterBtn = new BoutonAjouterValider(124,43, "Ajouter",Color.WHITE, new Color(255, 184, 0));
         modifBtn = new Bouton(43,43, "⇄",Color.WHITE, new Color(255, 184, 0));
         supprBtn = new Bouton(43,43, "🗑️",Color.WHITE, new Color(255, 184, 0));
         quitterBtn = new Bouton(43,43, "✕",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
-        ctrl_ajouter = new ControlleurAjouterBtn(ajouterBtn,this);
-        ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels);
+        ctrl_ajouter = new ControlleurAjouterValiderBtn(ajouterBtn,this);
+        ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels,this);
         ctrl_suppr = new ControlleurSupprBtn(supprBtn);
         ctrl_quitter = new ControleurQuitterBtn(quitterBtn,this);
         
@@ -116,5 +117,21 @@ public class PanelRappelsHeader extends JPanel{
 
     public void setFenetreAjoutVisible(){
         fenetreRappel.setFenetreAjoutVisible();
+    }
+
+    public void setStatutModifBtn(Boolean statut){
+        this.statutModifBtn=statut;
+        if (statut){
+            ajouterBtn.setDessinAjouter(false);
+            repaint();
+        }
+        if (!statut){
+            ajouterBtn.setDessinAjouter(true);
+            repaint();
+        }
+    }
+
+    public boolean getStatutModifBtn(){
+        return this.statutModifBtn;
     }
 }

@@ -19,6 +19,7 @@ public class ControlleurModifBtn implements MouseListener{
     private Bouton bouton;
 
     private PanelRappels panelRappels;
+    private PanelRappelsHeader panelRappelsHeader;
     private int cpt;
 
     /**
@@ -26,9 +27,10 @@ public class ControlleurModifBtn implements MouseListener{
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurModifBtn(Bouton bouton, PanelRappels panelRappels){
+	public ControlleurModifBtn(Bouton bouton, PanelRappels panelRappels, PanelRappelsHeader panelRappelsHeader){
         this.bouton=bouton;
         this.panelRappels=panelRappels;
+        this.panelRappelsHeader=panelRappelsHeader;
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -38,9 +40,11 @@ public class ControlleurModifBtn implements MouseListener{
             cpt=0;
             bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
             panelRappels.changeColorAllRappels(false);
+            panelRappelsHeader.setStatutModifBtn(false);
         }else{
             bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
             panelRappels.changeColorAllRappels(true);
+            panelRappelsHeader.setStatutModifBtn(true);
         }
 	}
 
@@ -50,7 +54,10 @@ public class ControlleurModifBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseExited(MouseEvent e) {
-        bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
+        if (cpt==0){
+            bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
+        }
+        
     }
 
     /**
@@ -59,7 +66,10 @@ public class ControlleurModifBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
-        bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+        if (cpt==0){
+            bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+        }
+        
     }
 	public void mousePressed(MouseEvent e) {
 	}

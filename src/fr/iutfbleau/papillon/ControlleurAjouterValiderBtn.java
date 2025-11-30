@@ -13,15 +13,15 @@ import fr.iutfbleau.papillon.PanelAjoutHeader;
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurAjouterBtn implements MouseListener{
+public class ControlleurAjouterValiderBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-    private Bouton bouton;
+    private BoutonAjouterValider bouton;
 
     /**
-     * Lien avec la classe <code>PanelRappelsHeader</code>.S
+     * Lien avec la classe <code>PanelRappelsHeader</code>.
      */
     private PanelRappelsHeader panelRappelsHeader;
 
@@ -30,7 +30,7 @@ public class ControlleurAjouterBtn implements MouseListener{
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurAjouterBtn(Bouton bouton, PanelRappelsHeader panelRappelsHeader){
+	public ControlleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelRappelsHeader panelRappelsHeader){
         this.bouton=bouton;
         this.panelRappelsHeader = panelRappelsHeader;
 	}
@@ -38,6 +38,7 @@ public class ControlleurAjouterBtn implements MouseListener{
      * Appelle une fonction pour afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
+        if (!panelRappelsHeader.getStatutModifBtn())
         panelRappelsHeader.setFenetreAjoutVisible();
 	}
 
