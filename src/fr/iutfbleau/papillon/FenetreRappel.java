@@ -15,9 +15,10 @@ public class FenetreRappel extends JPanel{
     header = new PanelRappelsHeader(this,rappels);
     scrollPanel = new JScrollPane(rappels);
 
-    scrollPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+    scrollPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+    scrollPanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     scrollPanel.getVerticalScrollBar().setUnitIncrement(7);
-    scrollPanel.setPreferredSize(new Dimension(400,215));
+    scrollPanel.setPreferredSize(new Dimension(400,150));
 
     for (int i=0; i<=4 ; i++){
       rappels.addRappel(new Rappel("Rappel "+i, "aaa",i,i,i));

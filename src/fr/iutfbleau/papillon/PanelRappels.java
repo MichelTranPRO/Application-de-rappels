@@ -80,12 +80,12 @@ public class PanelRappels extends JPanel{
                 r.setModeModif(true); // indique qu'on passe en mode modifier
                 r.setColorModif(true);
             }
-        }else{
+        }if (!statut){
             for (Rappel r : tabRappels){
                 r.setModeModif(false);
                 r.setColorModif(false);
                 r.setSelectedModif(false);
-                r.setColorModifHover(false);
+                //r.setColorModifHover(false);
             }
             tabRappelsModif.clear();
         }
