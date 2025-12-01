@@ -24,22 +24,28 @@ public class ControlleurAjouterValiderBtn implements MouseListener{
      * Lien avec la classe <code>PanelRappelsHeader</code>.
      */
     private PanelRappelsHeader panelRappelsHeader;
+    private PanelRappels panelRappels;
 
     /**
      * Le constructeur de la classe <code>ControlleurAjouterBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelRappelsHeader panelRappelsHeader){
+	public ControlleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelRappelsHeader panelRappelsHeader, PanelRappels panelRappels){
         this.bouton=bouton;
         this.panelRappelsHeader = panelRappelsHeader;
+        this.panelRappels = panelRappels;
 	}
     /**
      * Appelle une fonction pour afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
-        if (!panelRappelsHeader.getStatutModifBtn())
-        panelRappelsHeader.setFenetreAjoutVisible();
+        if (!panelRappelsHeader.getStatutModifBtn()){ // si le bouton modif est pas cliqué, le bouton "Ajouter" est visible la
+            panelRappelsHeader.setFenetreAjoutVisible();
+        }
+        if (!panelRappelsHeader.getStatutModifBtn()){ // si le bouton modif est cliqué, le bouton "Valider" est visible la
+            // if 
+        }
 	}
 
     /**

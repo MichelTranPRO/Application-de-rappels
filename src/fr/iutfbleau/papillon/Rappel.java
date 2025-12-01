@@ -20,7 +20,8 @@ public class Rappel extends JComponent{
     private int yTexte;
     private Color couleurActuelle;
     private Color texteCouleurActuelle;
-    private Boolean statutModif;
+    private Boolean statutModeModif;
+    private boolean selectedModif = false;
 
     public Rappel(String titre, String contexte, int theme, int rang, int id){
         this.titre=titre;
@@ -44,7 +45,7 @@ public class Rappel extends JComponent{
         this.couleurActuelle =tabTheme[theme][0];
         this.texteCouleurActuelle= tabTheme[theme][2];
 
-        this.statutModif=false;
+        this.statutModeModif=false;
     }
     /**
      * Dessine le rappel.
@@ -93,7 +94,16 @@ public class Rappel extends JComponent{
       return theme;
     }
 
-    public void setHover(Boolean statutHover){
+    public boolean isSelectedModif() {
+        return selectedModif;
+    }
+
+    public void setSelectedModif(boolean b) {
+        this.selectedModif = b;
+    }
+
+
+    public void setHoverColor(Boolean statutHover){
       if (statutHover) {
             this.couleurActuelle = tabTheme[theme][2];
             this.texteCouleurActuelle = tabTheme[theme][1];
@@ -104,21 +114,38 @@ public class Rappel extends JComponent{
         repaint();
     }
 
-    public void setStatutModifier(boolean statut){
-        if (statut) {
-            this.couleurActuelle = tabTheme[theme][1];
-            this.texteCouleurActuelle = tabTheme[theme][2];
-            statutModif=statut;
-        } else {
-            this.couleurActuelle = tabTheme[theme][0];
-            this.texteCouleurActuelle = tabTheme[theme][2];
-            statutModif=statut;
-        }
-        repaint();
+    // ======== METHODES POUR LA COULEUR EN MODE MODIF ========
+    public void setColorModif(boolean statutColorModif){
+      if (statutColorModif){
+        this.couleurActuelle = tabTheme[theme][1];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      if (!statutColorModif){
+        this.couleurActuelle = tabTheme[theme][0];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      repaint();
     }
 
-    public Boolean getStatutModifier(){
-      return statutModif;
+    public void setColorModifHover(boolean statutColorModifHover){
+      if (statutColorModifHover){
+        this.couleurActuelle = tabTheme[theme][2];
+        this.texteCouleurActuelle = tabTheme[theme][1];
+      }
+      if (!statutColorModifHover){
+        this.couleurActuelle = tabTheme[theme][1];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      repaint();
+    }
+    // ========================================================
+
+    public void setModeModif(boolean statut){
+      this.statutModeModif=statut;
+    }
+
+    public Boolean getModeModif(){
+      return statutModeModif;
     }
 }
 

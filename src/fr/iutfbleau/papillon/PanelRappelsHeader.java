@@ -82,7 +82,7 @@ public class PanelRappelsHeader extends JPanel{
         quitterBtn = new Bouton(43,43, "✕",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
-        ctrl_ajouter = new ControlleurAjouterValiderBtn(ajouterBtn,this);
+        ctrl_ajouter = new ControlleurAjouterValiderBtn(ajouterBtn,this,panelRappels);
         ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels,this);
         ctrl_suppr = new ControlleurSupprBtn(supprBtn);
         ctrl_quitter = new ControleurQuitterBtn(quitterBtn,this);

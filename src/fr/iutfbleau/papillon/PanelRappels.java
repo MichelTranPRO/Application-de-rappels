@@ -71,32 +71,38 @@ public class PanelRappels extends JPanel{
 
     }
     /**
-     * cette méthode permet de changer la couleur des tous les rappels en fonction du boolean donné.
+     * cette méthode permet de changer la couleur des tous les rappels en fonction du boolean donné. Et met change le staut de tous les rappels 
      * @param statut
      */
-    public void setColorModifRappels(boolean statut){
+    public void setModeModif(boolean statut){
         if (statut){
             for (Rappel r : tabRappels){
-                r.setStatutModifier(true);
+                r.setModeModif(true); // indique qu'on passe en mode modifier
+                r.setColorModif(true);
             }
         }else{
             for (Rappel r : tabRappels){
-                r.setStatutModifier(false);
+                r.setModeModif(false);
+                r.setColorModif(false);
+                r.setSelectedModif(false);
+                r.setColorModifHover(false);
             }
+            tabRappelsModif.clear();
         }
     }
 
     public void addTabRappelModif(Rappel rappel){
-        if (tabRappelsModif.contains(rappel))
+        if (tabRappelsModif.contains(rappel)){
             return;
-
+        }
         // si on dépasse 2, on enleve le plus ancien
         if (tabRappelsModif.size() == 2){
             Rappel supprRappel = tabRappelsModif.remove(0);
-            supprRappel.setStatutModifier(false);
+            supprRappel.setColorModifHover(false);
+            supprRappel.setSelectedModif(false);
         }
 
         // on ajoute la nouvelle sélection
         tabRappelsModif.add(rappel);
-        }
+    }
 }
