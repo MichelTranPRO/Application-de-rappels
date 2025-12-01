@@ -46,18 +46,18 @@ public class PanelRappels extends JPanel{
         int rank = 1;
         for(Iterator<Rappel> iter = listRappels.iterator() ; iter.hasNext() ; rank++){
             Rappel rap = iter.next();
-            this.addRappel(rap.getTitle(), rap.getContent(), rap.getTheme(), rank, rap.getId());
+            this.addRappel(rap);
         }
     }
 
-    public void addRappel(String titre, String contexte, int theme, int rang, int id){
+    public void addRappel(Rappel rap){
         // contraintes.gridx = 0;
         // contraintes.gridy = rang;
         // contraintes.weightx = 1.0;
         // contraintes.insets = new Insets(10, 10, 0, 10); 
         // this.add(new Rappel(titre,contexte,theme,rang,id),contraintes);
 
-        tabRappels.add(new Rappel(titre,contexte,theme,tabRappels.size()+1, 1));
+        tabRappels.add(rap);
         contraintes.gridy = tabRappels.size()-1;
         contraintes.insets = new Insets(10, 10, 0, 10);
         tabRappels.get(tabRappels.size()-1).addMouseListener(new ControleurRappel(tabRappels.get(tabRappels.size()-1),this));

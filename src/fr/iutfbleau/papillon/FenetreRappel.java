@@ -20,7 +20,7 @@ public class FenetreRappel extends JPanel{
     scrollPanel.setPreferredSize(new Dimension(400,215));
 
     for (int i=0; i<=4 ; i++){
-      rappels.addRappel("Rappel "+i, "aaa",i,i,i);
+      rappels.addRappel(new Rappel("Rappel "+i, "aaa",i,i,i));
     }
 
     this.setLayout(new BorderLayout());
