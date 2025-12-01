@@ -35,16 +35,16 @@ public class ControlleurModifBtn implements MouseListener{
 
 	public void mouseClicked(MouseEvent e) {
         cpt++;
-        bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
-        if (cpt!=1){
+        bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));
+        if (cpt!=1){ // pas cliqué
             cpt=0;
-            bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
-            panelRappels.changeColorAllRappels(false);
-            panelRappelsHeader.setStatutModifBtn(false);
-        }else{
-            bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
-            panelRappels.changeColorAllRappels(true);
-            panelRappelsHeader.setStatutModifBtn(true);
+            bouton.setHoverColor(false, new Color(255,184,0),new Color(255,255,255));
+            panelRappels.setColorModifRappels(false);
+            panelRappelsHeader.setStatutModifBtn(false); // permet de changer le bouton du header, passer de "Valider" à "Ajouter" 
+        }else{ // cliqué
+            bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));
+            panelRappels.setColorModifRappels(true);
+            panelRappelsHeader.setStatutModifBtn(true); // permet de changer le bouton du header, passer de "Ajouter" à "Valider" 
         }
 	}
 
@@ -55,7 +55,7 @@ public class ControlleurModifBtn implements MouseListener{
      */
 	public void mouseExited(MouseEvent e) {
         if (cpt==0){
-            bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
+            bouton.setHoverColor(false, new Color(255,184,0),new Color(255,255,255));
         }
         
     }
@@ -67,7 +67,7 @@ public class ControlleurModifBtn implements MouseListener{
      */
 	public void mouseEntered(MouseEvent e) {
         if (cpt==0){
-            bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+            bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));
         }
         
     }

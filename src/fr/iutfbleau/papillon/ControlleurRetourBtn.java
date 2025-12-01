@@ -48,7 +48,7 @@ public class ControlleurRetourBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseExited(MouseEvent e) {
-        bouton.setHover(false, new Color(255,184,0),new Color(255,255,255));
+        bouton.setHoverColor(false, new Color(255,184,0),new Color(255,255,255));
     }
 
     /**
@@ -57,7 +57,7 @@ public class ControlleurRetourBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
-        bouton.setHover(true, new Color(255,184,0),new Color(255,255,255));
+        bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));
     }
 	public void mousePressed(MouseEvent e) {
 	}

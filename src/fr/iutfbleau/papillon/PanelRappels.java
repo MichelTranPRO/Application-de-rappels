@@ -22,6 +22,7 @@ public class PanelRappels extends JPanel{
     private GridBagConstraints contraintes;
     private List<Rappel> listRappels;
     private ArrayList<Rappel> tabRappels;
+    private ArrayList<Rappel> tabRappelsModif;
     
     /**
      * Le constructeur de la classe <code>PanelRappels</code> initialise tous les composants nécessaire à son affichage 
@@ -32,6 +33,7 @@ public class PanelRappels extends JPanel{
         contraintes = new GridBagConstraints();
         listRappels=new ArrayList<Rappel>();
         tabRappels=new ArrayList<Rappel>();
+        tabRappelsModif=new ArrayList<Rappel>();
         refreshAllRappels();
     }
 
@@ -58,7 +60,7 @@ public class PanelRappels extends JPanel{
         tabRappels.add(new Rappel(titre,contexte,theme,tabRappels.size()+1, 1));
         contraintes.gridy = tabRappels.size()-1;
         contraintes.insets = new Insets(10, 10, 0, 10);
-        tabRappels.get(tabRappels.size()-1).addMouseListener(new ControleurRappel(tabRappels.get(tabRappels.size()-1)));
+        tabRappels.get(tabRappels.size()-1).addMouseListener(new ControleurRappel(tabRappels.get(tabRappels.size()-1),this));
         this.add(tabRappels.get(tabRappels.size()-1), contraintes); 
     }
 
@@ -68,16 +70,33 @@ public class PanelRappels extends JPanel{
     public void updateRappel(){
 
     }
-
-    public void changeColorAllRappels(boolean statut){
+    /**
+     * cette méthode permet de changer la couleur des tous les rappels en fonction du boolean donné.
+     * @param statut
+     */
+    public void setColorModifRappels(boolean statut){
         if (statut){
             for (Rappel r : tabRappels){
-                r.setColorModify(statut);
+                r.setStatutModifier(true);
             }
         }else{
             for (Rappel r : tabRappels){
-                r.setColorModify(statut);
+                r.setStatutModifier(false);
             }
         }
     }
+
+    public void addTabRappelModif(Rappel rappel){
+        if (tabRappelsModif.contains(rappel))
+            return;
+
+        // si on dépasse 2, on enleve le plus ancien
+        if (tabRappelsModif.size() == 2){
+            Rappel supprRappel = tabRappelsModif.remove(0);
+            supprRappel.setStatutModifier(false);
+        }
+
+        // on ajoute la nouvelle sélection
+        tabRappelsModif.add(rappel);
+        }
 }

@@ -6,16 +6,25 @@ import java.awt.event.*;
 public class ControleurRappel implements MouseListener{
 
     private Rappel rappel;
-    public ControleurRappel(Rappel rappel){
+    private int cpt;
+    private PanelRappels panelRappels;
+    public ControleurRappel(Rappel rappel, PanelRappels panelRappels){
         this.rappel=rappel;
-
+        this.panelRappels=panelRappels;
 	}
     /**
      * Appelle une fonction pour afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
         if (rappel.getStatutModifier()){
-            rappel.setHover(true);
+            cpt++;
+            if (cpt!=1){ // pas cliqué
+                rappel.setStatutModifier(true);
+                cpt=0;
+            }else if (cpt==1){ // cliqué
+                rappel.setHover(true);
+                panelRappels.addTabRappelModif(rappel);
+            }
         }
 
         if (!rappel.getStatutModifier()){
@@ -32,6 +41,9 @@ public class ControleurRappel implements MouseListener{
         if(!rappel.getStatutModifier()){
             rappel.setHover(false);
         }
+        if (rappel.getStatutModifier() && cpt == 0){
+            rappel.setStatutModifier(true);
+        }
         
     }
 
@@ -41,9 +53,9 @@ public class ControleurRappel implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
-        if(!rappel.getStatutModifier()){
+        // if(!rappel.getStatutModifier()){
             rappel.setHover(true);
-        }
+        // }
         
     }
 	public void mousePressed(MouseEvent e) {

@@ -104,7 +104,7 @@ public class Rappel extends JComponent{
         repaint();
     }
 
-    public void setColorModify(boolean statut){
+    public void setStatutModifier(boolean statut){
         if (statut) {
             this.couleurActuelle = tabTheme[theme][1];
             this.texteCouleurActuelle = tabTheme[theme][2];

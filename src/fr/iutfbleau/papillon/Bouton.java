@@ -101,7 +101,7 @@ public class Bouton extends JComponent {
      * @param couleurHover Couleur du "hover" à changer.
      * @param texteHover Couleur du texte à changer.
      */
-    public void setHover(boolean statut, Color couleurHover, Color texteHover) {
+    public void setHoverColor(boolean statut, Color couleurHover, Color texteHover) {
         if (statut) {
             this.couleurActuelle = couleurHover;
             this.texteCouleurActuelle = texteHover;
