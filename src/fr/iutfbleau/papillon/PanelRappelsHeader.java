@@ -38,10 +38,6 @@ public class PanelRappelsHeader extends JPanel{
      */
     private Bouton supprBtn;
 
-    /**
-     * Bouton "✕", pour quitter l'application.
-     */
-    private Bouton quitterBtn;
 
     /**
      * Controlleur qui permet de gérer le bouton "Ajouter".
@@ -53,7 +49,6 @@ public class PanelRappelsHeader extends JPanel{
      */
     private ControlleurModifBtn ctrl_modif;
 
-    private ControleurQuitterBtn ctrl_quitter;
 
     /**
      * Controlleur qui permet de gérer le bouton "✕".
@@ -79,13 +74,11 @@ public class PanelRappelsHeader extends JPanel{
         ajouterBtn = new BoutonAjouterValider(124,43, "Ajouter",Color.WHITE, new Color(255, 184, 0));
         modifBtn = new Bouton(43,43, "⇄",Color.WHITE, new Color(255, 184, 0));
         supprBtn = new Bouton(43,43, "🗑️",Color.WHITE, new Color(255, 184, 0));
-        quitterBtn = new Bouton(43,43, "✕",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
         ctrl_ajouter = new ControlleurAjouterValiderBtn(ajouterBtn,this,panelRappels);
         ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels,this);
         ctrl_suppr = new ControlleurSupprBtn(supprBtn);
-        ctrl_quitter = new ControleurQuitterBtn(quitterBtn,this);
         
         // Panels
         panelDroite = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -95,11 +88,9 @@ public class PanelRappelsHeader extends JPanel{
         ajouterBtn.addMouseListener(ctrl_ajouter);
         modifBtn.addMouseListener(ctrl_modif);
         supprBtn.addMouseListener(ctrl_suppr);
-        quitterBtn.addMouseListener(ctrl_quitter);
 
         panelDroite.add(modifBtn);
         panelDroite.add(supprBtn);
-        panelDroite.add(quitterBtn);
         panelDroite.setBackground(new Color(255, 235, 153));
 
         panelGauche.add(ajouterBtn);
@@ -109,10 +100,6 @@ public class PanelRappelsHeader extends JPanel{
         this.setLayout(new BorderLayout());
         this.add(panelGauche,BorderLayout.WEST);
         this.add(panelDroite,BorderLayout.EAST);
-    }
-
-    public void quit(){
-        fenetreRappel.quit();
     }
 
     public void setFenetreAjoutVisible(){

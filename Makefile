@@ -25,7 +25,7 @@ build/Requete.class: ${SRC}/Requete.java build/Rappel.class
 build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class build/Requete.class build/ControleurRappel.class
 	${JC} ${JCFLAGS} $<
 
-build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/BoutonAjouterValider.class build/ControlleurAjouterValiderBtn.class build/ControleurQuitterBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/BoutonAjouterValider.class build/ControlleurAjouterValiderBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
 	${JC} ${JCFLAGS} ${SRC}/PanelRappelsHeader.java
 
 build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
@@ -53,9 +53,6 @@ build/JThemeArea.class: ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java bui
 # === Controlleurs === #
 
 build/ControlleurAjouterValiderBtn.class : ${SRC}/ControlleurAjouterValiderBtn.java build/BoutonAjouterValider.class
-	${JC} ${JCFLAGS} $<
-
-build/ControleurQuitterBtn.class : ${SRC}/ControleurQuitterBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
 build/ControlleurModifBtn.class : ${SRC}/ControlleurModifBtn.java build/Bouton.class
