@@ -31,7 +31,7 @@ public class FenetreRappel extends JPanel{
   }
 
   public void quit(){
-    fenetreMain.quit();
+    fenetreMain.setFenetre(3);
   }
 
   public void setFenetreAjoutVisible(){
