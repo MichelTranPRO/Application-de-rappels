@@ -2,39 +2,25 @@
 JC = javac
 JVM = java
 SRC = src/fr/iutfbleau/papillon
-JCFLAGS = -d build -sourcepath src -cp build
-
+JCFLAGS = -d build -sourcepath src -cp build:libs/mariadb-java-client-3.5.4.jar
 
 # Cibles
 .PHONY: all run clean jar javadoc
 
 # Cible principale 
-all: build build/Main.class 
+all: build build/Main.class
 	@echo "Compilation terminée."
 
 # Création du dossier build si il existe pas déjà
-
-build : 
+build:
 	mkdir -p build
 
-# Compilation manuelle des fichiers
+# == COMPOSANTS == #
+
+build/Rappel.class: ${SRC}/Rappel.java
+	${JC} ${JCFLAGS} $<
 
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
-	${JC} ${JCFLAGS} -cp build:libs/mariadb-java-client-3.5.4.jar $<
-
-build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class build/Requete.class build/ControleurRappel.class
-	${JC} ${JCFLAGS} $<
-
-build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/BoutonAjouterValider.class build/ControlleurAjouterValiderBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
-	${JC} ${JCFLAGS} ${SRC}/PanelRappelsHeader.java
-
-build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
-	${JC} ${JCFLAGS} $<
-
-build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControlleurValiderBtn.class
-	${JC} ${JCFLAGS} $<
-
-build/Rappel.class: ${SRC}/Rappel.java 
 	${JC} ${JCFLAGS} $<
 
 build/Theme.class: ${SRC}/Theme.java
@@ -43,14 +29,13 @@ build/Theme.class: ${SRC}/Theme.java
 build/Bouton.class : ${SRC}/Bouton.java
 	${JC} ${JCFLAGS} $<
 
-build/BoutonAjouterValider.class : ${SRC}/BoutonAjouterValider.java
+build/BoutonAjouterValider.class : ${SRC}/BoutonAjouterValider.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
-build/JThemeArea.class: ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java build/Theme.class
-	${JC} ${JCFLAGS} ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java
+build/JThemeArea.class: ${SRC}/JThemeArea.java build/Theme.class
+	${JC} ${JCFLAGS} $<
 
-
-# === Controlleurs === #
+# == CONTROLEURS == #
 
 build/ControlleurAjouterValiderBtn.class : ${SRC}/ControlleurAjouterValiderBtn.java build/BoutonAjouterValider.class
 	${JC} ${JCFLAGS} $<
@@ -58,8 +43,8 @@ build/ControlleurAjouterValiderBtn.class : ${SRC}/ControlleurAjouterValiderBtn.j
 build/ControlleurModifBtn.class : ${SRC}/ControlleurModifBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurThemes.class: ${SRC}/ControlleurThemes.java ${SRC}/JThemeArea.java build/Theme.class
-	${JC} ${JCFLAGS} ${SRC}/JThemeArea.java ${SRC}/ControlleurThemes.java
+build/ControlleurThemes.class: ${SRC}/ControlleurThemes.java build/Theme.class
+	${JC} ${JCFLAGS} $<
 
 build/ControlleurSupprBtn.class : ${SRC}/ControlleurSupprBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
@@ -73,30 +58,43 @@ build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton
 build/ControleurRappel.class : ${SRC}/ControleurRappel.java build/Rappel.class
 	${JC} ${JCFLAGS} $<
 
-# ==================== #
+# == PANELS ==#
 
-# ===== Fenetres ====== #
+build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class build/Requete.class build/ControleurRappel.class
+	${JC} ${JCFLAGS} $<
 
-build/FenetreAjout.class: ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java build/PanelAjoutHeader.class build/PanelAjout.class
-	${JC} ${JCFLAGS} ${SRC}/FenetreAjout.java ${SRC}/FenetreMain.java
+build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/BoutonAjouterValider.class build/ControlleurAjouterValiderBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+	${JC} ${JCFLAGS} $<
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java build/PanelRappelsHeader.class build/PanelRappels.class 
-	${JC} ${JCFLAGS} ${SRC}/FenetreRappel.java ${SRC}/FenetreMain.java
+build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
+	${JC} ${JCFLAGS} $<
+
+build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControlleurValiderBtn.class
+	${JC} ${JCFLAGS} $<
+
+# == FENETRES == #
+
+build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
+	${JC} ${JCFLAGS} $<
+
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelsHeader.class build/PanelRappels.class
+	${JC} ${JCFLAGS} $<
 
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
-	${JC} ${JCFLAGS} ${SRC}/FenetreMain.java
+	${JC} ${JCFLAGS} $<
 
-# ===================== #
 
-build/Main.class: ${SRC}/Main.java build/FenetreMain.class 
+
+
+build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
 run:
 	${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
 
-#Création de la javadoc
-javadoc: 
+# Création de la javadoc
+javadoc:
 	javadoc -d doc/ -sourcepath src fr iutfbleau papillon \
 		-encoding UTF-8 -charset UTF-8 -windowtitle "Documentation SAE DEV 3.1"
 
@@ -108,4 +106,3 @@ jar: all
 clean:
 	rm -r build
 	@echo "Dossier build nettoyé."
-

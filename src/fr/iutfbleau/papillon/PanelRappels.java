@@ -21,8 +21,7 @@ public class PanelRappels extends JPanel{
      */
     private GridBagConstraints contraintes;
     private List<Rappel> listRappels;
-    private ArrayList<Rappel> tabRappels;
-    private ArrayList<Rappel> tabRappelsModif;
+    private ArrayList<Rappel> listRappelsModif;
     
     /**
      * Le constructeur de la classe <code>PanelRappels</code> initialise tous les composants nécessaire à son affichage 
@@ -32,8 +31,9 @@ public class PanelRappels extends JPanel{
         this.setBackground(Color.WHITE);
         contraintes = new GridBagConstraints();
         listRappels=new ArrayList<Rappel>();
-        tabRappels=new ArrayList<Rappel>();
-        tabRappelsModif=new ArrayList<Rappel>();
+        listRappelsModif=new ArrayList<Rappel>();
+        listRappels.clear();
+        listRappels = Requete.getAllRappels();
         refreshAllRappels();
     }
 
@@ -41,8 +41,7 @@ public class PanelRappels extends JPanel{
         this.removeAll();
         this.revalidate();
         this.repaint();
-        listRappels.clear();
-        listRappels = Requete.getAllRappels();
+        
         int rank = 1;
         for(Iterator<Rappel> iter = listRappels.iterator() ; iter.hasNext() ; rank++){
             Rappel rap = iter.next();
@@ -51,17 +50,10 @@ public class PanelRappels extends JPanel{
     }
 
     public void addRappel(Rappel rap){
-        // contraintes.gridx = 0;
-        // contraintes.gridy = rang;
-        // contraintes.weightx = 1.0;
-        // contraintes.insets = new Insets(10, 10, 0, 10); 
-        // this.add(new Rappel(titre,contexte,theme,rang,id),contraintes);
-
-        tabRappels.add(rap);
-        contraintes.gridy = tabRappels.size()-1;
+        contraintes.gridy = rap.getRank();
         contraintes.insets = new Insets(10, 10, 0, 10);
-        tabRappels.get(tabRappels.size()-1).addMouseListener(new ControleurRappel(tabRappels.get(tabRappels.size()-1),this));
-        this.add(tabRappels.get(tabRappels.size()-1), contraintes); 
+        rap.addMouseListener(new ControleurRappel(rap, this));
+        this.add(rap, contraintes); 
     }
 
     public void deleteRappel(){
@@ -76,33 +68,57 @@ public class PanelRappels extends JPanel{
      */
     public void setModeModif(boolean statut){
         if (statut){
-            for (Rappel r : tabRappels){
+            for (Rappel r : listRappels){
                 r.setModeModif(true); // indique qu'on passe en mode modifier
                 r.setColorModif(true);
             }
         }if (!statut){
-            for (Rappel r : tabRappels){
+            for (Rappel r : listRappels){
                 r.setModeModif(false);
                 r.setColorModif(false);
                 r.setSelectedModif(false);
-                //r.setColorModifHover(false);
             }
-            tabRappelsModif.clear();
+            listRappelsModif.clear();
         }
     }
 
+    // ici c'est la méthode qui stock les deux rappels qu'on veut échanger
     public void addTabRappelModif(Rappel rappel){
-        if (tabRappelsModif.contains(rappel)){
+        if (listRappelsModif.contains(rappel)){
             return;
         }
         // si on dépasse 2, on enleve le plus ancien
-        if (tabRappelsModif.size() == 2){
-            Rappel supprRappel = tabRappelsModif.remove(0);
+        if (listRappelsModif.size() == 2){
+            Rappel supprRappel = listRappelsModif.remove(0);
             supprRappel.setColorModifHover(false);
             supprRappel.setSelectedModif(false);
         }
 
         // on ajoute la nouvelle sélection
-        tabRappelsModif.add(rappel);
+        listRappelsModif.add(rappel);
+    }
+    public void deleteTabRappelModif(Rappel rappel){
+        if (listRappelsModif.contains(rappel)){
+            int indexRappel = listRappelsModif.indexOf(rappel);
+            if (indexRappel==1){
+                listRappelsModif.remove(indexRappel);
+            }
+            else{ // pour mettre le rappel 1 en position 0
+                Rappel rappel1 = listRappelsModif.get(1);
+                listRappelsModif.clear();
+                listRappelsModif.add(rappel1);
+
+            }
+            
+        }
+    }
+
+    //methode qui va échanger l'ordre des rappels grace listRappelsModif de la méthode addTabRappelModif()
+    public void updateTabRappelModif(){
+        if (listRappelsModif.size() != 2){
+            JOptionPane.showMessageDialog(this, "Vous devez sélectionner exactement 2 rappels pour les échanger.");
+            return;
+        }
+        
     }
 }

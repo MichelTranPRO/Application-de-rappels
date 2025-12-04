@@ -36,7 +36,7 @@ public class PanelAjout extends JPanel{
         champContenu.setLineWrap(true);
         champContenu.setWrapStyleWord(true);
 
-        this.validerBtn= new Bouton(340,43,"Valider", new Color(0, 200, 83), Color.WHITE);
+        this.validerBtn= new Bouton(340,33,"Valider", new Color(0, 200, 83), Color.WHITE);
         validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn,this));
         this.fondPanel= new Color(255, 249, 227);
 

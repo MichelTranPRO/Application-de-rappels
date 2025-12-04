@@ -93,6 +93,13 @@ public class Rappel extends JComponent{
     public int getTheme(){
       return theme;
     }
+    public int getRank(){
+      return rang;
+    }
+
+    public void setRank(int num){
+      this.rang=num;
+    }
 
     public boolean isSelectedModif() {
         return selectedModif;

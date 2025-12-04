@@ -61,7 +61,7 @@ public class BoutonAjouterValider extends Bouton {
         }
     }
 
-    public void setDessinAjouter(Boolean statut){
+    public void setVisibleDessinAjouter(Boolean statut){
         this.dessineAjouter=statut;
     }
 }

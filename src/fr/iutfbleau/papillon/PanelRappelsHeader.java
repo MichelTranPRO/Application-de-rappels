@@ -26,7 +26,7 @@ public class PanelRappelsHeader extends JPanel{
     /**
      * Bouton "Ajouter", pour ajouter un rappel.
      */
-    private BoutonAjouterValider ajouterBtn;
+    private BoutonAjouterValider ajouterValiderBtn;
 
     /**
      * Bouton "⇄", pour échanger des rappels.
@@ -42,18 +42,18 @@ public class PanelRappelsHeader extends JPanel{
     /**
      * Controlleur qui permet de gérer le bouton "Ajouter".
      */
-    private ControlleurAjouterValiderBtn ctrl_ajouter;
+    private ControlleurAjouterValiderBtn ctrlAjouterValider;
 
     /**
      * Controlleur qui permet de gérer le bouton "⇄".
      */
-    private ControlleurModifBtn ctrl_modif;
+    private ControlleurModifBtn ctrlModif;
 
 
     /**
      * Controlleur qui permet de gérer le bouton "✕".
      */
-    private ControlleurSupprBtn ctrl_suppr;
+    private ControlleurSupprBtn ctrlSuppr;
 
     private FenetreRappel fenetreRappel;
     private PanelRappels panelRappels;
@@ -64,6 +64,7 @@ public class PanelRappelsHeader extends JPanel{
      */
     public PanelRappelsHeader(FenetreRappel fenetreRappel, PanelRappels panelRappels){
         this.fenetreRappel=fenetreRappel;
+        this.panelRappels=panelRappels;
         statutModifBtn=false;
 
         //JPanel
@@ -71,29 +72,29 @@ public class PanelRappelsHeader extends JPanel{
         panelGauche= new JPanel();
 
         // Boutons
-        ajouterBtn = new BoutonAjouterValider(124,43, "Ajouter",Color.WHITE, new Color(255, 184, 0));
-        modifBtn = new Bouton(43,43, "⇄",Color.WHITE, new Color(255, 184, 0));
-        supprBtn = new Bouton(43,43, "🗑️",Color.WHITE, new Color(255, 184, 0));
+        ajouterValiderBtn = new BoutonAjouterValider(124,33, "Ajouter",Color.WHITE, new Color(255, 184, 0));
+        modifBtn = new Bouton(33,33, "⇄",Color.WHITE, new Color(255, 184, 0));
+        supprBtn = new Bouton(33,33, "🗑️",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
-        ctrl_ajouter = new ControlleurAjouterValiderBtn(ajouterBtn,this,panelRappels);
-        ctrl_modif = new ControlleurModifBtn(modifBtn, panelRappels,this);
-        ctrl_suppr = new ControlleurSupprBtn(supprBtn);
+        ctrlAjouterValider = new ControlleurAjouterValiderBtn(ajouterValiderBtn,this,panelRappels);
+        ctrlModif = new ControlleurModifBtn(modifBtn, this);
+        ctrlSuppr = new ControlleurSupprBtn(supprBtn);
         
         // Panels
         panelDroite = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         panelGauche = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         
         // Affectation des controlleurs
-        ajouterBtn.addMouseListener(ctrl_ajouter);
-        modifBtn.addMouseListener(ctrl_modif);
-        supprBtn.addMouseListener(ctrl_suppr);
+        ajouterValiderBtn.addMouseListener(ctrlAjouterValider);
+        modifBtn.addMouseListener(ctrlModif);
+        supprBtn.addMouseListener(ctrlSuppr);
 
         panelDroite.add(modifBtn);
         panelDroite.add(supprBtn);
         panelDroite.setBackground(new Color(255, 235, 153));
 
-        panelGauche.add(ajouterBtn);
+        panelGauche.add(ajouterValiderBtn);
         panelGauche.setBackground(new Color(255, 235, 153));
 
         this.setBackground(new Color(255, 235, 153));
@@ -106,16 +107,19 @@ public class PanelRappelsHeader extends JPanel{
         fenetreRappel.setFenetreAjoutVisible();
     }
 
-    public void setStatutModifBtn(Boolean statut){
+    public void setModeModif(Boolean statut){
         this.statutModifBtn=statut;
         if (statut){
-            ajouterBtn.setDessinAjouter(false);
-            repaint();
+            ajouterValiderBtn.setVisibleDessinAjouter(false); // afficher le bouton "valider"
+            modifBtn.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
+            panelRappels.setModeModif(true);
         }
         if (!statut){
-            ajouterBtn.setDessinAjouter(true);
-            repaint();
+            ajouterValiderBtn.setVisibleDessinAjouter(true); // afficher le bouton "ajouter"
+            modifBtn.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
+            panelRappels.setModeModif(false);
         }
+        repaint();
     }
 
     public boolean getStatutModifBtn(){

@@ -40,11 +40,12 @@ public class ControlleurAjouterValiderBtn implements MouseListener{
      * Appelle une fonction pour afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
-        if (!panelRappelsHeader.getStatutModifBtn()){ // si le bouton modif est pas cliqué, le bouton "Ajouter" est visible la
-            panelRappelsHeader.setFenetreAjoutVisible();
+        if (panelRappelsHeader.getStatutModifBtn()){ // actions effectuées quand le on clique sur le bouton "valider"
+            panelRappels.updateTabRappelModif();
+            panelRappelsHeader.setModeModif(false);
         }
-        if (!panelRappelsHeader.getStatutModifBtn()){ // si le bouton modif est cliqué, le bouton "Valider" est visible la
-            // if 
+        else{ // actions effectuées quand le on clique sur le bouton "ajouter"
+            panelRappelsHeader.setFenetreAjoutVisible();
         }
 	}
 
