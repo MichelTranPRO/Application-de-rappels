@@ -36,7 +36,7 @@ public class ControlleurValiderBtn implements MouseListener{
      */
     @Override
 	public void mouseExited(MouseEvent e) {
-        bouton.setHoverColor(false, new Color(0,161,67),new Color(255,255,255));
+        bouton.setHoverColor(false, new Color(255,255,255),new Color(26, 115, 234));
     }
 
     /**
@@ -46,7 +46,7 @@ public class ControlleurValiderBtn implements MouseListener{
      */
     @Override
 	public void mouseEntered(MouseEvent e) {
-        bouton.setHoverColor(true, new Color(0,161,67),new Color(255,255,255));
+        bouton.setHoverColor(true, new Color(27,102,202),new Color(255,255,255));
     }
 
     @Override

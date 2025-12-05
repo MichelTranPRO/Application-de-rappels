@@ -30,7 +30,7 @@ public class PanelRappel extends JPanel{
         champContenu.setLineWrap(true);
         champContenu.setWrapStyleWord(true);
 
-        this.validerBtn= new Bouton(340,33,"Valider", new Color(0, 200, 83), Color.WHITE);
+        this.validerBtn= new Bouton(340,33,"Modifier", new Color(26, 115, 234), Color.WHITE);
         validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn));
         this.fondPanel= new Color(255, 249, 227);
 

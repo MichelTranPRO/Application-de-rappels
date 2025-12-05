@@ -10,7 +10,7 @@ public class FenetreRappel extends JFrame{
         this.setLayout(new BorderLayout());
         this.add(header, BorderLayout.NORTH);
         this.add(containt, BorderLayout.CENTER);
-
+        this.setSize(390,300);
         this.setVisible(true);
     }
 }
