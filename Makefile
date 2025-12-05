@@ -2,18 +2,15 @@
 JC = javac
 JVM = java
 SRC = src/fr/iutfbleau/papillon
-JCFLAGS = -d build -sourcepath src -cp build:libs/mariadb-java-client-3.5.4.jar
+JCFLAGS = -d build -sourcepath src
 
 # Cibles
 .PHONY: all run clean jar javadoc
 
 # Cible principale 
-all: build build/Main.class
+all: build/Main.class
 	@echo "Compilation terminée."
 
-# Création du dossier build si il existe pas déjà
-build:
-	mkdir -p build
 
 # == COMPOSANTS == #
 
@@ -21,7 +18,7 @@ build/Rappel.class: ${SRC}/Rappel.java
 	${JC} ${JCFLAGS} $<
 
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
-	${JC} ${JCFLAGS} $<
+	${JC} ${JCFLAGS} -cp libs/mariadb-java-client-3.5.6.jar $<
 
 build/Theme.class: ${SRC}/Theme.java
 	${JC} ${JCFLAGS} $<
@@ -84,14 +81,14 @@ build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build
 	${JC} ${JCFLAGS} $<
 
 
-
-
 build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
-run:
+run: all 
 	${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
+
+#${JVM} -jar papillon.jar
 
 # Création de la javadoc
 javadoc:
@@ -100,9 +97,9 @@ javadoc:
 
 # Création de l'archive jar
 jar: all
-	jar cfe papillon.jar papillon.Main -C build .
+	jar cfe papillon.jar fr.iutfbleau.papillon.Main -C build .
 
 # Nettoyage des fichiers compilés
 clean:
-	rm -r build
+	rm -r build/fr/
 	@echo "Dossier build nettoyé."
