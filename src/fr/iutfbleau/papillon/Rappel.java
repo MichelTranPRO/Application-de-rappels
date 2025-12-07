@@ -20,8 +20,10 @@ public class Rappel extends JComponent{
     private int yTexte;
     private Color couleurActuelle;
     private Color texteCouleurActuelle;
-    private Boolean statutModeModif;
+    private boolean statutModeModif;
     private boolean selectedModif = false;
+    private boolean selectedSuppr = false;
+    private boolean statutModeSuppr;
 
     public Rappel(String titre, String contexte, int theme, int rang, int id){
         this.titre=titre;
@@ -101,15 +103,6 @@ public class Rappel extends JComponent{
       this.rang=num;
     }
 
-    public boolean isSelectedModif() {
-        return selectedModif;
-    }
-
-    public void setSelectedModif(boolean b) {
-        this.selectedModif = b;
-    }
-
-
     public void setHoverColor(Boolean statutHover){
       if (statutHover) {
             this.couleurActuelle = tabTheme[theme][2];
@@ -121,7 +114,7 @@ public class Rappel extends JComponent{
         repaint();
     }
 
-    // ======== METHODES POUR LA COULEUR EN MODE MODIF ========
+    // ======== METHODES POUR LE MODE MODIF ========
     public void setColorModif(boolean statutColorModif){
       if (statutColorModif){
         this.couleurActuelle = tabTheme[theme][1];
@@ -145,7 +138,6 @@ public class Rappel extends JComponent{
       }
       repaint();
     }
-    // ========================================================
 
     public void setModeModif(boolean statut){
       this.statutModeModif=statut;
@@ -154,5 +146,56 @@ public class Rappel extends JComponent{
     public Boolean getModeModif(){
       return statutModeModif;
     }
+
+    public boolean isSelectedModif() {
+        return selectedModif;
+    }
+
+    public void setSelectedModif(boolean b) {
+        this.selectedModif = b;
+    }
+    // =================================================
+    
+    // ======== METHODES POUR LE MODE SUPPRIMER ========
+    public void setColorSuppr(boolean statutColorSuppr){
+      if (statutColorSuppr){
+        this.couleurActuelle = tabTheme[theme][1];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      if (!statutColorSuppr){
+        this.couleurActuelle = tabTheme[theme][0];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      repaint();
+    }
+
+    public void setColorSupprHover(boolean statutColorSupprHover){
+      if (statutColorSupprHover){
+        this.couleurActuelle = tabTheme[theme][2];
+        this.texteCouleurActuelle = tabTheme[theme][1];
+      }
+      if (!statutColorSupprHover){
+        this.couleurActuelle = tabTheme[theme][1];
+        this.texteCouleurActuelle = tabTheme[theme][2];
+      }
+      repaint();
+    }
+
+    public void setModeSuppr(boolean statut){
+      this.statutModeSuppr=statut;
+    }
+
+    public Boolean getModeSuppr(){
+      return statutModeSuppr;
+    }
+
+    public boolean isSelectedSuppr() {
+        return selectedSuppr;
+    }
+
+    public void setSelectedSuppr(boolean b) {
+        this.selectedSuppr = b;
+    }
+    // =================================================
 }
 

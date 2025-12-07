@@ -3,8 +3,6 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import java.awt.event.*;
 
-import fr.iutfbleau.papillon.PanelAjoutHeader;
-
 /**
  * La classe <code>ControlleurAjouterBtn</code> est utilisée 
  * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
@@ -23,29 +21,33 @@ public class ControleurAjouterValiderBtn implements MouseListener{
     /**
      * Lien avec la classe <code>PanelAccueilHeader</code>.
      */
-    private PanelAccueilHeader PanelAccueilHeader;
-    private PanelAccueil PanelAccueil;
+    private PanelAccueilHeader panelAccueilHeader;
+    private PanelAccueil panelAccueil;
 
     /**
      * Le constructeur de la classe <code>ControlleurAjouterBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelAccueilHeader PanelAccueilHeader, PanelAccueil PanelAccueil){
+	public ControleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelAccueilHeader panelAccueilHeader, PanelAccueil panelAccueil){
         this.bouton=bouton;
-        this.PanelAccueilHeader = PanelAccueilHeader;
-        this.PanelAccueil = PanelAccueil;
+        this.panelAccueilHeader = panelAccueilHeader;
+        this.panelAccueil = panelAccueil;
 	}
     /**
      * Appelle une fonction pour afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
-        if (PanelAccueilHeader.getStatutModifBtn()){ // actions effectuées quand le on clique sur le bouton "valider"
-            PanelAccueil.updateTabRappelModif();
-            PanelAccueilHeader.setModeModif(false);
+        if (panelAccueilHeader.getStatutModifBtn()){ // actions effectuées quand le on clique sur le bouton "valider"
+            panelAccueil.updateTabRappelModifSQL();
+            panelAccueilHeader.setModeModif(false);
+        }
+        else if(panelAccueilHeader.getStatutSupprBtn()){
+            panelAccueil.deleteTabRappelSupprSQL();
+            panelAccueilHeader.setModeSuppr(false);
         }
         else{ // actions effectuées quand le on clique sur le bouton "ajouter"
-            PanelAccueilHeader.setFenetreAjoutVisible();
+            panelAccueilHeader.setFenetreAjoutVisible();
         }
 	}
 

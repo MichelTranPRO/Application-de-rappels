@@ -56,15 +56,16 @@ public class PanelAccueilHeader extends JPanel{
     private ControleurSupprBtn ctrlSuppr;
 
     private FenetreAccueil fenetreAccueil;
-    private PanelAccueil PanelAccueil;
+    private PanelAccueil panelAccueil;
     private boolean statutModifBtn;
+    private boolean statutSupprBtn;
 
     /**
      * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelAccueilHeader(FenetreAccueil fenetreAccueil, PanelAccueil PanelAccueil){
+    public PanelAccueilHeader(FenetreAccueil fenetreAccueil, PanelAccueil panelAccueil){
         this.fenetreAccueil=fenetreAccueil;
-        this.PanelAccueil=PanelAccueil;
+        this.panelAccueil=panelAccueil;
         statutModifBtn=false;
 
         //JPanel
@@ -77,9 +78,9 @@ public class PanelAccueilHeader extends JPanel{
         supprBtn = new Bouton(33,33, "🗑️",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
-        ctrlAjouterValider = new ControleurAjouterValiderBtn(ajouterValiderBtn,this,PanelAccueil);
+        ctrlAjouterValider = new ControleurAjouterValiderBtn(ajouterValiderBtn,this,panelAccueil);
         ctrlModif = new ControleurModifBtn(modifBtn, this);
-        ctrlSuppr = new ControleurSupprBtn(supprBtn);
+        ctrlSuppr = new ControleurSupprBtn(supprBtn,this );
         
         // Panels
         panelDroite = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -112,17 +113,36 @@ public class PanelAccueilHeader extends JPanel{
         if (statut){
             ajouterValiderBtn.setVisibleDessinAjouter(false); // afficher le bouton "valider"
             modifBtn.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
-            PanelAccueil.setModeModif(true);
+            panelAccueil.setModeModif(true);
         }
         if (!statut){
             ajouterValiderBtn.setVisibleDessinAjouter(true); // afficher le bouton "ajouter"
             modifBtn.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
-            PanelAccueil.setModeModif(false);
+            panelAccueil.setModeModif(false);
         }
         repaint();
     }
 
     public boolean getStatutModifBtn(){
         return this.statutModifBtn;
+    }
+
+    public void setModeSuppr(Boolean statut){
+        this.statutSupprBtn=statut;
+        if (statut){
+            ajouterValiderBtn.setVisibleDessinAjouter(false); // afficher le bouton "valider"
+            supprBtn.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
+            panelAccueil.setModeSuppr(true);
+        }
+        if (!statut){
+            ajouterValiderBtn.setVisibleDessinAjouter(true); // afficher le bouton "ajouter"
+            supprBtn.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
+            panelAccueil.setModeSuppr(false);
+        }
+        repaint();
+    }
+
+    public boolean getStatutSupprBtn(){
+        return this.statutSupprBtn;
     }
 }

@@ -17,18 +17,25 @@ public class ControleurSupprBtn implements MouseListener{
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
 	private Bouton bouton;
+    private PanelAccueilHeader panelAccueilHeader;
 
     /**
      * Le constructeur de la classe <code>ControleurSupprBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControleurSupprBtn(Bouton bouton){
-        this.bouton=bouton;
+	public ControleurSupprBtn(Bouton bouton, PanelAccueilHeader panelAccueilHeader){
+        this.bouton = bouton;
+        this.panelAccueilHeader = panelAccueilHeader;
 	}
 
     
 	public void mouseClicked(MouseEvent e) {
+        boolean nouveauStatut = !panelAccueilHeader.getStatutSupprBtn();
+        if(panelAccueilHeader.getStatutModifBtn()){
+            panelAccueilHeader.setModeModif(!nouveauStatut);
+        }
+        panelAccueilHeader.setModeSuppr(nouveauStatut);
 	}
 
     /**
@@ -37,7 +44,10 @@ public class ControleurSupprBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseExited(MouseEvent e) {
-        bouton.setHoverColor(false, new Color(255,184,0),new Color(255,255,255));
+        // hover uniquement si pas en mode modif
+        if (!panelAccueilHeader.getStatutSupprBtn()) {
+            bouton.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
+        }
     }
     
     /**
@@ -46,7 +56,10 @@ public class ControleurSupprBtn implements MouseListener{
      * @param evenement géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
-        bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));
+        // hover uniquement si pas en mode modif
+        if (!panelAccueilHeader.getStatutSupprBtn()) {
+            bouton.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
+        }
     }
 	public void mousePressed(MouseEvent e) {
 	}

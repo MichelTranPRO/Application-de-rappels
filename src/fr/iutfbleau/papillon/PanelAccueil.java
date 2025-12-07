@@ -23,6 +23,7 @@ public class PanelAccueil extends JPanel{
     private FenetreAccueil fenetreAccueil;
     private List<Rappel> listRappels;
     private ArrayList<Rappel> listRappelsModif;
+    private ArrayList<Rappel> listRappelsSuppr;
     
     /**
      * Le constructeur de la classe <code>PanelAccueil</code> initialise tous les composants nécessaire à son affichage 
@@ -34,6 +35,7 @@ public class PanelAccueil extends JPanel{
         contraintes = new GridBagConstraints();
         listRappels=new ArrayList<Rappel>();
         listRappelsModif=new ArrayList<Rappel>();
+        listRappelsSuppr=new ArrayList<Rappel>();
         listRappels.clear();
         listRappels = Requete.getAllRappels();
         refreshAllRappels();
@@ -71,6 +73,7 @@ public class PanelAccueil extends JPanel{
     public void updateRappel(){
 
     }
+    // ============ METHODES MODE MODIF ==============
     /**
      * cette méthode permet de changer la couleur des tous les rappels en fonction du boolean donné. Et met change le staut de tous les rappels 
      * @param statut
@@ -121,13 +124,52 @@ public class PanelAccueil extends JPanel{
             
         }
     }
-
     //methode qui va échanger l'ordre des rappels grace listRappelsModif de la méthode addTabRappelModif()
-    public void updateTabRappelModif(){
+    public void updateTabRappelModifSQL(){
         if (listRappelsModif.size() != 2){
-            JOptionPane.showMessageDialog(this, "Vous devez sélectionner exactement 2 rappels pour les échanger.");
+            JOptionPane.showMessageDialog(null, "Vous devez sélectionner exactement 2 rappels pour les échanger.");
             return;
         }
-        
+        //requete
     }
+    // ===============================================
+
+    // ============ METHODES MODE MODIF ==============
+    public void setModeSuppr(boolean statut){
+        if (statut){
+            for (Rappel r : listRappels){
+                r.setModeSuppr(true); // indique qu'on passe en mode Suppr
+                r.setColorSuppr(true);
+            }
+        }if (!statut){
+            for (Rappel r : listRappels){
+                r.setModeSuppr(false);
+                r.setColorSuppr(false);
+                r.setSelectedSuppr(false);
+            }
+            listRappelsSuppr.clear();
+        }
+    }
+
+    public void addTabRappelSuppr(Rappel rappel){
+        if (listRappelsSuppr.contains(rappel)){
+            return;
+        }
+        listRappelsSuppr.add(rappel);
+    }
+    public void deleteTabRappelSuppr(Rappel rappel){
+        if (listRappelsSuppr.contains(rappel)){
+            int indexRappel = listRappelsSuppr.indexOf(rappel);
+            listRappelsSuppr.remove(indexRappel);
+        }
+    }
+    public void deleteTabRappelSupprSQL(){
+        if (listRappelsModif.size() == 0){
+            JOptionPane.showMessageDialog(null, "Vous devez sélectionner au moins un rappel à supprimer.");
+            return;
+        }
+        //requete
+    }
+    // ===============================================
+    
 }

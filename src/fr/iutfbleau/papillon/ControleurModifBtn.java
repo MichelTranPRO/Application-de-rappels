@@ -6,9 +6,7 @@ import java.awt.event.*;
 public class ControleurModifBtn implements MouseListener {
 
     private Bouton bouton;
-    private PanelAccueil PanelAccueil;
     private PanelAccueilHeader panelAccueilHeader;
-    private boolean modifActive = false;
 
     public ControleurModifBtn(Bouton bouton, PanelAccueilHeader panelAccueilHeader){
         this.bouton = bouton;
@@ -17,6 +15,9 @@ public class ControleurModifBtn implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
         boolean nouveauStatut = !panelAccueilHeader.getStatutModifBtn();
+        if(panelAccueilHeader.getStatutSupprBtn()){
+            panelAccueilHeader.setModeSuppr(!nouveauStatut);
+        }
         panelAccueilHeader.setModeModif(nouveauStatut);
     }
 
