@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class Requete{
 
@@ -18,7 +19,13 @@ public class Requete{
           "ananas");
 
     } catch (SQLException e3) {
-      System.err.println("Impossible de se connecter à la BDD" + e3.getMessage());
+      JOptionPane.showMessageDialog(
+        null,
+        "Impossible de se connecter à la BDD : " + e3.getMessage(),
+        "Erreur",
+        JOptionPane.ERROR_MESSAGE
+      );
+      // System.err.println("Impossible de se connecter à la BDD" + e3.getMessage());
     }
   }
 
@@ -40,11 +47,23 @@ public class Requete{
 
         return results;
       } catch (SQLException e2) {
-        System.err.println("Problème lié à la BD : " + e2.getMessage());
+        JOptionPane.showMessageDialog(
+          null,
+          "Problème lié à la BD : " + e2.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+        );
+        // System.err.println("Problème lié à la BD : " + e2.getMessage());
         return new ArrayList<>();
       }
     } catch (ClassNotFoundException e) {
-      System.err.println("Classe pas trouvée : " + e.getMessage());
+      JOptionPane.showMessageDialog(
+          null,
+          "Classe pas trouvée : " + e.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+      );
+      // System.err.println("Classe pas trouvée : " + e.getMessage());
       return new ArrayList<>();
     }
   }
