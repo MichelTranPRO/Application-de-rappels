@@ -6,15 +6,29 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 
 public class Requete{
-  private Connection cnx = DriverManager.getConnection(
-      "jdbc:mariadb://dwarves.iut-fbleau.fr/bissonr", "bissonr", "ananas");
+
+  private static Connection cnx;
+
+  // On charge 
+  static{
+    try {
+      cnx = DriverManager.getConnection(
+          "jdbc:mariadb://dwarves.iut-fbleau.fr/bissonr", 
+          "bissonr", 
+          "ananas");
+
+    } catch (SQLException e3) {
+      System.err.println("Impossible de se connecter à la BDD" + e3.getMessage());
+    }
+  }
+
   public static List<Rappel> getAllRappels(){
     try {
       Class.forName("org.mariadb.jdbc.Driver");
       try (PreparedStatement pst = cnx.prepareStatement(
             "SELECT * FROM DEV31");
-          "ORDER BY rang ASC");
-      ResultSet rs = pst.executeQuery()) {
+            // "ORDER BY rang ASC"); A rajouter après
+          ResultSet rs = pst.executeQuery()) {
 
         int rang = 1;
         List<Rappel> results = new ArrayList<>();
@@ -23,6 +37,7 @@ public class Requete{
           results.add(rap);
           rang++; // Suivi du rang pour l'emplacement des rappels dans le layout
         }
+
         return results;
       } catch (SQLException e2) {
         System.err.println("Problème lié à la BD : " + e2.getMessage());
@@ -34,15 +49,17 @@ public class Requete{
     }
   }
   // Ne pas oublier de faire la vérification des variables au préalable
-  public static int insert(int id, String titre, String contenu, int theme, int rang){
+  /* 
+     public static int insert(int id, String titre, String contenu, int theme, int rang){
 
-  }
+     }
 
-  public static int swap(int ida, int idb){
+     public static int swap(int ida, int idb){
 
-  }
+     }
 
-  public static int delete(int ida, int idb){
+     public static int delete(int ida, int idb){
 
-  }
+     }
+     */
 }
