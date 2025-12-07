@@ -43,7 +43,7 @@ public class FenetreAjout extends JPanel{
         this.add(marges, BorderLayout.CENTER);
     }
 
-    public void setFenetreRappelVisible(){
+    public void setFenetreAccueilVisible(){
         fenetreMain.setFenetre(1);
     }
 }

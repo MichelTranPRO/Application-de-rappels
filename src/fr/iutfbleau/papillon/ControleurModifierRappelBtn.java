@@ -1,5 +1,4 @@
 package fr.iutfbleau.papillon;
-import fr.iutfbleau.papillon.PanelAjoutHeader;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -11,32 +10,27 @@ import java.awt.event.*;
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurValiderBtn implements MouseListener{
+public class ControleurModifierRappelBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
     private Bouton bouton;
-
-    /**
-     * Lien avec la classe <code>panelAjoutHeader</code>.S
-     */
-    private PanelAjout panelAjout;
+    private PanelRappel panelRappel;
 
     /**
      * Le constructeur de la classe <code>ControlleurValiderBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurValiderBtn(Bouton bouton, PanelAjout panelAjout){
+	public ControleurModifierRappelBtn(Bouton bouton, PanelRappel panelRappel){
         this.bouton=bouton;
-        this.panelAjout=panelAjout;
+        this.panelRappel=panelRappel;
 	}
 
     @Override
 	public void mouseClicked(MouseEvent e) {
-        // je mets juste le code pour retourner a la fenetre rappel faudra mettre les verifs avant
-        panelAjout.setFenetreRappelVisible();
+        panelRappel.updateRappel();
 	}
 
     /**
@@ -46,7 +40,7 @@ public class ControlleurValiderBtn implements MouseListener{
      */
     @Override
 	public void mouseExited(MouseEvent e) {
-        bouton.setHoverColor(false, new Color(0,161,67),new Color(255,255,255));
+        bouton.setHoverColor(false, new Color(255,255,255),new Color(26, 115, 234));
     }
 
     /**
@@ -56,7 +50,7 @@ public class ControlleurValiderBtn implements MouseListener{
      */
     @Override
 	public void mouseEntered(MouseEvent e) {
-        bouton.setHoverColor(true, new Color(0,161,67),new Color(255,255,255));
+        bouton.setHoverColor(true, new Color(27,102,202),new Color(255,255,255));
     }
 
     @Override

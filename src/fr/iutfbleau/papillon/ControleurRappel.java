@@ -5,11 +5,11 @@ import java.awt.event.*;
 public class ControleurRappel implements MouseListener {
 
     private Rappel rappel;
-    private PanelRappels panelRappels;
+    private PanelAccueil panelAccueil;
 
-    public ControleurRappel(Rappel rappel, PanelRappels panelRappels){
+    public ControleurRappel(Rappel rappel, PanelAccueil panelAccueil){
         this.rappel = rappel;
-        this.panelRappels = panelRappels;
+        this.panelAccueil = panelAccueil;
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -22,14 +22,14 @@ public class ControleurRappel implements MouseListener {
 
             if (nouveauStatut) {
                 rappel.setColorModifHover(true);
-                panelRappels.addTabRappelModif(rappel);
+                panelAccueil.addTabRappelModif(rappel);
             } else {
                 rappel.setColorModifHover(false);
-                //panelRappels.deleteTabRappelModif(rappel);
+                //PanelAccueil.deleteTabRappelModif(rappel);
             }
 
         } else {
-            // ouvrir la fenêtre rappel
+            panelAccueil.setFenetreRappel(rappel);
         }
     }
 

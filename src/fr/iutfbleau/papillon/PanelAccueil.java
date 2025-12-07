@@ -9,24 +9,26 @@ import java.util.List;
 import javax.swing.*;
 
 /**
- * La classe <code>PanelRappels</code> est utilisée l'affichage et la gestion des rappels.
+ * La classe <code>PanelAccueil</code> est utilisée l'affichage et la gestion des rappels.
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class PanelRappels extends JPanel{
+public class PanelAccueil extends JPanel{
     /**
      * Contraintes pour GridBadLayout.
      */
     private GridBagConstraints contraintes;
+    private FenetreAccueil fenetreAccueil;
     private List<Rappel> listRappels;
     private ArrayList<Rappel> listRappelsModif;
     
     /**
-     * Le constructeur de la classe <code>PanelRappels</code> initialise tous les composants nécessaire à son affichage 
+     * Le constructeur de la classe <code>PanelAccueil</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelRappels(){
+    public PanelAccueil(FenetreAccueil fenetreAccueil){
+        this.fenetreAccueil=fenetreAccueil;
         this.setLayout(new GridBagLayout());
         this.setBackground(Color.WHITE);
         contraintes = new GridBagConstraints();
@@ -35,6 +37,13 @@ public class PanelRappels extends JPanel{
         listRappels.clear();
         listRappels = Requete.getAllRappels();
         refreshAllRappels();
+    }
+
+    public void setFenetreRappel(Rappel rappel){
+        fenetreAccueil.setFenetreRappel(rappel);
+    }
+    public void returnFenetreAccueil(){
+        fenetreAccueil.returnFenetreAccueil();
     }
 
     public void refreshAllRappels(){

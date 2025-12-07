@@ -34,22 +34,28 @@ build/JThemeArea.class: ${SRC}/JThemeArea.java build/Theme.class
 
 # == CONTROLEURS == #
 
-build/ControlleurAjouterValiderBtn.class : ${SRC}/ControlleurAjouterValiderBtn.java build/BoutonAjouterValider.class
+build/ControleurModifierRappelBtn.class : ${SRC}/ControleurModifierRappelBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
+	
+build/ControleurRetourRappelBtn.class : ${SRC}/ControleurRetourRappelBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurModifBtn.class : ${SRC}/ControlleurModifBtn.java build/Bouton.class
+build/ControleurAjouterValiderBtn.class : ${SRC}/ControleurAjouterValiderBtn.java build/BoutonAjouterValider.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurThemes.class: ${SRC}/ControlleurThemes.java build/Theme.class
+build/ControleurModifBtn.class : ${SRC}/ControleurModifBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurSupprBtn.class : ${SRC}/ControlleurSupprBtn.java build/Bouton.class
+build/ControleurThemes.class: ${SRC}/ControleurThemes.java build/Theme.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurValiderBtn.class : ${SRC}/ControlleurValiderBtn.java build/Bouton.class
+build/ControleurSupprBtn.class : ${SRC}/ControleurSupprBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
-build/ControlleurRetourBtn.class : ${SRC}/ControlleurRetourBtn.java build/Bouton.class
+build/ControleurValiderBtn.class : ${SRC}/ControleurValiderBtn.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
+
+build/ControleurRetourBtn.class : ${SRC}/ControleurRetourBtn.java build/Bouton.class
 	${JC} ${JCFLAGS} $<
 
 build/ControleurRappel.class : ${SRC}/ControleurRappel.java build/Rappel.class
@@ -57,27 +63,36 @@ build/ControleurRappel.class : ${SRC}/ControleurRappel.java build/Rappel.class
 
 # == PANELS ==#
 
-build/PanelRappels.class: ${SRC}/PanelRappels.java build/Rappel.class build/Requete.class build/ControleurRappel.class
+build/PanelRappel.class: ${SRC}/PanelRappel.java build/Rappel.class build/Requete.class build/ControleurModifierRappelBtn.class 
 	${JC} ${JCFLAGS} $<
 
-build/PanelRappelsHeader.class: ${SRC}/PanelRappelsHeader.java build/PanelRappels.class build/Bouton.class build/BoutonAjouterValider.class build/ControlleurAjouterValiderBtn.class build/ControlleurModifBtn.class build/ControlleurSupprBtn.class
+build/PanelRappelHeader.class: ${SRC}/PanelRappelHeader.java build/Bouton.class build/ControleurRetourRappelBtn.class
 	${JC} ${JCFLAGS} $<
 
-build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControlleurRetourBtn.class
+build/PanelAccueil.class: ${SRC}/PanelAccueil.java build/Rappel.class build/Requete.class build/ControleurRappel.class
 	${JC} ${JCFLAGS} $<
 
-build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControlleurValiderBtn.class
+build/PanelAccueilHeader.class: ${SRC}/PanelAccueilHeader.java build/PanelAccueil.class build/Bouton.class build/BoutonAjouterValider.class build/ControleurAjouterValiderBtn.class build/ControleurModifBtn.class build/ControleurSupprBtn.class
+	${JC} ${JCFLAGS} $<
+
+build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControleurRetourBtn.class
+	${JC} ${JCFLAGS} $<
+
+build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControleurValiderBtn.class
 	${JC} ${JCFLAGS} $<
 
 # == FENETRES == #
 
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelHeader.class build/PanelRappel.class
+	${JC} ${JCFLAGS} $<
+
 build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
 	${JC} ${JCFLAGS} $<
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelsHeader.class build/PanelRappels.class
+build/FenetreAccueil.class: ${SRC}/FenetreAccueil.java build/PanelAccueilHeader.class build/PanelAccueil.class
 	${JC} ${JCFLAGS} $<
 
-build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreRappel.class build/FenetreAjout.class
+build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class build/FenetreAjout.class build/FenetreRappel.class
 	${JC} ${JCFLAGS} $<
 
 

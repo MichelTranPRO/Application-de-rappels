@@ -8,7 +8,7 @@ public class JThemeArea extends JPanel{
     private Color couleurActuelle;
     private Theme[] tabThemes;
     private boolean[] tabStatutCliqueThemes;
-    private ControlleurThemes ctrl_theme;
+    private ControleurThemes ctrl_theme;
     private GridBagConstraints contraintes;
 
     public JThemeArea(){
@@ -33,7 +33,7 @@ public class JThemeArea extends JPanel{
 
         for (int i=0 ; i<5 ;i++){
             tabThemes[i]=new Theme(tabColors[i][0],i);
-            tabThemes[i].addMouseListener(new ControlleurThemes(tabThemes[i],this));
+            tabThemes[i].addMouseListener(new ControleurThemes(tabThemes[i],this));
             contraintes.gridx=i;
             this.add(tabThemes[i],contraintes);
         }

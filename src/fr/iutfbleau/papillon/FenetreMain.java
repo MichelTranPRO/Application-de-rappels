@@ -6,20 +6,21 @@ import javax.swing.*;
 public class FenetreMain extends JFrame{
 	private CardLayout cardLayout;
 	private JPanel contenu;
-	private FenetreRappel fenetreRappel;
+	private FenetreAccueil fenetreAccueil;
 	private FenetreAjout fenetreAjout;
+	private FenetreRappel fenetreRappel;
 
 	public FenetreMain(){
 		cardLayout = new CardLayout();
 		contenu = new JPanel(cardLayout);
 
-		fenetreRappel = new FenetreRappel(this);
+		fenetreAccueil = new FenetreAccueil(this);
 		fenetreAjout = new FenetreAjout(this);
 
-		contenu.add(fenetreRappel,"FENETRE_RAPPELS");
+		contenu.add(fenetreAccueil,"FENETRE_ACCUEIL");
 		contenu.add(fenetreAjout,"FENETRE_AJOUT");
 
-		cardLayout.show(contenu, "FENETRE_RAPPELS");
+		cardLayout.show(contenu, "FENETRE_ACCUEIL");
 		this.setLayout(new BorderLayout());
 		this.add(contenu, BorderLayout.CENTER);
 		this.pack();
@@ -33,9 +34,20 @@ public class FenetreMain extends JFrame{
 
 	public void setFenetre(int indexFenetre){
 		if(indexFenetre == 1){
-			cardLayout.show(contenu, "FENETRE_RAPPELS");
+			cardLayout.show(contenu, "FENETRE_ACCUEIL");
 		} else if (indexFenetre == 2) {
 			cardLayout.show(contenu, "FENETRE_AJOUT");
 		} 
+	}
+	public void setFenetreRappel(Rappel rappel){
+		fenetreRappel = new FenetreRappel(rappel,fenetreAccueil);
+		contenu.add(fenetreRappel,"FENETRE_RAPPEL");
+		cardLayout.show(contenu, "FENETRE_RAPPEL");
+	}
+	public void returnFenetreAccueil(){
+		contenu.remove(fenetreRappel);
+		cardLayout.show(contenu, "FENETRE_ACCUEIL");
+		contenu.revalidate();
+		contenu.repaint();
 	}
 }

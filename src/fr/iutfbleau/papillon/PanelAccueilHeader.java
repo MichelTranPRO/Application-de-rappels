@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class PanelRappelsHeader extends JPanel{
+public class PanelAccueilHeader extends JPanel{
 
     /**
      * Panneau qui contient les éléments à droite.
@@ -42,29 +42,29 @@ public class PanelRappelsHeader extends JPanel{
     /**
      * Controlleur qui permet de gérer le bouton "Ajouter".
      */
-    private ControlleurAjouterValiderBtn ctrlAjouterValider;
+    private ControleurAjouterValiderBtn ctrlAjouterValider;
 
     /**
      * Controlleur qui permet de gérer le bouton "⇄".
      */
-    private ControlleurModifBtn ctrlModif;
+    private ControleurModifBtn ctrlModif;
 
 
     /**
      * Controlleur qui permet de gérer le bouton "✕".
      */
-    private ControlleurSupprBtn ctrlSuppr;
+    private ControleurSupprBtn ctrlSuppr;
 
-    private FenetreRappel fenetreRappel;
-    private PanelRappels panelRappels;
+    private FenetreAccueil fenetreAccueil;
+    private PanelAccueil PanelAccueil;
     private boolean statutModifBtn;
 
     /**
      * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelRappelsHeader(FenetreRappel fenetreRappel, PanelRappels panelRappels){
-        this.fenetreRappel=fenetreRappel;
-        this.panelRappels=panelRappels;
+    public PanelAccueilHeader(FenetreAccueil fenetreAccueil, PanelAccueil PanelAccueil){
+        this.fenetreAccueil=fenetreAccueil;
+        this.PanelAccueil=PanelAccueil;
         statutModifBtn=false;
 
         //JPanel
@@ -77,9 +77,9 @@ public class PanelRappelsHeader extends JPanel{
         supprBtn = new Bouton(33,33, "🗑️",Color.WHITE, new Color(255, 184, 0));
 
         // Controlleurs
-        ctrlAjouterValider = new ControlleurAjouterValiderBtn(ajouterValiderBtn,this,panelRappels);
-        ctrlModif = new ControlleurModifBtn(modifBtn, this);
-        ctrlSuppr = new ControlleurSupprBtn(supprBtn);
+        ctrlAjouterValider = new ControleurAjouterValiderBtn(ajouterValiderBtn,this,PanelAccueil);
+        ctrlModif = new ControleurModifBtn(modifBtn, this);
+        ctrlSuppr = new ControleurSupprBtn(supprBtn);
         
         // Panels
         panelDroite = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -104,7 +104,7 @@ public class PanelRappelsHeader extends JPanel{
     }
 
     public void setFenetreAjoutVisible(){
-        fenetreRappel.setFenetreAjoutVisible();
+        fenetreAccueil.setFenetreAjoutVisible();
     }
 
     public void setModeModif(Boolean statut){
@@ -112,12 +112,12 @@ public class PanelRappelsHeader extends JPanel{
         if (statut){
             ajouterValiderBtn.setVisibleDessinAjouter(false); // afficher le bouton "valider"
             modifBtn.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
-            panelRappels.setModeModif(true);
+            PanelAccueil.setModeModif(true);
         }
         if (!statut){
             ajouterValiderBtn.setVisibleDessinAjouter(true); // afficher le bouton "ajouter"
             modifBtn.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
-            panelRappels.setModeModif(false);
+            PanelAccueil.setModeModif(false);
         }
         repaint();
     }

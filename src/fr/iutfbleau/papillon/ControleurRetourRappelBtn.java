@@ -1,5 +1,4 @@
 package fr.iutfbleau.papillon;
-import fr.iutfbleau.papillon.PanelAjoutHeader;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -13,33 +12,29 @@ import java.awt.event.*;
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurRetourBtn implements MouseListener{
+public class ControleurRetourRappelBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
     private Bouton bouton;
-
-    /**
-     * Lien avec la classe <code>panelAjoutHeader</code>.S
-     */
-    private PanelAjoutHeader panelAjoutHeader;
+    private FenetreRappel fenetreRappel;
 
     /**
      * Le constructeur de la classe <code>ControlleurRetourBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurRetourBtn(Bouton bouton, PanelAjoutHeader panelAjoutHeader){
+	public ControleurRetourRappelBtn(Bouton bouton, FenetreRappel fenetreRappel){
         this.bouton=bouton;
-        this.panelAjoutHeader=panelAjoutHeader;
+        this.fenetreRappel=fenetreRappel;
 	}
 
     /**
      * Appelle une fonction pour afficher la fenetre rappel.
      */
 	public void mouseClicked(MouseEvent e) {
-        panelAjoutHeader.setFenetreRappelVisible();
+        fenetreRappel.returnFenetreAccueil();
 	}
 
     /**

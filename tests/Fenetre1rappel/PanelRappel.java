@@ -10,11 +10,11 @@ public class PanelRappel extends JPanel{
     private JTextField champTitre;
     private JThemeArea zoneThemes;
     private JTextArea champContenu;
-    private Bouton validerBtn;
+    private Bouton modifBtn;
     private Color fondPanel;
     private GridBagConstraints contraintes;
 
-    public PanelRappel(){
+    public PanelRappel(Rappel rappel){
         this.contraintes = new GridBagConstraints();
 
         this.titre=new JLabel("Titre (50 caractères maximum) :");
@@ -25,13 +25,14 @@ public class PanelRappel extends JPanel{
         contexte.setFont(new Font("Dialog", Font.BOLD, 12));
         
         this.zoneThemes=new JThemeArea();
-        this.champTitre= new JTextField();
+        this.champTitre= new JTextField(rappel.getTitle());
         this.champContenu= new JTextArea(4,0);
+        champContenu.setText(rappel.getContent());
         champContenu.setLineWrap(true);
         champContenu.setWrapStyleWord(true);
 
-        this.validerBtn= new Bouton(340,33,"Modifier", new Color(26, 115, 234), Color.WHITE);
-        validerBtn.addMouseListener(new ControlleurValiderBtn(validerBtn));
+        this.modifBtn= new Bouton(340,33,"Modifier", new Color(26, 115, 234), Color.WHITE);
+        modifBtn.addMouseListener(new ControleurModifierRappelBtn(modifBtn));
         this.fondPanel= new Color(255, 249, 227);
 
         this.setLayout(new GridBagLayout());
@@ -81,7 +82,7 @@ public class PanelRappel extends JPanel{
         contraintes.fill = GridBagConstraints.NONE;
         contraintes.anchor = GridBagConstraints.CENTER;
         contraintes.insets = new Insets(5, 0, 10, 0); 
-        this.add(validerBtn,contraintes);
+        this.add(modifBtn,contraintes);
         
     }
 
@@ -108,7 +109,7 @@ public class PanelRappel extends JPanel{
      * 
      * @return le bouton de validation
      */
-    public Bouton getvaliderBtn() {
-    	return this.validerBtn;
+    public Bouton getModifBtn() {
+    	return this.modifBtn;
     }
 }

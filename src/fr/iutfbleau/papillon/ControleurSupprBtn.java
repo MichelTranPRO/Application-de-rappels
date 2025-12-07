@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * La classe <code>ControlleurSupprBtn</code> est utilisée 
+ * La classe <code>ControleurSupprBtn</code> est utilisée 
  * pour gérer les interractions entre la souris et l'objet "supprBtn" de la classe <code>Bouton</code>." 
  * 
  * @version 1.0
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurSupprBtn implements MouseListener{
+public class ControleurSupprBtn implements MouseListener{
 
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
@@ -19,11 +19,11 @@ public class ControlleurSupprBtn implements MouseListener{
 	private Bouton bouton;
 
     /**
-     * Le constructeur de la classe <code>ControlleurSupprBtn</code> 
+     * Le constructeur de la classe <code>ControleurSupprBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurSupprBtn(Bouton bouton){
+	public ControleurSupprBtn(Bouton bouton){
         this.bouton=bouton;
 	}
 

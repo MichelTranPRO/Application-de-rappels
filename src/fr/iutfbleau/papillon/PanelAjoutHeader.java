@@ -31,7 +31,7 @@ public class PanelAjoutHeader extends JPanel{
 
         retourBtn = new Bouton(380, 33, "Retour", Color.WHITE, new Color(255, 184, 0));
 
-        retourBtn.addMouseListener(new ControlleurRetourBtn(retourBtn,this));
+        retourBtn.addMouseListener(new ControleurRetourBtn(retourBtn,this));
 
         this.add(retourBtn);
         this.setBackground(new Color(255, 235, 153));
@@ -47,7 +47,7 @@ public class PanelAjoutHeader extends JPanel{
     	return this.retourBtn;
     }
 
-    public void setFenetreRappelVisible(){
-        fenetreAjout.setFenetreRappelVisible();
+    public void setFenetreAccueilVisible(){
+        fenetreAjout.setFenetreAccueilVisible();
     }
 }

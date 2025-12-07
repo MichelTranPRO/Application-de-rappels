@@ -1,11 +1,8 @@
 package fr.iutfbleau.papillon;
-
 import java.awt.*;
 import javax.swing.*;
 
-import fr.iutfbleau.papillon.FenetreAjout;
-
-public class PanelAjout extends JPanel{
+public class PanelRappel extends JPanel{
     private int largeur;
     private int hauteur;
     private JLabel titre;
@@ -14,13 +11,16 @@ public class PanelAjout extends JPanel{
     private JTextField champTitre;
     private JThemeArea zoneThemes;
     private JTextArea champContenu;
-    private Bouton validerBtn;
+    private Bouton modifBtn;
     private Color fondPanel;
     private GridBagConstraints contraintes;
-    private FenetreAjout fenetreAjout;
 
-    public PanelAjout(FenetreAjout fenetreAjout){
-        this.fenetreAjout=fenetreAjout;
+    private Rappel rappel;
+    private FenetreRappel fenetreRappel;
+
+    public PanelRappel(Rappel rappel, FenetreRappel fenetreRappel){
+        this.rappel=rappel;
+        this.fenetreRappel=fenetreRappel;
         this.contraintes = new GridBagConstraints();
 
         this.titre=new JLabel("Titre (50 caractères maximum) :");
@@ -31,13 +31,15 @@ public class PanelAjout extends JPanel{
         contexte.setFont(new Font("Dialog", Font.BOLD, 12));
         
         this.zoneThemes=new JThemeArea();
-        this.champTitre= new JTextField();
+        zoneThemes.setClick(1, rappel.getTheme());
+        this.champTitre= new JTextField(rappel.getTitle());
         this.champContenu= new JTextArea(4,0);
+        champContenu.setText(rappel.getContent());
         champContenu.setLineWrap(true);
         champContenu.setWrapStyleWord(true);
 
-        this.validerBtn= new Bouton(340,33,"Valider", new Color(0, 200, 83), Color.WHITE);
-        validerBtn.addMouseListener(new ControleurValiderBtn(validerBtn,this));
+        this.modifBtn= new Bouton(340,33,"Modifier", new Color(26, 115, 234), Color.WHITE);
+        modifBtn.addMouseListener(new ControleurModifierRappelBtn(modifBtn,this));
         this.fondPanel= new Color(255, 249, 227);
 
         this.setLayout(new GridBagLayout());
@@ -87,12 +89,12 @@ public class PanelAjout extends JPanel{
         contraintes.fill = GridBagConstraints.NONE;
         contraintes.anchor = GridBagConstraints.CENTER;
         contraintes.insets = new Insets(5, 0, 10, 0); 
-        this.add(validerBtn,contraintes);
+        this.add(modifBtn,contraintes);
         
     }
 
-    public void setFenetreAccueilVisible(){
-        fenetreAjout.setFenetreAccueilVisible();
+    public void updateRappel(){
+        fenetreRappel.updateRappel(rappel.getId(),rappel.getTheme(),champTitre.getText(),champContenu.getText());
     }
 
     /**
@@ -118,7 +120,7 @@ public class PanelAjout extends JPanel{
      * 
      * @return le bouton de validation
      */
-    public Bouton getvaliderBtn() {
-    	return this.validerBtn;
+    public Bouton getModifBtn() {
+    	return this.modifBtn;
     }
 }

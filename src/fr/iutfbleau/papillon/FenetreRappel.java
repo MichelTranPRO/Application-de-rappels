@@ -1,32 +1,31 @@
 package fr.iutfbleau.papillon;
-
 import java.awt.*;
 import javax.swing.*;
 
 public class FenetreRappel extends JPanel{
-	private FenetreMain fenetreMain;
-	private PanelRappelsHeader header;
-	private PanelRappels rappels;
-	private JScrollPane scrollPanel;
+    private Rappel rappel;
+    private FenetreAccueil fenetreAccueil;
+    private PanelRappelHeader header;
+    private PanelRappel content;
+    private JPanel marges;
+    public FenetreRappel(Rappel rappel, FenetreAccueil fenetreAccueil){
+        this.rappel=rappel;
+        this.fenetreAccueil=fenetreAccueil;
+        header=new PanelRappelHeader(this);
+        content=new PanelRappel(rappel,this);
+        marges = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        this.setLayout(new BorderLayout());
+        this.add(header, BorderLayout.NORTH);
+        marges.setBackground(Color.WHITE);
+        marges.add(content);
+        this.add(marges, BorderLayout.CENTER);
+    }
+    public void returnFenetreAccueil(){
+        fenetreAccueil.returnFenetreAccueil();
+    }
 
-	public FenetreRappel(FenetreMain fenetreMain){
-		this.fenetreMain = fenetreMain;
-		rappels = new PanelRappels();
-		header = new PanelRappelsHeader(this,rappels);
-		scrollPanel = new JScrollPane(rappels);
-
-		scrollPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPanel.getVerticalScrollBar().setUnitIncrement(7);
-		scrollPanel.setPreferredSize(new Dimension(400,100));
-
-		this.setLayout(new BorderLayout());
-		this.add(header, BorderLayout.NORTH);
-		this.add(scrollPanel, BorderLayout.CENTER);
-		this.setVisible(true);
-	}
-
-	public void setFenetreAjoutVisible(){
-		fenetreMain.setFenetre(2);
-	}
+    public void updateRappel(int id, int theme, String title, String context){
+        // requete à mettre
+        this.returnFenetreAccueil();
+    }
 }

@@ -1,15 +1,15 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class FenetreRappel extends JFrame{
+public class FenetreRappel extends JPanel{
     private PanelRappelHeader header;
-    private PanelRappel containt;
+    private PanelRappel content;
     public FenetreRappel(){
         header=new PanelRappelHeader();
-        containt=new PanelRappel();
+        content=new PanelRappel();
         this.setLayout(new BorderLayout());
         this.add(header, BorderLayout.NORTH);
-        this.add(containt, BorderLayout.CENTER);
+        this.add(content, BorderLayout.CENTER);
         this.setSize(390,300);
         this.setVisible(true);
     }

@@ -1,3 +1,4 @@
+package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
@@ -9,21 +10,23 @@ import javax.swing.*;
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class PanelAjoutHeader extends JPanel{
+public class PanelRappelHeader extends JPanel{
 
     /**
      * Bouton "Retour", pour ajouter un rappel.
      */
     private Bouton retourBtn;
+    private FenetreRappel fenetreRappel;
 
     /**
      * Le constructeur de la classe <code>PanelAjoutHeader</code> initialise tous les composants nécessaire à son affichage 
      */
-    public PanelAjoutHeader(){
+    public PanelRappelHeader(FenetreRappel fenetreRappel){
+        this.fenetreRappel=fenetreRappel;
 
-        retourBtn = new Bouton(400, 43, "Retour", Color.WHITE, new Color(255, 184, 0));
+        retourBtn = new Bouton(380, 33, "Retour", Color.WHITE, new Color(255, 184, 0));
 
-        retourBtn.addMouseListener(new ControlleurRetourRappelBtn(retourBtn));
+        retourBtn.addMouseListener(new ControleurRetourRappelBtn(retourBtn,fenetreRappel));
 
         this.add(retourBtn);
         this.setBackground(new Color(255, 235, 153));

@@ -1,18 +1,19 @@
-
+package fr.iutfbleau.papillon;
+import fr.iutfbleau.papillon.PanelAjoutHeader;
 import java.awt.*;
 import java.awt.event.*;
 
 
 
 /**
- * La classe <code>ControlleurRetourBtn</code> est utilisée 
+ * La classe <code>ControleurRetourBtn</code> est utilisée 
  * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
  * 
  * @version 1.0
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurRetourBtn implements MouseListener{
+public class ControleurRetourBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
@@ -20,18 +21,25 @@ public class ControlleurRetourBtn implements MouseListener{
     private Bouton bouton;
 
     /**
-     * Le constructeur de la classe <code>ControlleurRetourBtn</code> 
+     * Lien avec la classe <code>panelAjoutHeader</code>.S
+     */
+    private PanelAjoutHeader panelAjoutHeader;
+
+    /**
+     * Le constructeur de la classe <code>ControleurRetourBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurRetourBtn(Bouton bouton){
+	public ControleurRetourBtn(Bouton bouton, PanelAjoutHeader panelAjoutHeader){
         this.bouton=bouton;
+        this.panelAjoutHeader=panelAjoutHeader;
 	}
 
     /**
      * Appelle une fonction pour afficher la fenetre rappel.
      */
 	public void mouseClicked(MouseEvent e) {
+        panelAjoutHeader.setFenetreAccueilVisible();
 	}
 
     /**

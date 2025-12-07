@@ -9,7 +9,7 @@ import java.awt.event.*;
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurValiderBtn implements MouseListener{
+public class ControleurModifierRappelBtn implements MouseListener{
 	
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
@@ -21,7 +21,7 @@ public class ControlleurValiderBtn implements MouseListener{
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControlleurValiderBtn(Bouton bouton){
+	public ControleurModifierRappelBtn(Bouton bouton){
         this.bouton=bouton;
 	}
 

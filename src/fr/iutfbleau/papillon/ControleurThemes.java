@@ -3,14 +3,14 @@ import java.awt.event.*;
 
 
 /**
- * La classe <code>ControlleurThemes</code> est utilisée 
+ * La classe <code>ControleurThemes</code> est utilisée 
  * pour gérer les interractions entre la souris et un objet de la classe <code>Theme</code>." 
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
-public class ControlleurThemes implements MouseListener{
+public class ControleurThemes implements MouseListener{
 
     /**
      * Variable pour contenir l'objet de la classe <code>Theme</code> avec qui intéragir
@@ -28,11 +28,11 @@ public class ControlleurThemes implements MouseListener{
     private JThemeArea panelThemes;
 
     /**
-     * Constructeur permettant relier des objets exterieurs avec la classe <code>ControlleurThemes</code>
+     * Constructeur permettant relier des objets exterieurs avec la classe <code>ControleurThemes</code>
      * @param t Objet de la classe <code>Theme</code>
      * @param panel Objet de la classe <code>JThemeArea</code>
      */
-	public ControlleurThemes(Theme t, JThemeArea panel){
+	public ControleurThemes(Theme t, JThemeArea panel){
         this.theme=t;
         this.numTheme=theme.getNumTheme();
         this.panelThemes=panel;
