@@ -54,8 +54,7 @@ public class PanelAccueil extends JPanel{
         this.repaint();
         
         int rank = 1;
-        for(Iterator<Rappel> iter = listRappels.iterator() ; iter.hasNext() ; rank++){
-            Rappel rap = iter.next();
+        for(Rappel rap : listRappels){
             this.addRappel(rap);
         }
     }

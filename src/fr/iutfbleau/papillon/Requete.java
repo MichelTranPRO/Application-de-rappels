@@ -10,7 +10,7 @@ public class Requete{
 
   private static Connection cnx;
 
-  // On charge 
+  // On charge la connection
   static{
     try {
       cnx = DriverManager.getConnection(
@@ -20,11 +20,11 @@ public class Requete{
 
     } catch (SQLException e3) {
       JOptionPane.showMessageDialog(
-        null,
-        "Impossible de se connecter à la BDD : " + e3.getMessage(),
-        "Erreur",
-        JOptionPane.ERROR_MESSAGE
-      );
+          null,
+          "Impossible de se connecter à la BDD : " + e3.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+          );
       // System.err.println("Impossible de se connecter à la BDD" + e3.getMessage());
     }
   }
@@ -33,27 +33,24 @@ public class Requete{
     try {
       Class.forName("org.mariadb.jdbc.Driver");
       try (PreparedStatement pst = cnx.prepareStatement(
-            "SELECT * FROM DEV31");
-            // "ORDER BY rang ASC"); A rajouter après
+            "SELECT * FROM DEV31" +
+            "ORDER BY rang ASC"); A rajouter après
           ResultSet rs = pst.executeQuery()) {
 
-        int rang = 1;
         List<Rappel> results = new ArrayList<>();
         while (rs.next()) {
-          Rappel rap = new Rappel(rs.getString("titre"), rs.getString("contenu"), rs.getInt("theme"), rang, rs.getInt("id"));
+          Rappel rap = new Rappel(rs.getString("titre"), rs.getString("contenu"), rs.getInt("theme"), rs.getInt("rang"), rs.getInt("id"));
           results.add(rap);
-          rang++; // Suivi du rang pour l'emplacement des rappels dans le layout
         }
 
         return results;
       } catch (SQLException e2) {
         JOptionPane.showMessageDialog(
-          null,
-          "Problème lié à la BD : " + e2.getMessage(),
-          "Erreur",
-          JOptionPane.ERROR_MESSAGE
-        );
-        // System.err.println("Problème lié à la BD : " + e2.getMessage());
+            null,
+            "Problème lié à la BD : " + e2.getMessage(),
+            "Erreur",
+            JOptionPane.ERROR_MESSAGE
+            );
         return new ArrayList<>();
       }
     } catch (ClassNotFoundException e) {
@@ -62,23 +59,63 @@ public class Requete{
           "Classe pas trouvée : " + e.getMessage(),
           "Erreur",
           JOptionPane.ERROR_MESSAGE
-      );
-      // System.err.println("Classe pas trouvée : " + e.getMessage());
+          );
       return new ArrayList<>();
     }
   }
+
   // Ne pas oublier de faire la vérification des variables au préalable
-  /* 
-     public static int insert(int id, String titre, String contenu, int theme, int rang){
 
-     }
 
-     public static int swap(int ida, int idb){
+  public static int insert(int id, String titre, String contenu, int theme) {
+    try (PreparedStatement pst1 = cnx.prepareStatement(
+          "SELECT MAX(rang) FROM DEV31");
+        ResultSet rs1 = pst1.executeQuery()) {
 
-     }
+      int nextRang = 1;
+      if (rs1.next()) {
+        nextRang = rs1.getInt(1) + 1;
+      }
 
-     public static int delete(int ida, int idb){
+      try (PreparedStatement pst2 = cnx.prepareStatement(
+            "INSERT INTO DEV31 VALUES(?, ?, ?, ?, ?)")) {
 
-     }
-     */
+        pst2.setInt(1, id);
+        pst2.setString(2, titre);
+        pst2.setString(3, contenu);
+        pst2.setInt(4, theme);
+        pst2.setInt(5, nextRang);
+
+        pst2.executeUpdate();
+        return 1;
+
+      } catch (SQLException e2) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Problème lié à la BD : " + e2.getMessage(),
+            "Erreur",
+            JOptionPane.ERROR_MESSAGE
+            );
+        return 0;
+      }
+
+    } catch (SQLException e3) {
+      JOptionPane.showMessageDialog(
+          null,
+          "Problème lié à la BD : " + e3.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+          );
+      return 0;
+    }
+  }
+
+  public static int swap(int ida, int idb){
+    
+  }
+
+  public static int delete(int ida, int idb){
+
+  }
+
 }

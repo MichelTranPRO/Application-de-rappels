@@ -2,15 +2,14 @@
 JC = javac
 JVM = java
 SRC = src/fr/iutfbleau/papillon
-JCFLAGS = -d build -sourcepath src
+JCFLAGS = -d build -classpath build -sourcepath src
 
 # Cibles
-.PHONY: all run clean jar javadoc
+.PHONY: all run clean 
 
 # Cible principale 
-all: build/Main.class
+all: build/Main.class jar javadoc
 	@echo "Compilation terminée."
-
 
 # == COMPOSANTS == #
 
@@ -18,7 +17,7 @@ build/Rappel.class: ${SRC}/Rappel.java
 	${JC} ${JCFLAGS} $<
 
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
-	${JC} ${JCFLAGS} -cp libs/mariadb-java-client-3.5.6.jar $<
+	${JC} ${JCFLAGS} -cp libs/org $<
 
 build/Theme.class: ${SRC}/Theme.java
 	${JC} ${JCFLAGS} $<
@@ -101,9 +100,6 @@ build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class 
 build/FenetreAccueil.class: ${SRC}/FenetreAccueil.java build/PanelAccueilHeader.class build/PanelAccueil.class
 	${JC} ${JCFLAGS} $<
 
-build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class build/FenetreAjout.class build/FenetreRappel.class
-	${JC} ${JCFLAGS} $<
-
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class build/FenetreAjout.class build/FenetreRappel.class build/PanelConfirmation.class build/ControleurWindowConfirm.class
 	${JC} ${JCFLAGS} $<
 
@@ -112,10 +108,9 @@ build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
-run: all 
+run: jar
+	#${JVM} -jar papillon.jar
 	${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
-
-#${JVM} -jar papillon.jar
 
 # Création de la javadoc
 javadoc:
@@ -123,10 +118,10 @@ javadoc:
 		-encoding UTF-8 -charset UTF-8 -windowtitle "Documentation SAE DEV 3.1"
 
 # Création de l'archive jar
-jar: all
-	jar cfe papillon.jar fr.iutfbleau.papillon.Main -C build .
+jar: build/Main.class
+	jar cfe papillon.jar fr.iutfbleau.papillon.Main -C build fr -C libs org
 
 # Nettoyage des fichiers compilés
 clean:
-	rm -r build/fr/
+	rm -rf build/ papillon.jar
 	@echo "Dossier build nettoyé."
