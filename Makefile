@@ -61,6 +61,12 @@ build/ControleurRetourBtn.class : ${SRC}/ControleurRetourBtn.java build/Bouton.c
 build/ControleurRappel.class : ${SRC}/ControleurRappel.java build/Rappel.class
 	${JC} ${JCFLAGS} $<
 
+build/ControleurWindowConfirm.class : ${SRC}/ControleurWindowConfirm.java
+	${JC} ${JCFLAGS} $<
+
+build/ControleurBoutonConfirm.class : ${SRC}/ControleurBoutonConfirm.java build/Bouton.class
+	${JC} ${JCFLAGS} $<
+
 # == PANELS ==#
 
 build/PanelRappel.class: ${SRC}/PanelRappel.java build/Rappel.class build/Requete.class build/ControleurModifierRappelBtn.class 
@@ -81,6 +87,9 @@ build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class bu
 build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControleurValiderBtn.class
 	${JC} ${JCFLAGS} $<
 
+build/PanelConfirmation.class: ${SRC}/PanelConfirmation.java build/Bouton.class build/ControleurBoutonConfirm.class
+	${JC} ${JCFLAGS} $<
+
 # == FENETRES == #
 
 build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelHeader.class build/PanelRappel.class
@@ -93,6 +102,9 @@ build/FenetreAccueil.class: ${SRC}/FenetreAccueil.java build/PanelAccueilHeader.
 	${JC} ${JCFLAGS} $<
 
 build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class build/FenetreAjout.class build/FenetreRappel.class
+	${JC} ${JCFLAGS} $<
+
+build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class build/FenetreAjout.class build/FenetreRappel.class build/PanelConfirmation.class build/ControleurWindowConfirm.class
 	${JC} ${JCFLAGS} $<
 
 
