@@ -37,7 +37,6 @@ public class PanelAccueil extends JPanel{
         listRappelsModif=new ArrayList<Rappel>();
         listRappelsSuppr=new ArrayList<Rappel>();
         listRappels.clear();
-        listRappels = Requete.getAllRappels();
         refreshAllRappels();
     }
 
@@ -52,7 +51,7 @@ public class PanelAccueil extends JPanel{
         this.removeAll();
         this.revalidate();
         this.repaint();
-        
+        listRappels = Requete.getAllRappels();
         for(Rappel rap : listRappels){
             this.addRappel(rap);
         }
@@ -122,8 +121,13 @@ public class PanelAccueil extends JPanel{
             JOptionPane.showMessageDialog(null, "Vous devez sélectionner exactement 2 rappels pour les échanger.");
             return;
         } else{
-          Requete.swap(listRappelsModif.get(0).getId(), listRappelsModif.get(1).getId());
+            Requete.swap(listRappelsModif.get(0).getId(), listRappelsModif.get(1).getId());
+            refreshAllRappels();
+            this.revalidate();
+            this.repaint();
         }
+        
+        
     }
     // ===============================================
 
@@ -157,13 +161,19 @@ public class PanelAccueil extends JPanel{
         }
     }
     public void deleteTabRappelSupprSQL(){
-        if (listRappelsModif.size() == 0){
+        if (listRappelsSuppr.size() == 0){
             JOptionPane.showMessageDialog(null, "Vous devez sélectionner au moins un rappel à supprimer.");
             return;
+        }else{
+            for(Rappel rap : listRappelsSuppr){
+                Requete.delete(rap.getId());
+            }
+            refreshAllRappels();
+            this.revalidate();
+            this.repaint();
         }
-        for(Rappel rap : listRappelsSuppr){
-          Requete.delete(rap.getId());
-        }
+        
+        
     }
     // ===============================================
     

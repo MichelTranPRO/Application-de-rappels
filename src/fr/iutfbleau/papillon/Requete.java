@@ -110,10 +110,10 @@ public class Requete{
 
   public static int swap(int ida, int idb){
     try (PreparedStatement pst = cnx.prepareStatement(
-          "UPDATE DEV31 AS t1" +
-          "JOIN DEV31 AS t2" +
+          "UPDATE DEV31 AS t1 " +
+          "JOIN DEV31 AS t2 " +
           "SET t1.rang = t2.rang," +
-          "t2.rang = t1.rang" +
+          "t2.rang = t1.rang " +
           "WHERE t1.id = ? AND t2.id = ?"
           )){
 
