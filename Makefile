@@ -15,6 +15,11 @@ res:
 all: res build/Main.class 
 	@echo "Compilation terminée."
 
+# == VERIFICATION == #
+
+build/VerifRappel.class: ${SRC}/VerifRappel.java
+	${JC} ${JCFLAGS} $<
+
 # == COMPOSANTS == #
 
 build/Rappel.class: ${SRC}/Rappel.java
@@ -90,7 +95,7 @@ build/PanelAccueilHeader.class: ${SRC}/PanelAccueilHeader.java build/PanelAccuei
 build/PanelAjoutHeader.class: ${SRC}/PanelAjoutHeader.java build/Bouton.class build/ControleurRetourBtn.class
 	${JC} ${JCFLAGS} $<
 
-build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControleurValiderBtn.class
+build/PanelAjout.class: ${SRC}/PanelAjout.java build/Bouton.class build/JThemeArea.class build/ControleurValiderBtn.class build/VerifRappel.class
 	${JC} ${JCFLAGS} $<
 
 build/PanelConfirmation.class: ${SRC}/PanelConfirmation.java build/Bouton.class build/ControleurBoutonConfirm.class

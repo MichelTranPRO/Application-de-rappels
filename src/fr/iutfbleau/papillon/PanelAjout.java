@@ -31,6 +31,7 @@ public class PanelAjout extends JPanel{
         contexte.setFont(new Font("Dialog", Font.BOLD, 12));
         
         this.zoneThemes=new JThemeArea();
+
         this.champTitre= new JTextField();
         this.champContenu= new JTextArea(4,0);
         champContenu.setLineWrap(true);
@@ -91,8 +92,25 @@ public class PanelAjout extends JPanel{
         
     }
 
+    public void resetAll(){
+        zoneThemes.resetThemes();
+        champTitre.setText("");
+        champContenu.setText("");
+    }
+
     public void setFenetreAccueilVisible(){
         fenetreAjout.setFenetreAccueilVisible();
+    }
+
+    public void addRappel(){
+        if (VerifRappel.isTitleOk(champTitre.getText()) && 
+            VerifRappel.isTextOk(champContenu.getText())){
+            Requete.insert(champTitre.getText(), champContenu.getText(), zoneThemes.getTheme());
+            this.setFenetreAccueilVisible();
+        }else{
+            JOptionPane.showMessageDialog(null, "Vous devez sélectionner au moins un rappel à supprimer.");
+            return; // cas où erreur
+        }
     }
 
     /**

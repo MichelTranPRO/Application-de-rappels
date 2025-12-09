@@ -37,6 +37,7 @@ public class FenetreMain extends JFrame{
 	public void setFenetre(int indexFenetre){
 		if(indexFenetre == 1){
 			cardLayout.show(contenu, "FENETRE_ACCUEIL");
+			fenetreAccueil.refreshRappels();
 		} else if (indexFenetre == 2) {
 			cardLayout.show(contenu, "FENETRE_AJOUT");
 		} 

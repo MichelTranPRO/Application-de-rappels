@@ -12,7 +12,7 @@ public class VerifRappel {
 	 * - Pas de saut de ligne
 	 * - Au moins une lettre ou un chiffre 
 	 */
-	public boolean isTitleOk(String titre) {
+	public static boolean isTitleOk(String titre) {
 		if(titre == null || titre.isEmpty()) {
 			return false;
 		}
@@ -47,7 +47,7 @@ public class VerifRappel {
 	 * - Le contenu ne doit pas dépasser 4 lignes
 	 * - Le contenu ne doit pas avoir plus de 50 characteres par lignes
 	 */
-	public boolean isTextOk(String contenu) {
+	public static boolean isTextOk(String contenu) {
 		if(contenu == null || contenu.isEmpty()) {
 			return true;
 		}

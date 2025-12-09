@@ -65,7 +65,7 @@ public class Requete{
   }
 
   // Ne pas oublier de faire la vérification des variables au préalable
-  public static int insert(int id, String titre, String contenu, int theme) {
+  public static int insert(String titre, String contenu, int theme) {
     try (PreparedStatement pst1 = cnx.prepareStatement(
           "SELECT MAX(rang) FROM DEV31");
         ResultSet rs1 = pst1.executeQuery()) {
@@ -76,13 +76,13 @@ public class Requete{
       }
 
       try (PreparedStatement pst2 = cnx.prepareStatement(
-            "INSERT INTO DEV31 VALUES(?, ?, ?, ?, ?)")) {
+            "INSERT INTO DEV31 (titre, contenu, theme, rang) " + 
+            "VALUES(?, ?, ?, ?)")) {
 
-        pst2.setInt(1, id);
-        pst2.setString(2, titre);
-        pst2.setString(3, contenu);
-        pst2.setInt(4, theme);
-        pst2.setInt(5, nextRang);
+        pst2.setString(1, titre);
+        pst2.setString(2, contenu);
+        pst2.setInt(3, theme);
+        pst2.setInt(4, nextRang);
 
         pst2.executeQuery();
         return 1;

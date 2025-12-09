@@ -64,6 +64,13 @@ public class JThemeArea extends JPanel{
         }
         repaint();
     }
+
+    public void resetThemes(){
+        for (int i=0 ; i< tabStatutCliqueThemes.length ; i++){
+            tabStatutCliqueThemes[i]=false;
+            tabThemes[i].setColorTheme(tabColors[i][0]);
+        }
+    }
     
     public boolean getStatut(int numTheme) {
         return tabStatutCliqueThemes[numTheme];

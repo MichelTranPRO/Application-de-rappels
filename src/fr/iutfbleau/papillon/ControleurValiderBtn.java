@@ -36,7 +36,8 @@ public class ControleurValiderBtn implements MouseListener{
     @Override
 	public void mouseClicked(MouseEvent e) {
         // je mets juste le code pour retourner a la fenetre rappel faudra mettre les verifs avant
-        panelAjout.setFenetreAccueilVisible();
+        panelAjout.addRappel();
+        panelAjout.resetAll();
 	}
 
     /**
