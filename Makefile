@@ -8,7 +8,7 @@ JCFLAGS = -d build -classpath build -sourcepath src
 .PHONY: all run clean 
 
 # Cible principale 
-all: build/Main.class jar javadoc
+all: build/Main.class 
 	@echo "Compilation terminée."
 
 # == COMPOSANTS == #
@@ -108,9 +108,9 @@ build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
 # Exécution du programme
-run: jar
-	#${JVM} -jar papillon.jar
+run: all
 	${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
+#${JVM} -jar papillon.jar
 
 # Création de la javadoc
 javadoc:
