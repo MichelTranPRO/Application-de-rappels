@@ -6,11 +6,13 @@ import java.awt.event.*;
 public class ControleurBoutonConfirm extends MouseAdapter {
 	
 	private FenetreMain fenetreMain;
+    private PanelConfirmation panelConfirmation;
     private Bouton btnAnnuler;
     private Bouton btnQuitter;
 
-	public ControleurBoutonConfirm(FenetreMain fenetreMain, Bouton btnAnnuler, Bouton btnQuitter) {
+	public ControleurBoutonConfirm(FenetreMain fenetreMain, Bouton btnAnnuler, Bouton btnQuitter, PanelConfirmation panelConfirmation) {
 		this.fenetreMain = fenetreMain;
+        this.panelConfirmation=panelConfirmation;
         this.btnAnnuler = btnAnnuler;
         this.btnQuitter = btnQuitter;
 	}
@@ -36,6 +38,6 @@ public class ControleurBoutonConfirm extends MouseAdapter {
     }
     
     public void annulerFermeture() {
-        this.fenetreMain.returnFenetreAccueil();
+        panelConfirmation.dispose();
     }
 }

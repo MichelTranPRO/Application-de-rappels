@@ -13,6 +13,6 @@ public class ControleurWindowConfirm extends WindowAdapter {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        this.fenetreMain.afficherEcranConfirmation();
+        new PanelConfirmation(fenetreMain);
     }
 }

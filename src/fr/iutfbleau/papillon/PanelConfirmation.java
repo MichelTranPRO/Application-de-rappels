@@ -3,7 +3,7 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-public class PanelConfirmation extends JPanel{
+public class PanelConfirmation extends JDialog{
 
 	private FenetreMain fenetreMain;
     private JLabel titre;
@@ -13,6 +13,7 @@ public class PanelConfirmation extends JPanel{
     private GridBagConstraints contraintes;
 
 	public PanelConfirmation(FenetreMain fenetreMain) {
+		super(fenetreMain,"Confirmation", true);
 		this.fenetreMain = fenetreMain;
 		this.contraintes = new GridBagConstraints();
 
@@ -30,7 +31,7 @@ public class PanelConfirmation extends JPanel{
 		this.btnAnnuler = new Bouton(180,40,"Non", new Color(108,117,125), Color.WHITE);
 		this.btnAnnuler.setName("ANNULER");
 
-		ControleurBoutonConfirm ctrlBouton = new ControleurBoutonConfirm(fenetreMain, btnAnnuler, btnQuitter);
+		ControleurBoutonConfirm ctrlBouton = new ControleurBoutonConfirm(fenetreMain, btnAnnuler, btnQuitter,this);
 
 		btnQuitter.addMouseListener(ctrlBouton);
 		btnAnnuler.addMouseListener(ctrlBouton);
@@ -53,5 +54,10 @@ public class PanelConfirmation extends JPanel{
 		contraintes.gridy = 1;
 		contraintes.insets = new Insets(0,10,0,10);
 		this.add(btnAnnuler, contraintes);
+
+		this.pack();
+        this.setResizable(false);
+        this.setLocationRelativeTo(fenetreMain);
+        this.setVisible(true);
 	}
 }

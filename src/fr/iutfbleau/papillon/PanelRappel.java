@@ -94,7 +94,7 @@ public class PanelRappel extends JPanel{
     }
 
     public void updateRappel(){
-        fenetreRappel.updateRappel(rappel.getId(),rappel.getTheme(),champTitre.getText(),champContenu.getText());
+        fenetreRappel.updateRappel(rappel.getId(),zoneThemes.getTheme(),champTitre.getText(),champContenu.getText());
     }
 
     /**

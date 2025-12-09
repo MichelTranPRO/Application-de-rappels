@@ -36,7 +36,7 @@ public class PanelAccueilHeader extends JPanel{
     /**
      * Bouton "✕", pour supprimer un rappel.
      */
-    private Bouton supprBtn;
+    private BoutonSuppr supprBtn;
 
 
     /**
@@ -75,7 +75,7 @@ public class PanelAccueilHeader extends JPanel{
         // Boutons
         ajouterValiderBtn = new BoutonAjouterValider(124,33, "Ajouter",Color.WHITE, new Color(255, 184, 0));
         modifBtn = new Bouton(33,33, "⇄",Color.WHITE, new Color(255, 184, 0));
-        supprBtn = new Bouton(33,33, "🗑️",Color.WHITE, new Color(255, 184, 0));
+        supprBtn = new BoutonSuppr(33,33,Color.WHITE);
 
         // Controlleurs
         ctrlAjouterValider = new ControleurAjouterValiderBtn(ajouterValiderBtn,this,panelAccueil);
@@ -131,12 +131,12 @@ public class PanelAccueilHeader extends JPanel{
         this.statutSupprBtn=statut;
         if (statut){
             ajouterValiderBtn.setVisibleDessinAjouter(false); // afficher le bouton "valider"
-            supprBtn.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
+            supprBtn.setHoverColor(true);
             panelAccueil.setModeSuppr(true);
         }
         if (!statut){
             ajouterValiderBtn.setVisibleDessinAjouter(true); // afficher le bouton "ajouter"
-            supprBtn.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
+            supprBtn.setHoverColor(false);
             panelAccueil.setModeSuppr(false);
         }
         repaint();

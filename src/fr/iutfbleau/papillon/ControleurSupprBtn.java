@@ -16,7 +16,7 @@ public class ControleurSupprBtn implements MouseListener{
     /**
      * Bouton ajouter de la classe <code>Panelheader</code>
      */
-	private Bouton bouton;
+	private BoutonSuppr bouton;
     private PanelAccueilHeader panelAccueilHeader;
 
     /**
@@ -24,7 +24,7 @@ public class ControleurSupprBtn implements MouseListener{
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
-	public ControleurSupprBtn(Bouton bouton, PanelAccueilHeader panelAccueilHeader){
+	public ControleurSupprBtn(BoutonSuppr bouton, PanelAccueilHeader panelAccueilHeader){
         this.bouton = bouton;
         this.panelAccueilHeader = panelAccueilHeader;
 	}
@@ -46,7 +46,7 @@ public class ControleurSupprBtn implements MouseListener{
 	public void mouseExited(MouseEvent e) {
         // hover uniquement si pas en mode modif
         if (!panelAccueilHeader.getStatutSupprBtn()) {
-            bouton.setHoverColor(false, new Color(255,184,0), new Color(255,255,255));
+            bouton.setHoverColor(false);
         }
     }
     
@@ -58,7 +58,7 @@ public class ControleurSupprBtn implements MouseListener{
 	public void mouseEntered(MouseEvent e) {
         // hover uniquement si pas en mode modif
         if (!panelAccueilHeader.getStatutSupprBtn()) {
-            bouton.setHoverColor(true, new Color(255,184,0), new Color(255,255,255));
+            bouton.setHoverColor(true);
         }
     }
 	public void mousePressed(MouseEvent e) {

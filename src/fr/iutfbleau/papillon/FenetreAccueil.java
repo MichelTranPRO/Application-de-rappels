@@ -32,6 +32,7 @@ public class FenetreAccueil extends JPanel{
 		fenetreMain.setFenetreRappel(rappel);
 	}
 	public void returnFenetreAccueil(){
+		rappels.refreshAllRappels();
 		fenetreMain.returnFenetreAccueil();
 	}
 }
