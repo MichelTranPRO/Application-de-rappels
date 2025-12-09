@@ -23,7 +23,8 @@ Ce projet a été développé en **Java** en suivant les consignes du professeur
 
 ## Compilation et exécution
 ### Pré-requis
-[!] La bibliothèqe externe MariaDB qui est dans le dossier `libs`
+> [!IMPORTANT]
+> La bibliothèqe externe MariaDB qui est dans le dossier `libs`
 
 ### Compilation
 On utilise le fichier `Makefile` pour compiler avec :
