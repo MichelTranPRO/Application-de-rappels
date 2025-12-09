@@ -53,7 +53,6 @@ public class PanelAccueil extends JPanel{
         this.revalidate();
         this.repaint();
         
-        int rank = 1;
         for(Rappel rap : listRappels){
             this.addRappel(rap);
         }
@@ -66,12 +65,6 @@ public class PanelAccueil extends JPanel{
         this.add(rap, contraintes); 
     }
 
-    public void deleteRappel(){
-    }
-
-    public void updateRappel(){
-
-    }
     // ============ METHODES MODE MODIF ==============
     /**
      * cette méthode permet de changer la couleur des tous les rappels en fonction du boolean donné. Et met change le staut de tous les rappels 
@@ -128,12 +121,13 @@ public class PanelAccueil extends JPanel{
         if (listRappelsModif.size() != 2){
             JOptionPane.showMessageDialog(null, "Vous devez sélectionner exactement 2 rappels pour les échanger.");
             return;
+        } else{
+          Requete.swap(listRappelsModif.get(0).getId(), listRappelsModif.get(1).getId());
         }
-        //requete
     }
     // ===============================================
 
-    // ============ METHODES MODE MODIF ==============
+    // ============ METHODES MODE SUPPR ==============
     public void setModeSuppr(boolean statut){
         if (statut){
             for (Rappel r : listRappels){
@@ -167,7 +161,9 @@ public class PanelAccueil extends JPanel{
             JOptionPane.showMessageDialog(null, "Vous devez sélectionner au moins un rappel à supprimer.");
             return;
         }
-        //requete
+        for(Rappel rap : listRappelsSuppr){
+          Requete.delete(rap.getId());
+        }
     }
     // ===============================================
     

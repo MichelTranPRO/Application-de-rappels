@@ -25,7 +25,7 @@ public class FenetreRappel extends JPanel{
     }
 
     public void updateRappel(int id, int theme, String title, String context){
-        // requete à mettre
+        Requete.update(id, title, context, theme);
         this.returnFenetreAccueil();
     }
 }

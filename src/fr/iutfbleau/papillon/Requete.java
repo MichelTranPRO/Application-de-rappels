@@ -33,8 +33,8 @@ public class Requete{
     try {
       Class.forName("org.mariadb.jdbc.Driver");
       try (PreparedStatement pst = cnx.prepareStatement(
-            "SELECT * FROM DEV31" +
-            "ORDER BY rang ASC"); A rajouter après
+            "SELECT * FROM DEV31 " +
+            "ORDER BY rang ASC"); 
           ResultSet rs = pst.executeQuery()) {
 
         List<Rappel> results = new ArrayList<>();
@@ -65,8 +65,6 @@ public class Requete{
   }
 
   // Ne pas oublier de faire la vérification des variables au préalable
-
-
   public static int insert(int id, String titre, String contenu, int theme) {
     try (PreparedStatement pst1 = cnx.prepareStatement(
           "SELECT MAX(rang) FROM DEV31");
@@ -86,23 +84,23 @@ public class Requete{
         pst2.setInt(4, theme);
         pst2.setInt(5, nextRang);
 
-        pst2.executeUpdate();
+        pst2.executeQuery();
         return 1;
 
-      } catch (SQLException e2) {
+      } catch (SQLException e4) {
         JOptionPane.showMessageDialog(
             null,
-            "Problème lié à la BD : " + e2.getMessage(),
+            "Problème lié à la BD : " + e4.getMessage(),
             "Erreur",
             JOptionPane.ERROR_MESSAGE
             );
         return 0;
       }
 
-    } catch (SQLException e3) {
+    } catch (SQLException e5) {
       JOptionPane.showMessageDialog(
           null,
-          "Problème lié à la BD : " + e3.getMessage(),
+          "Problème lié à la BD : " + e5.getMessage(),
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
@@ -111,10 +109,75 @@ public class Requete{
   }
 
   public static int swap(int ida, int idb){
-    
+    try (PreparedStatement pst = cnx.prepareStatement(
+          "UPDATE DEV31 AS t1" +
+          "JOIN DEV31 AS t2" +
+          "SET t1.rang = t2.rang," +
+          "t2.rang = t1.rang" +
+          "WHERE t1.id = ? AND t2.id = ?"
+          )){
+
+      pst.setInt(1, ida);
+      pst.setInt(2, idb);
+      ResultSet rs = pst.executeQuery();
+
+      return 1;
+
+    } catch (SQLException e6) {
+      JOptionPane.showMessageDialog(
+          null,
+          "Problème lié à la BD : " + e6.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+          );
+      return 0;
+    }
   }
 
-  public static int delete(int ida, int idb){
+  public static int delete(int id){
+    try (PreparedStatement pst = cnx.prepareStatement(
+          "DELETE FROM DEV31 " +
+          "WHERE id = ?"
+          )){
+
+      pst.setInt(1, id);
+      ResultSet rs = pst.executeQuery();
+
+      return 1;
+    } catch (SQLException e7) {
+      JOptionPane.showMessageDialog(
+          null,
+          "Problème lié à la BD : " + e7.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+          );
+      return 0;
+    }
+  }
+
+  public static int update(int id, String titre, String contenu, int theme){
+    try (PreparedStatement pst = cnx.prepareStatement(
+          "UPDATE DEV31 " +
+          "SET titre = ?, contenu = ?, theme = ? " +
+          "WHERE id = ?"
+          )){
+
+      pst.setString(1, titre);
+      pst.setString(2, contenu);
+      pst.setInt(3, theme);
+      pst.setInt(4, id);
+      ResultSet rs = pst.executeQuery();
+
+      return 1;
+    } catch (SQLException e8) {
+      JOptionPane.showMessageDialog(
+          null,
+          "Problème lié à la BD : " + e8.getMessage(),
+          "Erreur",
+          JOptionPane.ERROR_MESSAGE
+          );
+      return 0;
+    }
 
   }
 

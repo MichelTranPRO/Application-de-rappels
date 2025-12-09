@@ -91,7 +91,7 @@ build/PanelConfirmation.class: ${SRC}/PanelConfirmation.java build/Bouton.class 
 
 # == FENETRES == #
 
-build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelHeader.class build/PanelRappel.class
+build/FenetreRappel.class: ${SRC}/FenetreRappel.java build/PanelRappelHeader.class build/PanelRappel.class build/Requete.class
 	${JC} ${JCFLAGS} $<
 
 build/FenetreAjout.class: ${SRC}/FenetreAjout.java build/PanelAjoutHeader.class build/PanelAjout.class
