@@ -18,7 +18,7 @@ Ce projet a été développé en **Java** en suivant les consignes du professeur
 |.gitignore						//Types de fichier que git devrait ignorer
 |Makefile						//Fichier Makefile
 |TO DO.md 						//Fichier markdown d'objectif que nous nous mettons dans notre équipe
-|README.md 						//Fichier markdown de présentation pour ce projet git
+|README.md 						//Fichier markdown de présentation pour ce projet 
 ```
 
 ## Compilation et exécution
