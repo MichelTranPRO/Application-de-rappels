@@ -64,6 +64,6 @@ Le rapport du projet est disponible dans le dossier `res`, ainsi que les diagram
 
 ## Auteurs
 Ce projet a été réalisé dans le cadre d'une situation d'apprentissage et d'évaluation au sein de la formation de BUT informatique à Fontainebleau dans un but d'apprentissage uniquement. Les auteurs sont : 
-* Michel TRAN
-* Rayan BISSON
-* Emmanuel SRIVASTAVA-TIAMZON
+* [Michel TRAN](https://grond.iut-fbleau.fr/tranm/)
+* [Rayan BISSON](https://grond.iut-fbleau.fr/bissonr/)
+* [Emmanuel SRIVASTAVA-TIAMZON](https://grond.iut-fbleau.fr/srivasta/)
