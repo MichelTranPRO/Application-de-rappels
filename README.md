@@ -14,6 +14,7 @@ Ce projet a été développé en **Java** en suivant les consignes du professeur
 |build							//Les fichiers temporaires
 |libs/META-INF					//Bibliothèque externe maria DB 
 |src/fr/iutfbleau/papillon		//Code source .java
+|res 							//Ressources : Diagrammes et rapport du projet
 |.gitignore						//Types de fichier que git devrait ignorer
 |Makefile						//Fichier Makefile
 |TO DO.md 						//Fichier markdown d'objectif que nous nous mettons dans notre équipe
@@ -22,7 +23,7 @@ Ce projet a été développé en **Java** en suivant les consignes du professeur
 
 ## Compilation et exécution
 ### Pré-requis
-* La bibliothèqe externe MariaDB qui est dans le dossier `libs`
+[!] La bibliothèqe externe MariaDB qui est dans le dossier `libs`
 
 ### Compilation
 On utilise le fichier `Makefile` pour compiler avec :
@@ -46,8 +47,8 @@ Grâce au Makefile on génère une archive exécutable avec :
 make jar
 ```
 
-### Création de la javadoc 
-On peut aussi créer la javadoc grâce au `Makefile` : 
+### Création de la documentation javadoc
+On peut aussi créer une documentation générée via **Javadoc** grâce au `Makefile` : 
 ```bash
 make javadoc
 ```
@@ -57,3 +58,12 @@ Les fichiers `.class` que vous aviez générer peuvent être effacés grâce au 
 ```bash
 make clean
 ``` 
+
+## Rapport 
+Le rapport du projet est disponible dans le dossier `res`, ainsi que les diagrammes de classe
+
+## Auteurs
+Ce projet a été réalisé dans le cadre d'une situation d'apprentissage et d'évaluation au sein de la formation de BUT informatique à Fontainebleau dans un but d'apprentissage uniquement. Les auteurs sont : 
+* Michel TRAN
+* Rayan BISSON
+* Emmanuel SRIVASTAVA-TIAMZON
