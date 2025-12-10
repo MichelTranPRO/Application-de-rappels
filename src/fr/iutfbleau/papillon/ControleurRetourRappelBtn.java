@@ -2,22 +2,21 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import java.awt.event.*;
 
-
-
 /**
- * La classe <code>ControlleurRetourBtn</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
- * 
- * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ * La classe <code>ControleurRetourRappelBtn</code> permet de gérer 
+ * les interactions avec le bouton retour de la fenêtre de rappel.
+ * @author Papillon
  */
-
 public class ControleurRetourRappelBtn implements MouseListener{
 	
     /**
-     * Bouton ajouter de la classe <code>Panelheader</code>
+     * Le bouton de retour.
      */
     private Bouton bouton;
+
+    /**
+     * La fenêtre de rappel.
+     */
     private FenetreRappel fenetreRappel;
 
     /**

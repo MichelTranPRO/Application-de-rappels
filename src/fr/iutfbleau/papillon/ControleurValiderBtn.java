@@ -1,30 +1,27 @@
 package fr.iutfbleau.papillon;
-import fr.iutfbleau.papillon.PanelAjoutHeader;
+
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * La classe <code>ControleurValiderBtn</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
- * 
- * @version 1.0
- * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ * La classe <code>ControleurValiderBtn</code> permet de gérer 
+ * les interactions avec le bouton valider de la fenêtre d'ajout.
+ * @author Papillon
  */
-
 public class ControleurValiderBtn implements MouseListener{
 	
     /**
-     * Bouton ajouter de la classe <code>Panelheader</code>
+     * Le bouton de validation.
      */
     private Bouton bouton;
 
     /**
-     * Lien avec la classe <code>panelAjoutHeader</code>.S
+     * Le panel d'ajout.
      */
     private PanelAjout panelAjout;
 
     /**
-     * Le constructeur de la classe <code>ControleurValiderBtn</code> 
+     * Le constructeur de la classe <code>ControlleurValiderBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
      */
@@ -35,7 +32,6 @@ public class ControleurValiderBtn implements MouseListener{
 
     @Override
 	public void mouseClicked(MouseEvent e) {
-        // je mets juste le code pour retourner a la fenetre rappel faudra mettre les verifs avant
         panelAjout.addRappel();
         panelAjout.resetAll();
 	}
