@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+/**
+ * La classe <code>Requete</code> gère les interactions avec la base de données.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class Requete{
-
+  
   private static Connection cnx;
 
   // On charge la connection
@@ -28,6 +34,10 @@ public class Requete{
     }
   }
 
+  /**
+   * Récupère tous les rappels depuis la base de données.
+   * @return La liste des rappels.
+   */
   public static List<Rappel> getAllRappels(){
     try {
       Class.forName("org.mariadb.jdbc.Driver");
@@ -63,7 +73,13 @@ public class Requete{
     }
   }
 
-  // Ne pas oublier de faire la vérification des variables au préalable
+  /**
+   * Insère un nouveau rappel dans la base de données.
+   * @param titre
+   * @param contenu
+   * @param theme
+   * @return 1 si l'insertion a réussi, 0 sinon.
+   */
   public static int insert(String titre, String contenu, int theme) {
     try (PreparedStatement pst1 = cnx.prepareStatement(
           "SELECT MAX(rang) FROM DEV31");
@@ -107,6 +123,12 @@ public class Requete{
     }
   }
 
+  /**
+   * Échange les rangs de deux rappels dans la base de données.
+   * @param ida
+   * @param idb
+   * @return 1 si l'échange a réussi, 0 sinon.
+   */
   public static int swap(int ida, int idb){
     try (PreparedStatement pst = cnx.prepareStatement(
           "UPDATE DEV31 AS t1 " +
@@ -133,6 +155,11 @@ public class Requete{
     }
   }
 
+  /**
+   * Supprime un rappel de la base de données.
+   * @param id
+   * @return 1 si la suppression a réussi, 0 sinon.
+   */
   public static int delete(int id){
     try (PreparedStatement pst = cnx.prepareStatement(
           "DELETE FROM DEV31 " +
@@ -177,7 +204,5 @@ public class Requete{
           );
       return 0;
     }
-
   }
-
 }

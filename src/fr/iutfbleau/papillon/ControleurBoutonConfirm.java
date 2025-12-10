@@ -1,6 +1,5 @@
 package fr.iutfbleau.papillon;
 
-import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -8,46 +7,61 @@ import java.awt.event.*;
  * pour gérer les interractions entre la souris et les boutons de la classe <code>PanelConfirmation</code>."
  * 
  * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
 public class ControleurBoutonConfirm extends MouseAdapter {
 	
     /**
-     * 
+     * Lien avec la classe <code>PanelConfirmation</code>.
      */
-	private FenetreMain fenetreMain;
     private PanelConfirmation panelConfirmation;
+    
+    /**
+     * Boutons de la classe <code>PanelConfirmation</code>.
+     */
     private Bouton btnAnnuler;
+    
+    /**
+     * Boutons de la classe <code>PanelConfirmation</code>.
+     */
     private Bouton btnQuitter;
 
-	public ControleurBoutonConfirm(FenetreMain fenetreMain, Bouton btnAnnuler, Bouton btnQuitter, PanelConfirmation panelConfirmation) {
-		this.fenetreMain = fenetreMain;
+    /**
+     * Les constructeurs de la classe <code>ControleurBoutonConfirm</code> 
+     * permettent de faire le lien avec différentes classes.
+     * @param btnAnnuler
+     * @param btnQuitter
+     * @param panelConfirmation
+     */
+	public ControleurBoutonConfirm(Bouton btnAnnuler, Bouton btnQuitter, PanelConfirmation panelConfirmation) {
         this.panelConfirmation=panelConfirmation;
         this.btnAnnuler = btnAnnuler;
         this.btnQuitter = btnQuitter;
 	}
-
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le composant.
+     * Elle permet de quitter l'application ou d'annuler la fermeture.
+     */
 	@Override
     public void mouseClicked(MouseEvent e) {
-        
         if (e.getSource() == btnQuitter) {
             this.quitterApplication();
         } else if (e.getSource() == btnAnnuler) {
             this.annulerFermeture();
         }
     }
-/*Le hover
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    	Bouton b = (Bouton) e.getSource();
-    	if(b.getName().equals("QUITTER"))
-    }
-*/
+
+    /**
+     * Méthode pour quitter l'application.
+     */
     public void quitterApplication() {
         System.exit(0);
     }
     
+    /**
+     * Méthode pour annuler la fermeture de l'application.
+     */
     public void annulerFermeture() {
         panelConfirmation.dispose();
     }

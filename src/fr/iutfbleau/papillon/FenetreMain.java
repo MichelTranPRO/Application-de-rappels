@@ -3,13 +3,42 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>FenetreMain</code> est utilisée pour l'affichage de la fenêtre principale.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class FenetreMain extends JFrame{
+
+	/**
+	 * Layout pour gérer les différentes fenêtres.
+	 */
 	private CardLayout cardLayout;
+	
+	/**
+	 * Conteneur principal pour les différentes fenêtres.
+	 */
 	private JPanel contenu;
+	
+	/**
+	 * Les différentes fenêtres de l'application.
+	 */
 	private FenetreAccueil fenetreAccueil;
+	
+	/**
+	 * Les différentes fenêtres de l'application.
+	 */
 	private FenetreAjout fenetreAjout;
+	
+	/**
+	 * Les différentes fenêtres de l'application.
+	 */
 	private FenetreRappel fenetreRappel;
 
+	/**
+	 * Le constructeur de la classe <code>FenetreMain</code> initialise tous les composants nécessaire à son affichage 
+	 */
 	public FenetreMain(){
 		cardLayout = new CardLayout();
 		contenu = new JPanel(cardLayout);
@@ -36,6 +65,9 @@ public class FenetreMain extends JFrame{
 		this.setVisible(true);
 	}
 
+	/**
+	 * Méthode pour afficher les différentes fenêtres.
+	 */
 	public void setFenetre(int indexFenetre){
 		if(indexFenetre == 1){
 			cardLayout.show(contenu, "FENETRE_ACCUEIL");
@@ -44,11 +76,18 @@ public class FenetreMain extends JFrame{
 			cardLayout.show(contenu, "FENETRE_AJOUT");
 		} 
 	}
+
+	/**
+	 * Méthode pour afficher la fenêtre de rappel.
+	 */
 	public void setFenetreRappel(Rappel rappel){
 		fenetreRappel = new FenetreRappel(rappel,fenetreAccueil);
 		contenu.add(fenetreRappel,"FENETRE_RAPPEL");
 		cardLayout.show(contenu, "FENETRE_RAPPEL");
 	}
+	/**
+	 * Méthode pour revenir à la fenêtre d'accueil.
+	 */
 	public void returnFenetreAccueil(){
 		if(fenetreRappel != null) {
 			contenu.remove(fenetreRappel);

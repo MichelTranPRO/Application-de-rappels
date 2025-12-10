@@ -1,7 +1,6 @@
 package fr.iutfbleau.papillon;
-import fr.iutfbleau.papillon.Bouton;
+
 import java.awt.*;
-import javax.swing.*;
 
 
 

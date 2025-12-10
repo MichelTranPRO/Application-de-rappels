@@ -3,15 +3,47 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>PanelConfirmation</code> est utilisée pour l'affichage du panel de confirmation de fermeture de l'application.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class PanelConfirmation extends JDialog{
 
+	/**
+	 * Lien avec la classe <code>FenetreMain</code>.
+	 */
 	private FenetreMain fenetreMain;
+
+	/**	 
+	 * Label pour le titre du panel de confirmation.
+	 */
     private JLabel titre;
+
+	/**	 
+	 * Bouton pour quitter l'application.
+	 */
     private Bouton btnQuitter;
+
+	/**	 
+	 * Bouton pour annuler la fermeture de l'application.
+	 */
     private Bouton btnAnnuler;
+
+	/**
+	 * Couleur de fond du panel.
+	 */
     private Color fondPanel;
+
+	/**	 
+	 * Contraintes pour l'agencement des composants.
+	 */
     private GridBagConstraints contraintes;
 
+	/**	 
+	 * Le constructeur de la classe <code>PanelConfirmation</code> initialise tous les composants nécessaire à son affichage 
+	 */
 	public PanelConfirmation(FenetreMain fenetreMain) {
 		super(fenetreMain,"Confirmation", true);
 		this.fenetreMain = fenetreMain;
@@ -31,7 +63,7 @@ public class PanelConfirmation extends JDialog{
 		this.btnAnnuler = new Bouton(180,40,"Non", new Color(108,117,125), Color.WHITE);
 		this.btnAnnuler.setName("ANNULER");
 
-		ControleurBoutonConfirm ctrlBouton = new ControleurBoutonConfirm(fenetreMain, btnAnnuler, btnQuitter,this);
+		ControleurBoutonConfirm ctrlBouton = new ControleurBoutonConfirm(btnAnnuler, btnQuitter,this);
 
 		btnQuitter.addMouseListener(ctrlBouton);
 		btnAnnuler.addMouseListener(ctrlBouton);

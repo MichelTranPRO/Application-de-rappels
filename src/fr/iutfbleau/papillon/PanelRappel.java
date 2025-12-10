@@ -2,22 +2,72 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>PanelRappel</code> est utilisée pour l'affichage du panel de modification de rappel.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class PanelRappel extends JPanel{
-    private int largeur;
-    private int hauteur;
+
+    /**
+     * Labels et champs de texte pour le rappel.
+     */
     private JLabel titre;
+
+    /**
+     * Labels et champs de texte pour le rappel.
+     */
     private JLabel theme;
+
+    /**
+     * Labels et champs de texte pour le rappel.
+     */
     private JLabel contexte; 
+
+    /**
+     * Champs de texte pour le rappel.
+     */
     private JTextField champTitre;
+
+    /**
+     * Zone de sélection pour le thème du rappel.
+     */
     private JThemeArea zoneThemes;
+
+    /**
+     * Champs de texte pour le rappel.
+     */
     private JTextArea champContenu;
+
+    /**
+     * Bouton "Modifier", pour valider les modifications du rappel.
+     */
     private Bouton modifBtn;
+
+    /**
+     * Couleur de fond du panel.
+     */
     private Color fondPanel;
+
+    /**
+     * Contraintes pour l'agencement des composants.
+     */
     private GridBagConstraints contraintes;
 
+    /**
+     * Lien avec la classe <code>Rappel</code>.
+     */
     private Rappel rappel;
+
+    /**
+     * Lien avec la classe <code>FenetreRappel</code>.
+     */
     private FenetreRappel fenetreRappel;
 
+    /**
+     * Le constructeur de la classe <code>PanelRappel</code> initialise tous les composants nécessaire à son affichage 
+     */
     public PanelRappel(Rappel rappel, FenetreRappel fenetreRappel){
         this.rappel=rappel;
         this.fenetreRappel=fenetreRappel;
@@ -93,6 +143,9 @@ public class PanelRappel extends JPanel{
         
     }
 
+    /**
+     * Méthode pour mettre à jour le rappel dans la base de données.
+     */
     public void updateRappel(){
         fenetreRappel.updateRappel(rappel.getId(),zoneThemes.getTheme(),champTitre.getText(),champContenu.getText());
     }

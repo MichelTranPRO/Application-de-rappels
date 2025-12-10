@@ -3,8 +3,12 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-import fr.iutfbleau.papillon.FenetreMain;
-
+/**
+ * La classe <code>FenetreAjout</code> est utilisée pour l'affichage de la fenêtre d'ajout de rappel.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class FenetreAjout extends JPanel{
     /**
      * Panel header de la fenetre, qui contient le boutou "Retour".
@@ -43,6 +47,9 @@ public class FenetreAjout extends JPanel{
         this.add(marges, BorderLayout.CENTER);
     }
 
+    /**
+     * Méthode pour afficher la fenêtre d'accueil.
+     */
     public void setFenetreAccueilVisible(){
         fenetreMain.setFenetre(1);
     }

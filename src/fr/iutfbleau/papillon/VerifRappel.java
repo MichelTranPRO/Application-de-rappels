@@ -7,10 +7,13 @@ package fr.iutfbleau.papillon;
 public class VerifRappel {
 
 	/**
-	 * On verifie le titre
-	 * - Qu'elle soit pas vide, max 50 charactres
-	 * - Pas de saut de ligne
-	 * - Au moins une lettre ou un chiffre 
+	 * On verifie le titre du rappel
+	 * - Le titre ne doit pas etre vide
+	 * - Le titre ne doit pas depasser 50 characteres
+	 * - Le titre doit contenir au moins une lettre ou un chiffre
+	 * - Le titre ne doit pas contenir de saut de ligne
+	 * @param titre
+	 * @return boolean	
 	 */
 	public static boolean isTitleOk(String titre) {
 		if(titre == null || titre.isEmpty()) {
@@ -44,8 +47,10 @@ public class VerifRappel {
 	/**
 	 * On verifie le contenu du rappel
 	 * - Le contenu peut etre vide
-	 * - Le contenu ne doit pas dépasser 4 lignes
-	 * - Le contenu ne doit pas avoir plus de 50 characteres par lignes
+	 * - Le contenu ne doit pas depasser 4 lignes
+	 * - Chaque ligne ne doit pas depasser 50 characteres
+	 * @param contenu
+	 * @return boolean
 	 */
 	public static boolean isTextOk(String contenu) {
 		if(contenu == null || contenu.isEmpty()) {

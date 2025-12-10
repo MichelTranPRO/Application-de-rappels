@@ -3,26 +3,102 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-
-
+/**
+ * La classe <code>Rappel</code> représente un rappel avec ses attributs et méthodes pour la gestion de son affichage.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class Rappel extends JComponent{
+
+    /**
+     * Largeur du rappel.
+     */
     private int largeur;
+
+    /**
+     * Hauteur du rappel.
+     */
     private int hauteur;
+
+    /**
+     * Titre du rappel.
+     */
     private String titre;
+
+    /**
+     * Contenu du rappel.
+     */
     private String contexte;
+
+    /**
+     * Thème du rappel.
+     */
     private int theme;
+
+    /**
+     * Rang du rappel.
+     */
     private int rang;
+
+    /**
+     * Identifiant unique du rappel.
+     */
     private int id;
+
+    /**
+     * Tableau des thèmes avec leurs couleurs associées.
+     */
     private Color[][] tabTheme;
+
+    /**
+     * Mesure du texte pour le dessin.
+     */
     private FontMetrics mesureTexte;
+
+    /**
+     * Hauteur du texte.
+     */
     private int texteHauteur;
+
+    /**
+     * Position X du texte.
+     */
     private int xTexte;
+
+    /**
+     * Position Y du texte.
+     */
     private int yTexte;
+
+    /**
+     * Couleur actuelle du rappel.
+     */
     private Color couleurActuelle;
+
+    /**
+     * Couleur actuelle du texte du rappel.
+     */
     private Color texteCouleurActuelle;
+
+    /**
+     * Statut du mode modification.
+     */
     private boolean statutModeModif;
-    private boolean selectedModif = false;
-    private boolean selectedSuppr = false;
+
+    /**
+     * Statut du mode modification.
+     */
+    private boolean selectedModif;
+
+    /**
+     * Statut du mode suppression.
+     */
+    private boolean selectedSuppr;
+
+    /**
+     * Statut du mode suppression.
+     */
     private boolean statutModeSuppr;
 
     public Rappel(String titre, String contexte, int theme, int rang, int id){
@@ -48,6 +124,9 @@ public class Rappel extends JComponent{
         this.texteCouleurActuelle= tabTheme[theme][2];
 
         this.statutModeModif=false;
+        this.selectedModif=false;
+        this.statutModeSuppr=false;
+        this.selectedSuppr=false;
     }
     /**
      * Dessine le rappel.

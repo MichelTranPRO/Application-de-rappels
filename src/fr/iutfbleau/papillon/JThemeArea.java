@@ -3,14 +3,37 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>JThemeArea</code> est utilisée pour l'affichage des thèmes.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class JThemeArea extends JPanel{
+    
+    /**
+     * Tableau des couleurs pour les thèmes.
+     */
     private Color[][] tabColors; // Color[numero du theme][statut] numero de theme : 0 à 4, statut : 0=defaut 1=hover 
-    private Color couleurActuelle;
+    
+    /**
+     * Tableau des thèmes.
+     */
     private Theme[] tabThemes;
+    
+    /**
+     * Tableau des statuts de clic des thèmes.
+     */
     private boolean[] tabStatutCliqueThemes;
-    private ControleurThemes ctrl_theme;
+    
+    /**
+     * Contraintes pour GridBadLayout.
+     */
     private GridBagConstraints contraintes;
 
+    /**
+     * Le constructeur de la classe <code>JThemeArea</code> initialise tous les composants nécessaire à son affichage 
+     */
     public JThemeArea(){
         this.tabThemes=new Theme[5];
         this.tabStatutCliqueThemes=new boolean[5];
@@ -21,7 +44,6 @@ public class JThemeArea extends JPanel{
         contraintes.insets = new Insets(0,2,0,2);
         contraintes.fill = GridBagConstraints.NONE;
         contraintes.anchor = GridBagConstraints.CENTER;
-
         
         tabColors = new Color[][]{
             {new Color(227, 212, 255),new Color(139, 92, 246)}, // violet
@@ -39,6 +61,11 @@ public class JThemeArea extends JPanel{
         }
     }
 
+    /**
+     * Méthode pour gérer le survol des thèmes.
+     * @param statut 
+     * @param numTheme 
+     */
     public void setHover(boolean statut, int numTheme) {
         if (statut){
             tabThemes[numTheme].setColorTheme(tabColors[numTheme][1]);
@@ -47,7 +74,11 @@ public class JThemeArea extends JPanel{
         }
         repaint();
     }
-
+    /**
+     * Méthode pour gérer le clic des thèmes.
+     * @param statutClique 
+     * @param numTheme 
+     */
     public void setClick(int statutClique, int numTheme) {
         if (statutClique== 0){
             tabStatutCliqueThemes[numTheme] = false;
@@ -65,6 +96,9 @@ public class JThemeArea extends JPanel{
         repaint();
     }
 
+    /**
+     * Méthode pour réinitialiser les thèmes.
+     */
     public void resetThemes(){
         for (int i=0 ; i< tabStatutCliqueThemes.length ; i++){
             tabStatutCliqueThemes[i]=false;
@@ -72,10 +106,18 @@ public class JThemeArea extends JPanel{
         }
     }
     
+    /**
+     * Méthode pour obtenir le statut d'un thème.
+     * @param numTheme
+     * @return le statut du thème
+     */
     public boolean getStatut(int numTheme) {
         return tabStatutCliqueThemes[numTheme];
     }
-
+    /**
+     * Méthode pour obtenir le thème sélectionné.
+     * @return le thème sélectionné
+     */
     public int getTheme() {
         for (int i = 0; i < tabStatutCliqueThemes.length; i++) {
             if (tabStatutCliqueThemes[i]) {

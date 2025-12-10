@@ -3,22 +3,67 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-import fr.iutfbleau.papillon.FenetreAjout;
-
+/**
+ * La classe <code>PanelAjout</code> est utilisée pour l'affichage du panel d'ajout de rappel.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class PanelAjout extends JPanel{
-    private int largeur;
-    private int hauteur;
+
+    /**
+     * Label pour le titre du rappel.
+     */
     private JLabel titre;
+
+    /**
+     * Label pour le thème du rappel.
+     */
     private JLabel theme;
-    private JLabel contexte; 
+
+    /**
+     * Label pour le contenu du rappel.
+     */
+    private JLabel contexte;
+
+    /**
+     * Champ de texte pour le titre du rappel.
+     */
     private JTextField champTitre;
+
+    /**
+     * Zone de sélection pour le thème du rappel.
+     */
     private JThemeArea zoneThemes;
+
+    /**
+     * Champ de texte pour le contenu du rappel.
+     */
     private JTextArea champContenu;
+
+    /**
+     * Bouton pour valider l'ajout du rappel.
+     */
     private Bouton validerBtn;
+
+    /**
+     * Couleur de fond du panel.
+     */
     private Color fondPanel;
+
+    /**
+     * Contraintes pour l'agencement des composants.
+     */
     private GridBagConstraints contraintes;
+
+    /**
+     * Lien avec la classe <code>FenetreAjout</code>.
+     */
     private FenetreAjout fenetreAjout;
 
+    /**
+     * Le constructeur de la classe <code>PanelAjout</code> initialise tous les composants nécessaire à son affichage 
+     */
     public PanelAjout(FenetreAjout fenetreAjout){
         this.fenetreAjout=fenetreAjout;
         this.contraintes = new GridBagConstraints();
@@ -92,16 +137,25 @@ public class PanelAjout extends JPanel{
         
     }
 
+    /**
+     * Méthode pour réinitialiser tous les champs du panel d'ajout.
+     */
     public void resetAll(){
         zoneThemes.resetThemes();
         champTitre.setText("");
         champContenu.setText("");
     }
 
+    /**
+     * Méthode pour afficher la fenêtre d'accueil.
+     */
     public void setFenetreAccueilVisible(){
         fenetreAjout.setFenetreAccueilVisible();
     }
 
+    /**
+     * Méthode pour ajouter un rappel à la base de données.
+     */
     public void addRappel(){
         if (VerifRappel.isTitleOk(champTitre.getText()) && 
             VerifRappel.isTextOk(champContenu.getText())){

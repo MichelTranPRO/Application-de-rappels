@@ -2,12 +2,37 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>FenetreAccueil</code> est utilisée pour l'affichage de la fenêtre d'accueil.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class FenetreAccueil extends JPanel{
+
+	/**
+	 * Lien avec la classe <code>FenetreMain</code>.
+	 */
 	private FenetreMain fenetreMain;
+	
+	/**
+	 * Composants de la fenêtre d'accueil.
+	 */
 	private PanelAccueilHeader header;
+
+	/**
+	 * Composants de la fenêtre d'accueil.
+	 */
 	private PanelAccueil rappels;
+
+	/**
+	 * Composants de la fenêtre d'accueil.
+	 */
 	private JScrollPane scrollPanel;
 
+	/**
+	 * Le constructeur de la classe <code>FenetreAccueil</code> initialise tous les composants nécessaire à son affichage 
+	 */
 	public FenetreAccueil(FenetreMain fenetreMain){
 		this.fenetreMain = fenetreMain;
 		rappels = new PanelAccueil(this);
@@ -25,16 +50,31 @@ public class FenetreAccueil extends JPanel{
 		this.setVisible(true);
 	}
 
+	/**
+	 * Méthode pour afficher la fenêtre d'ajout.
+	 */
 	public void setFenetreAjoutVisible(){
 		fenetreMain.setFenetre(2);
 	}
+	
+	/**
+	 * Méthode pour afficher la fenêtre de rappel.
+	 */
 	public void setFenetreRappel(Rappel rappel){
 		fenetreMain.setFenetreRappel(rappel);
 	}
+
+	/**
+	 * Méthode pour revenir à la fenêtre d'accueil.
+	 */
 	public void returnFenetreAccueil(){
 		rappels.refreshAllRappels();
 		fenetreMain.returnFenetreAccueil();
 	}
+
+	/**
+	 * Méthode pour rafraîchir les rappels.
+	 */
 	public void refreshRappels(){
 		rappels.refreshAllRappels();
 	}

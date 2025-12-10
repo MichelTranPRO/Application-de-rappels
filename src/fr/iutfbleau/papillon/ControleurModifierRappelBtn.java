@@ -1,33 +1,45 @@
 package fr.iutfbleau.papillon;
+
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * La classe <code>ControlleurValiderBtn</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
+ * La classe <code>ControleurModifierRappelBtn</code> est utilisée 
+ * pour gérer les interractions entre la souris et le bouton de modification
+ * de la classe <code>PanelRappel</code>."
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
 public class ControleurModifierRappelBtn implements MouseListener{
-	
+
     /**
-     * Bouton ajouter de la classe <code>Panelheader</code>
+     * Lien avec la classe <code>Bouton</code>.
      */
     private Bouton bouton;
+
+    /**
+     * Lien avec la classe <code>PanelRappel</code>.
+     */
     private PanelRappel panelRappel;
 
     /**
-     * Le constructeur de la classe <code>ControlleurValiderBtn</code> 
-     * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
-     * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
+     * Les constructeurs de la classe <code>ControleurModifierRappelBtn</code> 
+     * permettent de faire le lien avec différentes classes.
+     * @param bouton
+     * @param panelRappel
      */
 	public ControleurModifierRappelBtn(Bouton bouton, PanelRappel panelRappel){
         this.bouton=bouton;
         this.panelRappel=panelRappel;
 	}
 
+    /**
+     * Interraction lorsque l'utilisateur clique sur le bouton.
+     * Appelle la fonction qui permet de modifier le rappel.
+     * @param evenement géré en dehors du code.
+     */
     @Override
 	public void mouseClicked(MouseEvent e) {
         panelRappel.updateRappel();

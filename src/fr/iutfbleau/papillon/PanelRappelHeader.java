@@ -3,19 +3,21 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * La classe <code>PanelHeader</code> est utilisée pour gérer le panneau du haut de la fenetre
- * contenant les boutons pour ajouter un rappel, échanger un rappel et supprimer un rappel
+ * La classe <code>PanelRappelHeader</code> est utilisée pour l'affichage du header du panel de rappel.
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
-
 public class PanelRappelHeader extends JPanel{
 
     /**
      * Bouton "Retour", pour ajouter un rappel.
      */
     private Bouton retourBtn;
+
+    /**
+     * Lien avec la classe <code>FenetreRappel</code>.
+     */
     private FenetreRappel fenetreRappel;
 
     /**

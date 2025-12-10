@@ -2,13 +2,11 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-
 /**
- * La classe <code>PanelHeader</code> est utilisée pour gérer le panneau du haut de la fenetre
- * contenant les boutons pour ajouter un rappel, échanger un rappel et supprimer un rappel
+ * La classe <code>PanelAccueilHeader</code> est utilisée pour l'affichage de l'en-tête du panel d'accueil.
  * 
  * @version 1.0
- * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
 public class PanelAccueilHeader extends JPanel{
@@ -24,7 +22,7 @@ public class PanelAccueilHeader extends JPanel{
     private JPanel panelGauche;
 
     /**
-     * Bouton "Ajouter", pour ajouter un rappel.
+     * Bouton "Ajouter"/"Valider", pour ajouter un rappel ou valider les modifications/suppressions.
      */
     private BoutonAjouterValider ajouterValiderBtn;
 
@@ -34,34 +32,48 @@ public class PanelAccueilHeader extends JPanel{
     private Bouton modifBtn ;
 
     /**
-     * Bouton "✕", pour supprimer un rappel.
+     * Bouton "🗑", pour supprimer des rappels.
      */
     private BoutonSuppr supprBtn;
 
-
     /**
-     * Controlleur qui permet de gérer le bouton "Ajouter".
+     * Controlleur qui permet de gérer le bouton "Ajouter" et "Valider".
      */
     private ControleurAjouterValiderBtn ctrlAjouterValider;
 
     /**
-     * Controlleur qui permet de gérer le bouton "⇄".
+     * Controlleur qui permet de gérer le bouton pour échanger les rappels.
      */
     private ControleurModifBtn ctrlModif;
 
 
     /**
-     * Controlleur qui permet de gérer le bouton "✕".
+     * Controlleur qui permet de gérer le bouton pour supprimer les rappels.
      */
     private ControleurSupprBtn ctrlSuppr;
 
+    /**
+     * Lien avec la classe <code>FenetreAccueil</code>.
+     */
     private FenetreAccueil fenetreAccueil;
+
+    /**
+     * Lien avec la classe <code>PanelAccueil</code>.
+     */
     private PanelAccueil panelAccueil;
+
+    /**
+     * Variables pour stocker le statut du mode modif.
+     */
     private boolean statutModifBtn;
+
+    /**
+     * Variables pour stocker le statut du mode suppr.
+     */
     private boolean statutSupprBtn;
 
     /**
-     * Le constructeur de la classe <code>PanelHeader</code> initialise tous les composants nécessaire à son affichage 
+     * Le constructeur de la classe <code>PanelAccueilHeader</code> initialise tous les composants nécessaire à son affichage 
      */
     public PanelAccueilHeader(FenetreAccueil fenetreAccueil, PanelAccueil panelAccueil){
         this.fenetreAccueil=fenetreAccueil;
@@ -104,10 +116,17 @@ public class PanelAccueilHeader extends JPanel{
         this.add(panelDroite,BorderLayout.EAST);
     }
 
+    /**
+     * Méthode pour afficher la fenêtre d'ajout.
+     */
     public void setFenetreAjoutVisible(){
         fenetreAccueil.setFenetreAjoutVisible();
     }
 
+    /**
+     * Méthode pour activer ou désactiver le mode modification.
+     * @param statut true pour activer le mode modification, false pour le désactiver
+     */
     public void setModeModif(Boolean statut){
         this.statutModifBtn=statut;
         if (statut){
@@ -123,10 +142,18 @@ public class PanelAccueilHeader extends JPanel{
         repaint();
     }
 
+    /**
+     * Méthode pour obtenir le statut du mode modification.
+     * @return le statut du mode modification
+     */
     public boolean getStatutModifBtn(){
         return this.statutModifBtn;
     }
 
+    /**
+     * Méthode pour activer ou désactiver le mode suppression.
+     * @param statut true pour activer le mode suppression, false pour le désactiver
+     */
     public void setModeSuppr(Boolean statut){
         this.statutSupprBtn=statut;
         if (statut){
@@ -142,6 +169,10 @@ public class PanelAccueilHeader extends JPanel{
         repaint();
     }
 
+    /**
+     * Méthode pour obtenir le statut du mode suppression.
+     * @return le statut du mode suppression
+     */
     public boolean getStatutSupprBtn(){
         return this.statutSupprBtn;
     }

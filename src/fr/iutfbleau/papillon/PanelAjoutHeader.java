@@ -3,11 +3,9 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
-import fr.iutfbleau.papillon.FenetreAjout;
 
 /**
- * La classe <code>PanelHeader</code> est utilisée pour gérer le panneau du haut de la fenetre
- * contenant les boutons pour ajouter un rappel, échanger un rappel et supprimer un rappel
+ * La classe <code>PanelAjoutHeader</code> est utilisée pour l'affichage du header du panel d'ajout de rappel.
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
@@ -16,10 +14,13 @@ import fr.iutfbleau.papillon.FenetreAjout;
 public class PanelAjoutHeader extends JPanel{
 
     /**
-     * Bouton "Retour", pour ajouter un rappel.
+     * Bouton "Retour", pour revenir au panel d'accueil.
      */
     private Bouton retourBtn;
 
+    /**
+     * Lien avec la classe <code>FenetreAjout</code>.
+     */
     private FenetreAjout fenetreAjout;
 
     /**
@@ -46,7 +47,9 @@ public class PanelAjoutHeader extends JPanel{
     public Bouton getBtnRetour() {
     	return this.retourBtn;
     }
-
+    /**
+     * Méthode pour afficher la fenêtre d'accueil.
+     */
     public void setFenetreAccueilVisible(){
         fenetreAjout.setFenetreAccueilVisible();
     }

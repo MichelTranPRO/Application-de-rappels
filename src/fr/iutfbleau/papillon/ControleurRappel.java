@@ -2,23 +2,56 @@ package fr.iutfbleau.papillon;
 
 import java.awt.event.*;
 
+/**
+ * La classe <code>ControleurRappel</code> est utilisée 
+ * pour gérer les interractions entre la souris et les rappels
+ * de la classe <code>PanelAccueil</code>."
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class ControleurRappel implements MouseListener {
 
+    /**
+     * Lien avec la classe <code>Rappel</code>.
+     */
     private Rappel rappel;
+
+    /**
+     * Lien avec la classe <code>PanelAccueil</code>.
+     */
     private PanelAccueil panelAccueil;
+
+    /**
+     * Variables pour stocker le statut du mode modif.
+     */
     private boolean nouveauStatutModif;
+
+    /**
+     * Variables pour stocker le statut du mode suppr.
+     */
     private boolean nouveauStatutSuppr;
 
+    /**
+     * Les constructeurs de la classe <code>ControleurRappel</code> 
+     * permettent de faire le lien avec différentes classes.
+     * @param rappel
+     * @param panelAccueil
+     */
     public ControleurRappel(Rappel rappel, PanelAccueil panelAccueil){
         this.rappel = rappel;
         this.panelAccueil = panelAccueil;
     }
 
+    /**
+     * Interraction lorsque l'utilisateur clique sur le rappel.
+     * Appelle la fonction qui permet d'ouvrir la fenêtre du rappel
+     * ou de sélectionner le rappel en mode modification/suppression.
+     * @param evenement géré en dehors du code.
+     */
     public void mouseClicked(MouseEvent e) {
 
         if (rappel.getModeModif()) { // mode modif
-
-            // on inverse l'état de sélection
             nouveauStatutModif = !rappel.isSelectedModif();
             rappel.setSelectedModif(nouveauStatutModif);
 
@@ -46,7 +79,11 @@ public class ControleurRappel implements MouseListener {
             panelAccueil.setFenetreRappel(rappel);
         }
     }
-
+    /**
+     * Interraction lorsque la souris entre du rappel.
+     * Appelle la fonction qui change les couleurs du rappel.
+     * @param evenement géré en dehors du code.
+     */
     public void mouseEntered(MouseEvent e) {
         if (rappel.getModeModif()) {
             if (!rappel.isSelectedModif()) {
@@ -64,7 +101,11 @@ public class ControleurRappel implements MouseListener {
         rappel.setHoverColor(true);
     }
 
-    
+    /**
+     * Interraction lorsque la souris sort du rappel.
+     * Appelle la fonction qui change les couleurs du rappel.
+     * @param evenement géré en dehors du code.
+     */
     public void mouseExited(MouseEvent e) {
         if (rappel.getModeModif()) {
             if (!rappel.isSelectedModif()) {

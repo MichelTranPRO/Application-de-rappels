@@ -1,13 +1,42 @@
 package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
-
+/**
+ * La classe <code>FenetreRappel</code> est utilisée pour l'affichage de la fenêtre de rappel.
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class FenetreRappel extends JPanel{
+    
+    /**
+     * Rappel à afficher.
+     */
     private Rappel rappel;
+
+    /**
+     * Lien avec la classe <code>FenetreAccueil</code>.
+     */
     private FenetreAccueil fenetreAccueil;
+    
+    /**
+     * Composants de la fenêtre de rappel.
+     */
     private PanelRappelHeader header;
+    
+    /**
+     * Composants de la fenêtre de rappel.
+     */
     private PanelRappel content;
+    
+    /**
+     * Panel qui permet de rajouter une marge à l'objet de la classe <code>PanelRappel</code>.
+     */
     private JPanel marges;
+    
+    /**
+     * Le constructeur de la classe <code>FenetreRappel</code> initialise tous les composants nécessaire à son affichage 
+     */
     public FenetreRappel(Rappel rappel, FenetreAccueil fenetreAccueil){
         this.rappel=rappel;
         this.fenetreAccueil=fenetreAccueil;
