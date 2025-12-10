@@ -27,6 +27,8 @@ public class FenetreMain extends JFrame{
 		this.setAlwaysOnTop(true);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
+		this.setLocation(30, 200);
+
 
 		this.addWindowListener(new ControleurWindowConfirm(this));
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

@@ -25,7 +25,6 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      // System.err.println("Impossible de se connecter à la BDD" + e3.getMessage());
     }
   }
 
