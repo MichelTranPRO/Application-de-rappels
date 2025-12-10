@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * La classe <code>ControlleurAjouterBtn</code> est utilisée 
- * pour gérer les interractions entre la souris et l'objet "ajouterBtn" de la classe <code>Bouton</code>." 
+ * La classe <code>ControleurAjouterValiderBtn</code> est utilisée 
+ * pour gérer les interractions entre la souris et l'objet "ajouterValiderBtn" de la classe <code>Bouton</code>." 
  * 
  * @version 1.0
  * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
@@ -22,12 +22,18 @@ public class ControleurAjouterValiderBtn implements MouseListener{
      * Lien avec la classe <code>PanelAccueilHeader</code>.
      */
     private PanelAccueilHeader panelAccueilHeader;
+
+    /**
+     * Lien avec la classe <code>PanelAccueil</code>.
+     */
     private PanelAccueil panelAccueil;
 
     /**
-     * Le constructeur de la classe <code>ControlleurAjouterBtn</code> 
-     * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
-     * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
+     * Les constructeurs de la classe <code>ControlleurAjouterBtn</code> 
+     * permettent de faire le lien avec différentes classes.
+     * @param BoutonAjouterValider variable nécessaire à la référence de la classe <code>BoutonAjouterValider</code>.
+     * @param PanelAccueilHeader variable nécessaire à la référence de la classe <code>PanelAccueilHeader</code>.
+     * @param PanelAccueil variable nécessaire à la référence de la classe <code>PanelAccueil</code>.
      */
 	public ControleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelAccueilHeader panelAccueilHeader, PanelAccueil panelAccueil){
         this.bouton=bouton;
@@ -35,14 +41,16 @@ public class ControleurAjouterValiderBtn implements MouseListener{
         this.panelAccueil = panelAccueil;
 	}
     /**
-     * Appelle une fonction pour afficher la fenetre ajouter.
+     * Méthode appelée lorsque l'utilisateur clique sur le composant.
+     * Elle permet de valider l'échange ou suppresion des rappels.
+     * Mais aussi d'afficher la fenetre ajouter.
      */
 	public void mouseClicked(MouseEvent e) {
-        if (panelAccueilHeader.getStatutModifBtn()){ // actions effectuées quand le on clique sur le bouton "valider"
+        if (panelAccueilHeader.getStatutModifBtn()){ // actions effectuées quand on clique sur le bouton "valider" en mode "modif".
             panelAccueil.updateTabRappelModifSQL();
             panelAccueilHeader.setModeModif(false);
         }
-        else if(panelAccueilHeader.getStatutSupprBtn()){
+        else if(panelAccueilHeader.getStatutSupprBtn()){ // actions effectuées quand on clique sur le bouton "valide" en mode "suppr".
             panelAccueil.deleteTabRappelSupprSQL();
             panelAccueilHeader.setModeSuppr(false);
         }

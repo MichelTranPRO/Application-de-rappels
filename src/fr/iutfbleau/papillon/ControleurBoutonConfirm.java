@@ -3,8 +3,19 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * La classe <code>ControleurBoutonConfirm</code> est utilisée 
+ * pour gérer les interractions entre la souris et les boutons de la classe <code>PanelConfirmation</code>."
+ * 
+ * @version 1.0
+ * @author Emmanuelle Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
+
 public class ControleurBoutonConfirm extends MouseAdapter {
 	
+    /**
+     * 
+     */
 	private FenetreMain fenetreMain;
     private PanelConfirmation panelConfirmation;
     private Bouton btnAnnuler;

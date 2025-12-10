@@ -6,16 +6,27 @@ import javax.swing.*;
 
 
 /**
- * La classe <code>Bouton</code> est utilisée 
- * pour créer un bouton personnalisable. 
+ * La classe <code>BoutonAjouterValider</code> est hérite de la classe <code>Bouton</code>
+ * elle permet d'afficher un bouton différent en fonction de son controleur. 
  * 
  * @version 1.0
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 
 public class BoutonAjouterValider extends Bouton {
-
+    /**
+     * Boolean qui permet de savoir quel bouton affciher.
+     */
     private boolean dessineAjouter;
+
+    /** Constructeur de la classe <code>BoutonAjouterValider<code>.
+     * Defini les paramètres pour créer un objet de la classe.
+     * @param l Longeur du bouton.
+     * @param h Hauteur du bouton.
+     * @param t Texte à afficher.
+     * @param f Couleur en en fond du bouton.
+     * @param txtCouleur Couleur du texte.
+    */
     public BoutonAjouterValider(int l, int h, String t, Color f, Color txtCouleur){
         super(l, h, t, f, txtCouleur);
         dessineAjouter=true;
@@ -60,7 +71,9 @@ public class BoutonAjouterValider extends Bouton {
             secondPinceau.drawString("Valider", xTexte, yTexte);
         }
     }
-
+    /**
+     * Méthode qui permet de d'affichier le bouton "Ajouter" ou non.
+     */
     public void setVisibleDessinAjouter(Boolean statut){
         this.dessineAjouter=statut;
     }

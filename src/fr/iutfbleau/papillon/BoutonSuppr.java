@@ -3,15 +3,56 @@ package fr.iutfbleau.papillon;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * La classe <code>BoutonSuppr</code> est utilisée 
+ * pour créer un bouton personnalisable avec une image à l'intérieur. 
+ * 
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
+ */
 public class BoutonSuppr extends JComponent{
+
+    /**
+     * Largeur du bouton.
+     */
     private int largeur;
+
+    /**
+     * Hauteur du bouton.
+     */
     private int hauteur;
+
+    /**
+     * Variable qui contient l'image jaune que l'on souhaite afficher.
+     */
     private Image imageJaune;
+
+    /**
+     * Variable qui contient l'image blanche que l'on souhaite afficher.
+     */
     private Image imageBlanche;
+
+    /**
+     * Variable qui contient l'image afficher à l'instant présent.
+     */
     private Image imageActuelle;
+
+    /**
+     * Permet de charger une image à partir d'un chemin donné.
+     */
     private ClassLoader loader;
+
+    /**
+     * Couleur du fond
+     */
     private Color fond;
 
+    /** Constructeur de la classe <code>BoutonSuppr<code>.
+     * Defini les paramètres pour créer un objet de la classe.
+     * @param l Longeur du bouton.
+     * @param h Hauteur du bouton.
+     * @param f Couleur en en fond du bouton.
+    */
     public BoutonSuppr(int l, int h, Color f) {
         this.largeur = l;
         this.hauteur = h;
@@ -25,6 +66,10 @@ public class BoutonSuppr extends JComponent{
 
         this.setPreferredSize(new Dimension(largeur, hauteur));
     }
+
+    /**
+     * Méthode qui dessine le composant.
+     */
     @Override
     protected void paintComponent(Graphics pinceau) {
         Graphics g = pinceau.create();
@@ -35,6 +80,9 @@ public class BoutonSuppr extends JComponent{
     
     }
 
+    /**
+     * Méthode utilisée lorsque la souris survol le composant, elle change l'image et la couleur. 
+     */
     public void setHoverColor(boolean statut) {
         if (statut) {
             this.fond = new Color(255, 184, 0);
