@@ -1,6 +1,5 @@
 package fr.iutfbleau.papillon;
 
-import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -14,22 +13,30 @@ import java.awt.event.*;
 public class ControleurSupprBtn implements MouseListener{
 
     /**
-     * Bouton ajouter de la classe <code>Panelheader</code>
+     * Lien avec la classe <code>BoutonSuppr</code>.
      */
 	private BoutonSuppr bouton;
+
+    /**
+     * Lien avec la classe <code>panelAccueilHeader</code>.
+     */
     private PanelAccueilHeader panelAccueilHeader;
 
     /**
-     * Le constructeur de la classe <code>ControleurSupprBtn</code> 
-     * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
-     * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
+     * Constructeur permettant relier des objets exterieurs avec la classe <code>ControleurSupprBtn</code>
+     * @param bouton Objet de la classe <code>BoutonSuppr</code>
+     * @param panelAccueilHeader Objet de la classe <code>PanelAccueilHeader</code>
      */
 	public ControleurSupprBtn(BoutonSuppr bouton, PanelAccueilHeader panelAccueilHeader){
         this.bouton = bouton;
         this.panelAccueilHeader = panelAccueilHeader;
 	}
 
-    
+    /**
+     * Interraction lorsque la souris clique sur le bouton.
+     * Appelle la fonction qui défini si le mode suppression est activé ou non.
+     * @param evenement géré en dehors du code.
+     */
 	public void mouseClicked(MouseEvent e) {
         boolean nouveauStatut = !panelAccueilHeader.getStatutSupprBtn();
         if(panelAccueilHeader.getStatutModifBtn()){
