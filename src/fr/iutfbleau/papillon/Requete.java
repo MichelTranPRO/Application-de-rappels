@@ -25,7 +25,6 @@ public class Requete{
           "ananas");
 
     } catch (SQLException e3) {
-      e3.printStackTrace();
       JOptionPane.showMessageDialog(
           null,
           "Impossible de se connecter à la BDD : " + e3.getMessage(),
