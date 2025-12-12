@@ -132,7 +132,7 @@ javadoc:
 
 # Création de l'archive jar
 jar: build build/Main.class
-	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C res . -C libs . 
+	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C . res -C libs . 
 
 # Nettoyage des fichiers compilés
 clean:
