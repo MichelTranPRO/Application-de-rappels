@@ -5,7 +5,7 @@ SRC = src/fr/iutfbleau/papillon
 JCFLAGS = -d build -classpath build -sourcepath src
 
 # Cibles
-.PHONY: all run clean build
+.PHONY: all run clean build javadoc
 
 build:
 	mkdir -p build
@@ -25,7 +25,7 @@ build/Rappel.class: ${SRC}/Rappel.java
 	${JC} ${JCFLAGS} $<
 
 build/Requete.class: ${SRC}/Requete.java build/Rappel.class
-	${JC} ${JCFLAGS} -cp libs/org $<
+	${JC} -d build -sourcepath src -classpath build:libs/org $<
 
 build/Theme.class: ${SRC}/Theme.java
 	${JC} ${JCFLAGS} $<
@@ -122,16 +122,17 @@ build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 # Exécution du programme
 run: jar
 	${JVM} -jar papillon.jar
-#${JVM} -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
+
 
 # Création de la javadoc
 javadoc:
-	javadoc -d doc/ -sourcepath src fr iutfbleau papillon \
+	javadoc -d doc/ -sourcepath src fr.iutfbleau.papillon \
 		-encoding UTF-8 -charset UTF-8 -windowtitle "Documentation SAE DEV 3.1"
+	firefox doc/index.html
 
 # Création de l'archive jar
 jar: build build/Main.class
-	jar cfe papillon.jar fr.iutfbleau.papillon.Main -C build fr -C res . -C libs org .
+	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C res . -C libs . 
 
 # Nettoyage des fichiers compilés
 clean:

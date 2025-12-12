@@ -1,12 +1,9 @@
 ###############
 # Java
 ###############
-*.class
+build/*.class
 *.jar
-*.war
-*.ear
-*.jmx
-*.log
+doc/
 
 ###############
 # IntelliJ IDEA
@@ -40,10 +37,3 @@ atlassian-ide-plugin.xml
 *.swo
 *.swm
 *.tmp
-*~
-
-# LSP / language server artifacts
-.lsp/
-.cache/
-nvim-data/
-
