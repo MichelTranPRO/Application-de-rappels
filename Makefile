@@ -136,5 +136,5 @@ jar: build build/Main.class
 
 # Nettoyage des fichiers compilés
 clean:
-	rm -rf build/ papillon.jar
+	rm -rf build/ papillon.jar doc/
 	@echo "Dossier build nettoyé."

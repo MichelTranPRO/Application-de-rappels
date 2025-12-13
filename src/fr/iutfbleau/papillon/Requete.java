@@ -24,14 +24,14 @@ public class Requete{
           "bissonr", 
           "ananas");
 
-    } catch (SQLException e3) {
+    } catch (SQLException e1) {
       JOptionPane.showMessageDialog(
           null,
-          "Impossible de se connecter à la BDD : " + e3.getMessage(),
+          "Impossible de se connecter à la BDD : " + e1.getMessage(),
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème de connection à la BD : " + e8.getMessage);
+      System.err.println("Problème de connection à la BD : " + e1.getMessage());
 
     }
   }
@@ -62,17 +62,17 @@ public class Requete{
             "Erreur",
             JOptionPane.ERROR_MESSAGE
             );
-        System.err.println("Problème lié à la BD : " + e8.getMessage);
+        System.err.println("Problème lié à la BD : " + e2.getMessage());
         return new ArrayList<>();
       }
-    } catch (ClassNotFoundException e) {
+    } catch (ClassNotFoundException e3) {
       JOptionPane.showMessageDialog(
           null,
-          "Classe pas trouvée : " + e.getMessage(),
+          "Classe pas trouvée : " + e3.getMessage(),
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème lié à la BD : " + e8.getMessage);
+      System.err.println("Problème lié à la BD : " + e3.getMessage());
       return new ArrayList<>();
     }
   }
@@ -113,7 +113,7 @@ public class Requete{
             "Erreur",
             JOptionPane.ERROR_MESSAGE
             );
-        System.err.println("Problème lié à la BD : " + e8.getMessage);
+        System.err.println("Problème lié à la BD : " + e4.getMessage());
 
         return 0;
       }
@@ -125,7 +125,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème lié à la BD : " + e7.getMessage);
+      System.err.println("Problème lié à la BD : " + e5.getMessage());
 
       return 0;
     }
@@ -159,7 +159,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème lié à la BD : " + e6.getMessage);
+      System.err.println("Problème lié à la BD : " + e6.getMessage());
 
       return 0;
     }
@@ -187,7 +187,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème lié à la BD : " + e7.getMessage);
+      System.err.println("Problème lié à la BD : " + e7.getMessage());
 
       return 0;
     }
@@ -214,7 +214,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
-      System.err.println("Problème lié à la BD : " + e8.getMessage);
+      System.err.println("Problème lié à la BD : " + e8.getMessage());
       return 0;
     }
   }
