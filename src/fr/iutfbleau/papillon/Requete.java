@@ -31,6 +31,8 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème de connection à la BD : " + e8.getMessage);
+
     }
   }
 
@@ -60,6 +62,7 @@ public class Requete{
             "Erreur",
             JOptionPane.ERROR_MESSAGE
             );
+        System.err.println("Problème lié à la BD : " + e8.getMessage);
         return new ArrayList<>();
       }
     } catch (ClassNotFoundException e) {
@@ -69,6 +72,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème lié à la BD : " + e8.getMessage);
       return new ArrayList<>();
     }
   }
@@ -109,6 +113,8 @@ public class Requete{
             "Erreur",
             JOptionPane.ERROR_MESSAGE
             );
+        System.err.println("Problème lié à la BD : " + e8.getMessage);
+
         return 0;
       }
 
@@ -119,6 +125,8 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème lié à la BD : " + e7.getMessage);
+
       return 0;
     }
   }
@@ -151,6 +159,8 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème lié à la BD : " + e6.getMessage);
+
       return 0;
     }
   }
@@ -177,6 +187,8 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème lié à la BD : " + e7.getMessage);
+
       return 0;
     }
   }
@@ -202,6 +214,7 @@ public class Requete{
           "Erreur",
           JOptionPane.ERROR_MESSAGE
           );
+      System.err.println("Problème lié à la BD : " + e8.getMessage);
       return 0;
     }
   }
