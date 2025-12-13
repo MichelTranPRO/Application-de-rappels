@@ -157,12 +157,12 @@ public class PanelAjout extends JPanel{
      * Méthode pour ajouter un rappel à la base de données.
      */
     public void addRappel(){
-        if (VerifRappel.isTitleOk(champTitre.getText()) && 
-            VerifRappel.isTextOk(champContenu.getText())){
+        if(VerifRappel.isTitleOk(champTitre.getText()) && 
+            VerifRappel.isTextOk(champContenu.getText()) &&
+            VerifRappel.isThemeOk(zoneThemes.getTheme())){
             Requete.insert(champTitre.getText(), champContenu.getText(), zoneThemes.getTheme());
             this.setFenetreAccueilVisible();
         }else{
-            JOptionPane.showMessageDialog(null, "Vous devez sélectionner au moins un rappel à supprimer.");
             return; // cas où erreur
         }
     }

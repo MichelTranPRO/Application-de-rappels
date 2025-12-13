@@ -147,7 +147,13 @@ public class PanelRappel extends JPanel{
      * Méthode pour mettre à jour le rappel dans la base de données.
      */
     public void updateRappel(){
-        fenetreRappel.updateRappel(rappel.getId(),zoneThemes.getTheme(),champTitre.getText(),champContenu.getText());
+      if(VerifRappel.isTitleOk(champTitre.getText()) && 
+            VerifRappel.isTextOk(champContenu.getText())){
+            fenetreRappel.updateRappel(rappel.getId(),zoneThemes.getTheme(),champTitre.getText(),champContenu.getText());
+        }else{
+            return; // cas où erreur
+        }
+
     }
 
     /**
@@ -166,6 +172,15 @@ public class PanelRappel extends JPanel{
      */
     public String getContenu() {
     	return champContenu.getText();
+    }
+
+    /**
+     * getter de type int pour le theme
+     *
+     * @return le choix actuel de theme sous forme d'un int
+     */ 
+    public int getTheme(){
+      return zoneThemes.getTheme();
     }
 
     /**

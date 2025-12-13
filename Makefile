@@ -79,7 +79,7 @@ build/ControleurBoutonConfirm.class : ${SRC}/ControleurBoutonConfirm.java build/
 
 # == PANELS ==#
 
-build/PanelRappel.class: ${SRC}/PanelRappel.java build/Rappel.class build/Requete.class build/ControleurModifierRappelBtn.class 
+build/PanelRappel.class: ${SRC}/PanelRappel.java build/Rappel.class build/Requete.class build/ControleurModifierRappelBtn.class build/VerifRappel.class
 	${JC} ${JCFLAGS} $<
 
 build/PanelRappelHeader.class: ${SRC}/PanelRappelHeader.java build/Bouton.class build/ControleurRetourRappelBtn.class

@@ -19,13 +19,11 @@ public class VerifRappel {
    */
   public static boolean isTitleOk(String titre) {
     if(titre == null || titre.isEmpty()) {
-
       JOptionPane.showMessageDialog(null, "Le titre ne doit pas être vide.");
       return false;
     }
 
     if (titre.length() > 50) {
-
       JOptionPane.showMessageDialog(null, "Le titre contient au maximum 50 characteres.");
       return false;
     }
@@ -45,11 +43,6 @@ public class VerifRappel {
 
       if(c >= '0' && c <= '9') {
         aChiffre = true;
-      }
-
-      else{
-        JOptionPane.showMessageDialog(null, "Le contenu ne peut contenir que des lettres et des chiffres.");
-        return false;
       }
     }
 
@@ -83,14 +76,28 @@ public class VerifRappel {
       }
 
       if(nombreLignes > 4) {
+        JOptionPane.showMessageDialog(null, "Le contenu ne doit pas faire plus de 4 lignes.");
         return false; // Pas plus de 4 lignes
       }
 
       if(nbCharLignes > 50) {
+        JOptionPane.showMessageDialog(null, "Le titre a au maximum 50 caractères par ligne.");
         return false; // Pas plus de 50 characteres par lignes
       }
     }
 
     return true; // On return true si tout est bon et que le contenu respecte toutes les conditions
+  }
+
+  /**
+   * On vérifie le thème du rappel
+   * - Un thème doit être choisi
+   */ 
+  public static boolean isThemeOk(int theme){
+    if(theme == -1){
+      JOptionPane.showMessageDialog(null, "Un thème doit être choisi.");
+      return false; // Un thème doit être choisi
+    }
+    return true;
   }
 }
