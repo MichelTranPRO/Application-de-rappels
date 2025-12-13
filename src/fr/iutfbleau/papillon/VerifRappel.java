@@ -30,20 +30,23 @@ public class VerifRappel {
 
     boolean aLettre = false;
     boolean aChiffre = false;
+    boolean aSpecial = false;
 
     for(int i = 0; i < titre.length(); i++) {
       char c = titre.charAt(i); 
-      if(c == '\n') {
-        JOptionPane.showMessageDialog(null, "Le titre doit contenir au moins une lettre ou un chiffre.");
-        return false;
-      }
+
       if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
         aLettre = true;
-      }
-
-      if(c >= '0' && c <= '9') {
+      } else if(c >= '0' && c <= '9') {
         aChiffre = true;
+      } else{
+        aSpecial = true;
       }
+    }
+
+    if(!aLettre && !aChiffre && aSpecial){
+      JOptionPane.showMessageDialog(null, "Le titre doit contenir au moins une lettre ou un chiffre.");
+      return false;
     }
 
     return aLettre || aChiffre; // Soit une lettre ou un chiffre est acceptable dans le titre
@@ -81,7 +84,7 @@ public class VerifRappel {
       }
 
       if(nbCharLignes > 50) {
-        JOptionPane.showMessageDialog(null, "Le titre a au maximum 50 caractères par ligne.");
+        JOptionPane.showMessageDialog(null, "Le contenu a au maximum 50 caractères par ligne.");
         return false; // Pas plus de 50 characteres par lignes
       }
     }
