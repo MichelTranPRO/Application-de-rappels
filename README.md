@@ -33,13 +33,10 @@ make
 ```
 
 ### Exécution du programme
-Pour exécuter le projet on utilise aussi le fichier `Makefile` avec :
+Pour exécuter le projet on utilise aussi le fichier `Makefile` avec la commande :
 ```bash
 make run
 ```
-ou avec l'archive .jar : 
-```bash
-java -cp "build:libs/mariadb-java-client-3.5.6.jar" fr.iutfbleau.papillon.Main
 ```
 
 ### Création de l'archive .jar
@@ -55,7 +52,7 @@ make javadoc
 ```
 
 ### Nettoyage des fichiers compilés
-Les fichiers `.class` que vous aviez générer peuvent être effacés grâce au Makefile : 
+Les fichiers `.class`, l'exécutable `.jar` et la javadoc que vous aviez générés peuvent être effacés grâce au Makefile : 
 ```bash
 make clean
 ``` 
@@ -68,3 +65,4 @@ Ce projet a été réalisé dans le cadre d'une situation d'apprentissage et d'�
 * [Michel TRAN](https://grond.iut-fbleau.fr/tranm/)
 * [Rayan BISSON](https://grond.iut-fbleau.fr/bissonr/)
 * [Emmanuel SRIVASTAVA-TIAMZON](https://grond.iut-fbleau.fr/srivasta/)
+

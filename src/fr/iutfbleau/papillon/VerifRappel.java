@@ -1,84 +1,96 @@
 package fr.iutfbleau.papillon;
 
+import javax.swing.JOptionPane;
+
 /**
  * La classe <code>VerifRappel</code> est utilisee en tant que Modele.
  * Cette classe verifie les conditions lors de creation d'un rappel pour un titre et pour le contenu.
  */
 public class VerifRappel {
 
-	/**
-	 * On verifie le titre du rappel
-	 * - Le titre ne doit pas etre vide
-	 * - Le titre ne doit pas depasser 50 characteres
-	 * - Le titre doit contenir au moins une lettre ou un chiffre
-	 * - Le titre ne doit pas contenir de saut de ligne
-	 * @param titre
-	 * @return boolean	
-	 */
-	public static boolean isTitleOk(String titre) {
-		if(titre == null || titre.isEmpty()) {
-			return false;
-		}
+  /**
+   * On verifie le titre du rappel
+   * - Le titre ne doit pas etre vide
+   * - Le titre ne doit pas depasser 50 characteres
+   * - Le titre doit contenir au moins une lettre ou un chiffre
+   * - Le titre ne doit pas contenir de saut de ligne
+   * @param titre
+   * @return boolean	
+   */
+  public static boolean isTitleOk(String titre) {
+    if(titre == null || titre.isEmpty()) {
 
-		if (titre.length() > 50) {
-			return false;
-		}
+      JOptionPane.showMessageDialog(null, "Le titre ne doit pas être vide.");
+      return false;
+    }
 
-		boolean aLettre = false;
-		boolean aChiffre = false;
+    if (titre.length() > 50) {
 
-		for(int i = 0; i < titre.length(); i++) {
-			char c = titre.charAt(i); 
-			if(c == '\n') {
-				return false;
-			}
-			if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-				aLettre = true;
-			}
+      JOptionPane.showMessageDialog(null, "Le titre contient au maximum 50 characteres.");
+      return false;
+    }
 
-			if(c >= '0' && c <= '9') {
-				aChiffre = true;
-			}
-		}
+    boolean aLettre = false;
+    boolean aChiffre = false;
 
-		return aLettre || aChiffre; // Soit une lettre ou un chiffre est acceptable dans le titre
-	}
+    for(int i = 0; i < titre.length(); i++) {
+      char c = titre.charAt(i); 
+      if(c == '\n') {
+        JOptionPane.showMessageDialog(null, "Le titre doit contenir au moins une lettre ou un chiffre.");
+        return false;
+      }
+      if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        aLettre = true;
+      }
 
-	/**
-	 * On verifie le contenu du rappel
-	 * - Le contenu peut etre vide
-	 * - Le contenu ne doit pas depasser 4 lignes
-	 * - Chaque ligne ne doit pas depasser 50 characteres
-	 * @param contenu
-	 * @return boolean
-	 */
-	public static boolean isTextOk(String contenu) {
-		if(contenu == null || contenu.isEmpty()) {
-			return true;
-		}
+      if(c >= '0' && c <= '9') {
+        aChiffre = true;
+      }
 
-		int nombreLignes = 1;
-		int nbCharLignes = 0;
+      else{
+        JOptionPane.showMessageDialog(null, "Le contenu ne peut contenir que des lettres et des chiffres.");
+        return false;
+      }
+    }
 
-		for(int i = 0; i < contenu.length(); i++) {
-			char c = contenu.charAt(i);
+    return aLettre || aChiffre; // Soit une lettre ou un chiffre est acceptable dans le titre
+  }
 
-			if(c == '\n') {
-				nombreLignes++;
-				nbCharLignes = 0; // On remet à 0 le nombre de charactere a cette ligne
-			} else {
-				nbCharLignes++; 
-			}
+  /**
+   * On verifie le contenu du rappel
+   * - Le contenu peut etre vide
+   * - Le contenu ne doit pas depasser 4 lignes
+   * - Chaque ligne ne doit pas depasser 50 characteres
+   * @param contenu
+   * @return boolean
+   */
+  public static boolean isTextOk(String contenu) {
+    if(contenu == null || contenu.isEmpty()) {
+      return true;
+    }
 
-			if(nombreLignes > 4) {
-				return false; // Pas plus de 4 lignes
-			}
+    int nombreLignes = 1;
+    int nbCharLignes = 0;
 
-			if(nbCharLignes > 50) {
-				return false; // Pas plus de 50 characteres par lignes
-			}
-		}
+    for(int i = 0; i < contenu.length(); i++) {
+      char c = contenu.charAt(i);
 
-		return true; // On return true si tout est bon et que le contenu respecte toutes les conditions
-	}
+      if(c == '\n') {
+        nombreLignes++;
+        nbCharLignes = 0; // On remet à 0 le nombre de charactere a cette ligne
+      } else {
+        nbCharLignes++; 
+      }
+
+      if(nombreLignes > 4) {
+        return false; // Pas plus de 4 lignes
+      }
+
+      if(nbCharLignes > 50) {
+        return false; // Pas plus de 50 characteres par lignes
+      }
+    }
+
+    return true; // On return true si tout est bon et que le contenu respecte toutes les conditions
+  }
 }
