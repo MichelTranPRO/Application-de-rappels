@@ -56,11 +56,14 @@ public class FenetreMain extends JFrame{
 		this.setAlwaysOnTop(true);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
-		this.setLocation(30, 720);
+
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // On récupère la taile de l'écran utilisateur
+    int height = (int)screenSize.getHeight();
+    this.setLocation(30, height-370);
 
 
-		this.addWindowListener(new ControleurWindowConfirm(this));
-		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    this.addWindowListener(new ControleurWindowConfirm(this));
+    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		this.setVisible(true);
 	}
