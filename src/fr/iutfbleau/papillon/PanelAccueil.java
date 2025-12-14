@@ -41,6 +41,7 @@ public class PanelAccueil extends JPanel{
     
     /**
      * Le constructeur de la classe <code>PanelAccueil</code> initialise tous les composants nécessaire à son affichage 
+     * @param fenetreAccueil lien avec la classe <code>FenetreAccueil</code>.
      */
     public PanelAccueil(FenetreAccueil fenetreAccueil){
         this.fenetreAccueil=fenetreAccueil;

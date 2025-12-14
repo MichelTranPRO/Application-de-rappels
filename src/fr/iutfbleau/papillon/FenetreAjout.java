@@ -32,6 +32,7 @@ public class FenetreAjout extends JPanel{
 
     /**
      * Contructeur qui crée les objets nécéssaire, les agencent et les affichent.
+     * @param fenetreMain lien avec la classe <code>FenetreMain</code>.
      */
 
     public FenetreAjout(FenetreMain fenetreMain){

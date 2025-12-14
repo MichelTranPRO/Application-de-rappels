@@ -5,8 +5,17 @@ import javax.swing.JOptionPane;
 /**
  * La classe <code>VerifRappel</code> est utilisee en tant que Modele.
  * Cette classe verifie les conditions lors de creation d'un rappel pour un titre et pour le contenu.
+ * @version 1.0
+ * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 public class VerifRappel {
+
+  /**
+   * Constructeur de la classe VerifRappel.
+   */
+  public VerifRappel() {
+    // Constructeur vide
+  }
 
   /**
    * On verifie le titre du rappel
@@ -14,7 +23,7 @@ public class VerifRappel {
    * - Le titre ne doit pas depasser 50 characteres
    * - Le titre doit contenir au moins une lettre ou un chiffre
    * - Le titre ne doit pas contenir de saut de ligne
-   * @param titre
+   * @param titre titre à verifier
    * @return boolean	
    */
   public static boolean isTitleOk(String titre) {
@@ -57,7 +66,7 @@ public class VerifRappel {
    * - Le contenu peut etre vide
    * - Le contenu ne doit pas depasser 4 lignes
    * - Chaque ligne ne doit pas depasser 50 characteres
-   * @param contenu
+   * @param contenu contenu à verifier
    * @return boolean
    */
   public static boolean isTextOk(String contenu) {
@@ -95,6 +104,8 @@ public class VerifRappel {
   /**
    * On vérifie le thème du rappel
    * - Un thème doit être choisi
+   * @param theme thème à verifier
+   * @return boolean
    */ 
   public static boolean isThemeOk(int theme){
     if(theme == -1){

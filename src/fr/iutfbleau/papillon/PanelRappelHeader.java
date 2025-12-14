@@ -22,6 +22,7 @@ public class PanelRappelHeader extends JPanel{
 
     /**
      * Le constructeur de la classe <code>PanelAjoutHeader</code> initialise tous les composants nécessaire à son affichage 
+     * @param fenetreRappel lien avec la classe <code>FenetreRappel</code>.
      */
     public PanelRappelHeader(FenetreRappel fenetreRappel){
         this.fenetreRappel=fenetreRappel;

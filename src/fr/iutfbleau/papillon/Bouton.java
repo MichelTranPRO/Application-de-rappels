@@ -73,7 +73,7 @@ public class Bouton extends JComponent {
      */
     protected FontMetrics mesureTexte;
 
-    /** Constructeur de la classe <code>Bouton<code>.
+    /** Constructeur de la classe <code>Bouton</code>.
      * Defini les paramètres pour créer un objet de la classe.
      * @param l Longeur du bouton.
      * @param h Hauteur du bouton.

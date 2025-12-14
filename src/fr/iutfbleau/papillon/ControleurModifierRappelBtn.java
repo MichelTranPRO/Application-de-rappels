@@ -27,8 +27,8 @@ public class ControleurModifierRappelBtn implements MouseListener{
     /**
      * Les constructeurs de la classe <code>ControleurModifierRappelBtn</code> 
      * permettent de faire le lien avec différentes classes.
-     * @param bouton
-     * @param panelRappel
+     * @param bouton reférence au bouton modif
+     * @param panelRappel reférence au panel rappel
      */
 	public ControleurModifierRappelBtn(Bouton bouton, PanelRappel panelRappel){
         this.bouton=bouton;
@@ -38,7 +38,7 @@ public class ControleurModifierRappelBtn implements MouseListener{
     /**
      * Interraction lorsque l'utilisateur clique sur le bouton.
      * Appelle la fonction qui permet de modifier le rappel.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseClicked(MouseEvent e) {
@@ -48,7 +48,7 @@ public class ControleurModifierRappelBtn implements MouseListener{
     /**
      * Interraction lorsque la souris entre du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseExited(MouseEvent e) {
@@ -58,7 +58,7 @@ public class ControleurModifierRappelBtn implements MouseListener{
     /**
      * Interraction lorsque la souris entre du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseEntered(MouseEvent e) {

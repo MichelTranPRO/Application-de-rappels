@@ -14,7 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class Requete{
 
+  /**
+   * Connection à la base de données.
+   */
   private static Connection cnx;
+
+  /**
+   * Constructeur par défaut de la classe <code>Requete</code>.
+   */
+  public Requete(){}
 
   // On charge la connection
   static{
@@ -79,9 +87,9 @@ public class Requete{
 
   /**
    * Insère un nouveau rappel dans la base de données.
-   * @param titre
-   * @param contenu
-   * @param theme
+   * @param titre titre à ajouter
+   * @param contenu contenu à ajouter
+   * @param theme thème à ajouter
    * @return 1 si l'insertion a réussi, 0 sinon.
    */
   public static int insert(String titre, String contenu, int theme) {
@@ -133,8 +141,8 @@ public class Requete{
 
   /**
    * Échange les rangs de deux rappels dans la base de données.
-   * @param ida
-   * @param idb
+   * @param ida id du premier rappel
+   * @param idb id du second rappel
    * @return 1 si l'échange a réussi, 0 sinon.
    */
   public static int swap(int ida, int idb){
@@ -167,7 +175,7 @@ public class Requete{
 
   /**
    * Supprime un rappel de la base de données.
-   * @param id
+   * @param id id du rappel à supprimer
    * @return 1 si la suppression a réussi, 0 sinon.
    */
   public static int delete(int id){
@@ -193,6 +201,14 @@ public class Requete{
     }
   }
 
+  /**
+   * Met à jour un rappel dans la base de données.
+   * @param id id du rappel à modifier
+   * @param titre titre à modifier
+   * @param contenu contenu à modifier
+   * @param theme thème à modifier
+   * @return 1 si la mise à jour a réussi, 0 sinon.
+   */
   public static int update(int id, String titre, String contenu, int theme){
     try (PreparedStatement pst = cnx.prepareStatement(
           "UPDATE DEV31 " +

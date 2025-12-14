@@ -25,6 +25,7 @@ public class PanelAjoutHeader extends JPanel{
 
     /**
      * Le constructeur de la classe <code>PanelAjoutHeader</code> initialise tous les composants nécessaire à son affichage 
+     * @param fenetreAjout lien avec la classe <code>FenetreAjout</code>.
      */
     public PanelAjoutHeader(FenetreAjout fenetreAjout){
 

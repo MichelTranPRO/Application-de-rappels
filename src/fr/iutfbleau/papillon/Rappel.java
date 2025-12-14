@@ -87,12 +87,12 @@ public class Rappel extends JComponent{
     private boolean statutModeModif;
 
     /**
-     * Statut du mode modification.
+     * Statut de la sélection en mode modification.
      */
     private boolean selectedModif;
 
     /**
-     * Statut du mode suppression.
+     * Statut de la sélection en mode suppression.
      */
     private boolean selectedSuppr;
 
@@ -101,6 +101,14 @@ public class Rappel extends JComponent{
      */
     private boolean statutModeSuppr;
 
+    /**
+     * Constructeur de la classe <code>Rappel</code>.
+     * @param titre titre du rappel
+     * @param contexte contexte du rappel
+     * @param theme thème du rappel
+     * @param rang rang du rappel
+     * @param id identifiant unique du rappel
+     */
     public Rappel(String titre, String contexte, int theme, int rang, int id){
         this.titre=titre;
         this.contexte=contexte;
@@ -158,30 +166,58 @@ public class Rappel extends JComponent{
     }
     
     // Getters pour pouvoir afficher le contenu du rappel
-
+    /**
+     * Méthode pour obtenir l'identifiant du rappel.
+     * @return L'identifiant du rappel.
+     */
     public int getId(){
       return id;
     }
-    
+
+    /**
+     * Méthode pour obtenir le titre du rappel.
+     * @return Le titre du rappel.
+     */
     public String getTitle(){
       return titre;
     }
 
+    /**
+     * Méthode pour obtenir le contenu du rappel.
+     * @return Le contenu du rappel.
+     */
     public String getContent(){
       return contexte;
     }
 
+    /**
+     * Méthode pour obtenir le thème du rappel.
+     * @return Le thème du rappel.
+     */
     public int getTheme(){
       return theme;
     }
+
+    /**
+     * Méthode pour obtenir le rang du rappel.
+     * @return Le rang du rappel.
+     */
     public int getRank(){
       return rang;
     }
 
+    /**
+     * Méthode pour définir le rang du rappel.
+     * @param num Le nouveau rang du rappel.
+     */
     public void setRank(int num){
       this.rang=num;
     }
 
+    /**
+     * Méthode pour définir la couleur lors du survol.
+     * @param statutHover Le statut de survol (true si survolé ou false sinon).
+     */
     public void setHoverColor(Boolean statutHover){
       if (statutHover) {
             this.couleurActuelle = tabTheme[theme][2];
@@ -194,6 +230,11 @@ public class Rappel extends JComponent{
     }
 
     // ======== METHODES POUR LE MODE MODIF ========
+
+    /**
+     * Méthode pour définir la couleur en mode modification.
+     * @param statutColorModif Le statut de modification (true si en mode modification ou false sinon).
+     */
     public void setColorModif(boolean statutColorModif){
       if (statutColorModif){
         this.couleurActuelle = tabTheme[theme][1];
@@ -206,6 +247,10 @@ public class Rappel extends JComponent{
       repaint();
     }
 
+    /**
+     * Méthode pour définir la couleur lors du survol en mode modification.
+     * @param statutColorModifHover Le statut de survol (true si survolé ou false sinon).
+     */
     public void setColorModifHover(boolean statutColorModifHover){
       if (statutColorModifHover){
         this.couleurActuelle = tabTheme[theme][2];
@@ -218,24 +263,45 @@ public class Rappel extends JComponent{
       repaint();
     }
 
+    /**
+     * Méthode pour définir le mode modification.
+     * @param statut Le statut du mode modification (true pour activer, false pour désactiver).
+     */
     public void setModeModif(boolean statut){
       this.statutModeModif=statut;
     }
 
+
+  /**
+   * Méthode pour obtenir le mode modification.
+   * @return Le statut du mode modification.
+   */
     public Boolean getModeModif(){
       return statutModeModif;
     }
 
+    /**
+     * Méthode pour vérifier si le rappel est sélectionné pour modification.
+     * @return Le statut de sélection pour modification.
+     */
     public boolean isSelectedModif() {
         return selectedModif;
     }
 
+    /**
+     * Méthode pour définir si le rappel est sélectionné pour modification.
+     * @param b Le statut de sélection pour modification.
+     */
     public void setSelectedModif(boolean b) {
         this.selectedModif = b;
     }
     // =================================================
     
     // ======== METHODES POUR LE MODE SUPPRIMER ========
+    /**
+     * Méthode pour définir la couleur en mode suppression.
+     * @param statutColorSuppr Le statut de suppression (true si en mode suppression ou false sinon).
+     */
     public void setColorSuppr(boolean statutColorSuppr){
       if (statutColorSuppr){
         this.couleurActuelle = tabTheme[theme][1];
@@ -248,6 +314,10 @@ public class Rappel extends JComponent{
       repaint();
     }
 
+    /**
+     * Méthode pour définir la couleur lors du survol en mode suppression.
+     * @param statutColorSupprHover Le statut de survol (true si survolé ou false sinon).
+     */
     public void setColorSupprHover(boolean statutColorSupprHover){
       if (statutColorSupprHover){
         this.couleurActuelle = tabTheme[theme][2];
@@ -260,18 +330,34 @@ public class Rappel extends JComponent{
       repaint();
     }
 
+    /**
+     * Méthode pour définir le mode suppression.
+     * @param statut Le statut du mode suppression (true pour activer, false pour désactiver).
+     */
     public void setModeSuppr(boolean statut){
       this.statutModeSuppr=statut;
     }
 
+    /**
+     * Méthode pour obtenir le statut du mode suppression.
+     * @return Le statut du mode suppression.
+     */
     public Boolean getModeSuppr(){
       return statutModeSuppr;
     }
 
+    /**
+     * Méthode pour vérifier si le rappel est sélectionné pour suppression.
+     * @return Le statut de sélection pour suppression.
+     */
     public boolean isSelectedSuppr() {
         return selectedSuppr;
     }
 
+    /**
+     * Méthode pour définir si le rappel est sélectionné pour suppression.
+     * @param b Le statut de sélection pour suppression.
+     */
     public void setSelectedSuppr(boolean b) {
         this.selectedSuppr = b;
     }

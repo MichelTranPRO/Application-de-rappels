@@ -24,6 +24,7 @@ public class ControleurValiderBtn implements MouseListener{
      * Le constructeur de la classe <code>ControlleurValiderBtn</code> 
      * permet de faire le lien avec un objet de la classe <code>Bouton</code>.
      * @param bouton variable nécessaire à la référence de la classe <code>Bouton</code>.
+     * @param panelAjout variable nécessaire à la référence de la classe <code>PanelAjout</code>.
      */
 	public ControleurValiderBtn(Bouton bouton, PanelAjout panelAjout){
         this.bouton=bouton;
@@ -39,7 +40,7 @@ public class ControleurValiderBtn implements MouseListener{
     /**
      * Interraction lorsque la souris entre du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseExited(MouseEvent e) {
@@ -49,7 +50,7 @@ public class ControleurValiderBtn implements MouseListener{
     /**
      * Interraction lorsque la souris entre du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseEntered(MouseEvent e) {

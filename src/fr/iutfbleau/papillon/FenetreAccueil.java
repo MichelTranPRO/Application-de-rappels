@@ -32,6 +32,7 @@ public class FenetreAccueil extends JPanel{
 
 	/**
 	 * Le constructeur de la classe <code>FenetreAccueil</code> initialise tous les composants nécessaire à son affichage 
+	 * @param fenetreMain lien avec la classe <code>FenetreMain</code>.
 	 */
 	public FenetreAccueil(FenetreMain fenetreMain){
 		this.fenetreMain = fenetreMain;
@@ -59,6 +60,7 @@ public class FenetreAccueil extends JPanel{
 	
 	/**
 	 * Méthode pour afficher la fenêtre de rappel.
+	 * @param rappel le rappel à afficher
 	 */
 	public void setFenetreRappel(Rappel rappel){
 		fenetreMain.setFenetreRappel(rappel);

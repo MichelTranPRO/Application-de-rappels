@@ -30,9 +30,9 @@ public class ControleurBoutonConfirm extends MouseAdapter {
     /**
      * Les constructeurs de la classe <code>ControleurBoutonConfirm</code> 
      * permettent de faire le lien avec différentes classes.
-     * @param btnAnnuler
-     * @param btnQuitter
-     * @param panelConfirmation
+     * @param btnAnnuler reférence au bouton annuler
+     * @param btnQuitter reférence au bouton quitter
+     * @param panelConfirmation reférence au panel de confirmation
      */
 	public ControleurBoutonConfirm(Bouton btnAnnuler, Bouton btnQuitter, PanelConfirmation panelConfirmation) {
         this.panelConfirmation=panelConfirmation;
@@ -42,6 +42,7 @@ public class ControleurBoutonConfirm extends MouseAdapter {
     /**
      * Méthode appelée lorsque l'utilisateur clique sur le composant.
      * Elle permet de quitter l'application ou d'annuler la fermeture.
+     * @param e géré en dehors du code.
      */
 	@Override
     public void mouseClicked(MouseEvent e) {

@@ -26,8 +26,8 @@ public class ControleurModifBtn implements MouseListener {
     /**
      * Les constructeurs de la classe <code>ControleurModifBtn</code> 
      * permettent de faire le lien avec différentes classes.
-     * @param bouton
-     * @param panelAccueilHeader
+     * @param bouton reférence au bouton modif
+     * @param panelAccueilHeader reférence au panel header de l'accueil
      */
     public ControleurModifBtn(Bouton bouton, PanelAccueilHeader panelAccueilHeader){
         this.bouton = bouton;
@@ -37,6 +37,7 @@ public class ControleurModifBtn implements MouseListener {
     /**
      * Méthode appelée lorsque l'utilisateur clique sur le composant.
      * Elle permet d'activer ou désactiver le mode modification.
+     * @param e géré en dehors du code.
      */
     public void mouseClicked(MouseEvent e) {
         boolean nouveauStatut = !panelAccueilHeader.getStatutModifBtn();
@@ -49,6 +50,7 @@ public class ControleurModifBtn implements MouseListener {
     /**
      * Méthode appelée lorsque la souris entre dans le composant.
      * Elle permet de changer la couleur du bouton au survol.
+     * @param e géré en dehors du code.
      */
     public void mouseEntered(MouseEvent e) {
         // hover uniquement si pas en mode modif
@@ -60,6 +62,7 @@ public class ControleurModifBtn implements MouseListener {
     /**
      * Méthode appelée lorsque la souris sort du composant.
      * Elle permet de réinitialiser la couleur du bouton.
+     * @param e géré en dehors du code.
      */
     public void mouseExited(MouseEvent e) {
         // hover uniquement si pas en mode modif

@@ -67,6 +67,8 @@ public class PanelRappel extends JPanel{
 
     /**
      * Le constructeur de la classe <code>PanelRappel</code> initialise tous les composants nécessaire à son affichage 
+     * @param rappel le rappel à afficher
+     * @param fenetreRappel lien avec la classe <code>FenetreRappel</code>.
      */
     public PanelRappel(Rappel rappel, FenetreRappel fenetreRappel){
         this.rappel=rappel;

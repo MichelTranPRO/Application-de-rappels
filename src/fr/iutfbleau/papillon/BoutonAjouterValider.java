@@ -18,7 +18,7 @@ public class BoutonAjouterValider extends Bouton {
      */
     private boolean dessineAjouter;
 
-    /** Constructeur de la classe <code>BoutonAjouterValider<code>.
+    /** Constructeur de la classe <code>BoutonAjouterValider</code>.
      * Defini les paramètres pour créer un objet de la classe.
      * @param l Longeur du bouton.
      * @param h Hauteur du bouton.
@@ -71,6 +71,12 @@ public class BoutonAjouterValider extends Bouton {
         }
     }
 
+    /**
+     * Méthode pour définir la couleur lors du survol.
+     * @param statut true pour activer le hover, false pour le désactiver.
+     * @param couleurHover couleur du hover.
+     * @param texteHover couleur du texte lors du hover.
+     */
     @Override
     public void setHoverColor(boolean statut, Color couleurHover, Color texteHover) {
 
@@ -95,6 +101,7 @@ public class BoutonAjouterValider extends Bouton {
     }
     /**
      * Méthode qui permet de d'affichier le bouton "Ajouter" ou non.
+     * @param statut true pour afficher le bouton "Ajouter", false pour afficher le bouton "Valider".
      */
     public void setVisibleDessinAjouter(Boolean statut){
         if (statut){

@@ -47,7 +47,7 @@ public class BoutonSuppr extends JComponent{
      */
     private Color fond;
 
-    /** Constructeur de la classe <code>BoutonSuppr<code>.
+    /** Constructeur de la classe <code>BoutonSuppr</code>.
      * Defini les paramètres pour créer un objet de la classe.
      * @param l Longeur du bouton.
      * @param h Hauteur du bouton.
@@ -81,7 +81,8 @@ public class BoutonSuppr extends JComponent{
     }
 
     /**
-     * Méthode utilisée lorsque la souris survol le composant, elle change l'image et la couleur. 
+     * Méthode pour définir la couleur lors du survol.
+     * @param statut true pour activer le hover, false pour le désactiver.
      */
     public void setHoverColor(boolean statut) {
         if (statut) {

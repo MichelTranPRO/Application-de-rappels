@@ -7,6 +7,16 @@ package fr.iutfbleau.papillon;
  * @author Emmanuel Srivastava-Tiamzon, Rayan Bisson et Michel Tran
  */
 public class Main {
+
+    /**
+     * Constructeur de la classe Main.
+     */
+    public Main() {
+    }
+    /**
+     * Méthode principale qui lance l'application.
+     * @param args les arguments de la ligne de commande
+     */
     public static void main(String[] args) {
         FenetreMain fenetre = new FenetreMain();
     }

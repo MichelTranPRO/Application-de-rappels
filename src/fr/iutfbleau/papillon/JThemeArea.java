@@ -63,8 +63,8 @@ public class JThemeArea extends JPanel{
 
     /**
      * Méthode pour gérer le survol des thèmes.
-     * @param statut 
-     * @param numTheme 
+     * @param statut statut du survol
+     * @param numTheme numéro du thème
      */
     public void setHover(boolean statut, int numTheme) {
         if (statut){
@@ -76,8 +76,8 @@ public class JThemeArea extends JPanel{
     }
     /**
      * Méthode pour gérer le clic des thèmes.
-     * @param statutClique 
-     * @param numTheme 
+     * @param statutClique statut du clic
+     * @param numTheme numéro du thème
      */
     public void setClick(int statutClique, int numTheme) {
         if (statutClique== 0){
@@ -108,7 +108,7 @@ public class JThemeArea extends JPanel{
     
     /**
      * Méthode pour obtenir le statut d'un thème.
-     * @param numTheme
+     * @param numTheme numéro du thème
      * @return le statut du thème
      */
     public boolean getStatut(int numTheme) {

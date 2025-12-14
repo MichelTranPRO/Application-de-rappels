@@ -22,7 +22,7 @@ public class ControleurWindowConfirm extends WindowAdapter {
     /**
      * Les constructeurs de la classe <code>ControleurWindowConfirm</code> 
      * permettent de faire le lien avec différentes classes.
-     * @param fenetreMain
+     * @param fenetreMain reférence à la fenêtre principale
      */
     public ControleurWindowConfirm(FenetreMain fenetreMain) {
         this.fenetreMain = fenetreMain;

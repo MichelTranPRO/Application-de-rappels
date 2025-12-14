@@ -35,7 +35,7 @@ public class ControleurSupprBtn implements MouseListener{
     /**
      * Interraction lorsque la souris clique sur le bouton.
      * Appelle la fonction qui défini si le mode suppression est activé ou non.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
 	public void mouseClicked(MouseEvent e) {
         boolean nouveauStatut = !panelAccueilHeader.getStatutSupprBtn();
@@ -48,7 +48,7 @@ public class ControleurSupprBtn implements MouseListener{
     /**
      * Interraction lorsque la souris sort du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
 	public void mouseExited(MouseEvent e) {
         // hover uniquement si pas en mode modif
@@ -60,7 +60,7 @@ public class ControleurSupprBtn implements MouseListener{
     /**
      * Interraction lorsque la souris sort du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
         // hover uniquement si pas en mode modif

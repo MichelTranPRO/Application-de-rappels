@@ -35,8 +35,8 @@ public class ControleurRappel implements MouseListener {
     /**
      * Les constructeurs de la classe <code>ControleurRappel</code> 
      * permettent de faire le lien avec différentes classes.
-     * @param rappel
-     * @param panelAccueil
+     * @param rappel reférence au rappel
+     * @param panelAccueil reférence au panel d'accueil
      */
     public ControleurRappel(Rappel rappel, PanelAccueil panelAccueil){
         this.rappel = rappel;
@@ -47,7 +47,7 @@ public class ControleurRappel implements MouseListener {
      * Interraction lorsque l'utilisateur clique sur le rappel.
      * Appelle la fonction qui permet d'ouvrir la fenêtre du rappel
      * ou de sélectionner le rappel en mode modification/suppression.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     public void mouseClicked(MouseEvent e) {
 
@@ -82,7 +82,7 @@ public class ControleurRappel implements MouseListener {
     /**
      * Interraction lorsque la souris entre du rappel.
      * Appelle la fonction qui change les couleurs du rappel.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     public void mouseEntered(MouseEvent e) {
         if (rappel.getModeModif()) {
@@ -104,7 +104,7 @@ public class ControleurRappel implements MouseListener {
     /**
      * Interraction lorsque la souris sort du rappel.
      * Appelle la fonction qui change les couleurs du rappel.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     public void mouseExited(MouseEvent e) {
         if (rappel.getModeModif()) {

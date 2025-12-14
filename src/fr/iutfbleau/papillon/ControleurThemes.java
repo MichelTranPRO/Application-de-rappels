@@ -41,7 +41,7 @@ public class ControleurThemes implements MouseListener{
     /**
      * Interraction lorsque la souris clique sur l'objet Theme.
      * Appelle la fonction qui défini si un thème est cliquer.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseClicked(MouseEvent e) {
@@ -51,7 +51,7 @@ public class ControleurThemes implements MouseListener{
     /**
      * Interraction lorsque la souris sort du l'objet Theme.
      * Appelle la fonction qui change les couleurs du theme.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseExited(MouseEvent e) {
@@ -63,7 +63,7 @@ public class ControleurThemes implements MouseListener{
     /**
      * Interraction lorsque la souris sort de l'objet Theme.
      * Appelle la fonction qui change les couleurs du theme.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
     @Override
 	public void mouseEntered(MouseEvent e) {

@@ -43,6 +43,7 @@ public class PanelConfirmation extends JDialog{
 
 	/**	 
 	 * Le constructeur de la classe <code>PanelConfirmation</code> initialise tous les composants nécessaire à son affichage 
+	 * @param fenetreMain lien avec la classe <code>FenetreMain</code>.
 	 */
 	public PanelConfirmation(FenetreMain fenetreMain) {
 		super(fenetreMain,"Confirmation", true);

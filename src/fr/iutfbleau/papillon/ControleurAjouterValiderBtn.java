@@ -29,11 +29,10 @@ public class ControleurAjouterValiderBtn implements MouseListener{
     private PanelAccueil panelAccueil;
 
     /**
-     * Les constructeurs de la classe <code>ControlleurAjouterBtn</code> 
-     * permettent de faire le lien avec différentes classes.
-     * @param BoutonAjouterValider variable nécessaire à la référence de la classe <code>BoutonAjouterValider</code>.
-     * @param PanelAccueilHeader variable nécessaire à la référence de la classe <code>PanelAccueilHeader</code>.
-     * @param PanelAccueil variable nécessaire à la référence de la classe <code>PanelAccueil</code>.
+     * Le constructeur de la classe <code>ControleurAjouterValiderBtn</code> initialise tous les composants nécessaire à son fonctionnement
+     * @param bouton reférence au bouton ajouter/valider
+     * @param panelAccueilHeader reférence au panel header de l'accueil
+     * @param panelAccueil reférence au panel d'accueil
      */
 	public ControleurAjouterValiderBtn(BoutonAjouterValider bouton, PanelAccueilHeader panelAccueilHeader, PanelAccueil panelAccueil){
         this.bouton=bouton;
@@ -44,6 +43,7 @@ public class ControleurAjouterValiderBtn implements MouseListener{
      * Méthode appelée lorsque l'utilisateur clique sur le composant.
      * Elle permet de valider l'échange ou suppresion des rappels.
      * Mais aussi d'afficher la fenetre ajouter.
+     * @param e géré en dehors du code.
      */
 	public void mouseClicked(MouseEvent e) {
         if (panelAccueilHeader.getStatutModifBtn()){ // actions effectuées quand on clique sur le bouton "valider" en mode "modif".
@@ -62,7 +62,7 @@ public class ControleurAjouterValiderBtn implements MouseListener{
     /**
      * Interraction lorsque la souris sort du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
 	public void mouseExited(MouseEvent e) {
         bouton.setHoverColor(false, new Color(255,184,0),new Color(255,255,255));
@@ -71,7 +71,7 @@ public class ControleurAjouterValiderBtn implements MouseListener{
     /**
      * Interraction lorsque la souris entre du bouton.
      * Appelle la fonction qui change les couleurs du bouton.
-     * @param evenement géré en dehors du code.
+     * @param e géré en dehors du code.
      */
 	public void mouseEntered(MouseEvent e) {
         bouton.setHoverColor(true, new Color(255,184,0),new Color(255,255,255));

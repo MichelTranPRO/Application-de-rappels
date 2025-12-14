@@ -70,6 +70,7 @@ public class FenetreMain extends JFrame{
 
 	/**
 	 * Méthode pour afficher les différentes fenêtres.
+	 * @param indexFenetre l'index de la fenêtre à afficher
 	 */
 	public void setFenetre(int indexFenetre){
 		if(indexFenetre == 1){
@@ -82,6 +83,7 @@ public class FenetreMain extends JFrame{
 
 	/**
 	 * Méthode pour afficher la fenêtre de rappel.
+	 * @param rappel le rappel à afficher
 	 */
 	public void setFenetreRappel(Rappel rappel){
 		fenetreRappel = new FenetreRappel(rappel,fenetreAccueil);
