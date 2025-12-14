@@ -12,12 +12,11 @@ Ce projet a été développé en **Java** en suivant les consignes du professeur
 ```
 .
 |build							//Les fichiers temporaires
-|libs/META-INF					//Bibliothèque externe maria DB 
+|libs/      					//Bibliothèque externe maria DB 
 |src/fr/iutfbleau/papillon		//Code source .java
-|res 							//Ressources : Diagrammes et rapport du projet
+|res/ 							//Ressources : Diagrammes et rapport du projet et images nécessaires au programme
 |.gitignore						//Types de fichier que git devrait ignorer
 |Makefile						//Fichier Makefile
-|TO DO.md 						//Fichier markdown d'objectif que nous nous mettons dans notre équipe
 |README.md 						//Fichier markdown de présentation pour ce projet 
 ```
 
