@@ -46,7 +46,7 @@ public class Bouton extends JComponent {
     /**
      * Couleur du fond par défaut.
      */
-    private Color fond;
+    protected Color fond;
 
     /**
      * Couleur du fond actuel.
@@ -61,7 +61,7 @@ public class Bouton extends JComponent {
     /**
      * Couleur du texte par défaut.
      */
-    private Color texteCouleur;
+    protected Color texteCouleur;
 
     /**
      * Texte à afficher.

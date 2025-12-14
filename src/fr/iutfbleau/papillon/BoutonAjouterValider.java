@@ -14,7 +14,7 @@ import java.awt.*;
 
 public class BoutonAjouterValider extends Bouton {
     /**
-     * Boolean qui permet de savoir quel bouton affciher.
+     * Boolean qui permet de savoir quel bouton afficher, true pour afficher le bouton "Ajouter".
      */
     private boolean dessineAjouter;
 
@@ -70,10 +70,41 @@ public class BoutonAjouterValider extends Bouton {
             secondPinceau.drawString("Valider", xTexte, yTexte);
         }
     }
+
+    @Override
+    public void setHoverColor(boolean statut, Color couleurHover, Color texteHover) {
+
+        if (dessineAjouter){
+            if (statut){
+                this.couleurActuelle = new Color(255, 184, 0);
+                this.texteCouleurActuelle = Color.WHITE;
+            }else{
+                this.couleurActuelle = Color.WHITE;
+                this.texteCouleurActuelle = new Color(255, 184, 0);
+            }
+        } else if(!dessineAjouter){
+            if (statut){
+                this.couleurActuelle = new Color(0,161,67);
+                this.texteCouleurActuelle = Color.WHITE;
+            }else{
+                this.couleurActuelle = new Color(0, 200, 83);
+                this.texteCouleurActuelle = Color.WHITE;
+            }
+        }
+        repaint();
+    }
     /**
      * Méthode qui permet de d'affichier le bouton "Ajouter" ou non.
      */
     public void setVisibleDessinAjouter(Boolean statut){
+        if (statut){
+            couleurActuelle=Color.WHITE;
+            texteCouleurActuelle=new Color(255, 184, 0);
+        }else{
+            couleurActuelle=new Color(0, 200, 83);
+            texteCouleurActuelle=Color.WHITE;
+        }
         this.dessineAjouter=statut;
+        repaint();
     }
 }
