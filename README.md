@@ -38,12 +38,6 @@ Pour exécuter le projet on utilise aussi le fichier `Makefile` avec la commande
 make run
 ```
 
-### Création de l'archive .jar
-Grâce au Makefile on génère une archive exécutable avec : 
-```bash
-make jar
-```
-
 ### Création de la documentation javadoc
 On peut aussi créer une documentation générée via **Javadoc** grâce au `Makefile` : 
 ```bash

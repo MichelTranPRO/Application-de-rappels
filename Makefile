@@ -115,6 +115,7 @@ build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class buil
 build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
+# Archive jar
 papillon.jar: build/Main.class
 	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C . res -C libs . 
 
@@ -123,6 +124,7 @@ papillon.jar: build/Main.class
 run: 
 	${JVM} -jar papillon.jar
 
+# Vérification de la création du dossier build du projet
 build:
 	mkdir -p build
 
@@ -131,10 +133,6 @@ javadoc:
 	javadoc -d doc/ -sourcepath src fr.iutfbleau.papillon \
 		-encoding UTF-8 -charset UTF-8 -windowtitle "Documentation SAE DEV 3.1"
 	firefox doc/index.html
-
-# Création de l'archive jar
-jar: build/Main.class
-	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C . res -C libs . 
 
 # Nettoyage des fichiers compilés
 clean:
