@@ -1,20 +1,13 @@
-###############
-# Java
-###############
 build/*
 *.jar
 doc/
 
-###############
-# IntelliJ IDEA
-###############
 .idea/
 *.iml
 *.ipr
 *.iws
 out/
 
-# IntelliJ plugin-specific
 .idea_modules/
 atlassian-ide-plugin.xml
 .idea/**/workspace.xml
@@ -23,16 +16,9 @@ atlassian-ide-plugin.xml
 .idea/**/libraries
 .idea/**/shelf/
 
-###############
-# VS Code
-###############
 .vscode/
 .code-workspace
 
-###############
-# Neovim
-###############
-# Swap, backup, and undo files
 *.swp
 *.swo
 *.swm

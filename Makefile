@@ -5,13 +5,10 @@ SRC = src/fr/iutfbleau/papillon
 JCFLAGS = -d build -classpath build -sourcepath src
 
 # Cibles
-.PHONY: all run clean build javadoc
-
-build:
-	mkdir -p build
+.PHONY: all run clean 
 
 # Cible principale 
-all: build build/Main.class 
+all: build papillon.jar
 	@echo "Compilation terminée."
 
 # == VERIFICATION == #
@@ -118,11 +115,16 @@ build/FenetreMain.class: ${SRC}/FenetreMain.java build/FenetreAccueil.class buil
 build/Main.class: ${SRC}/Main.java build/FenetreMain.class
 	${JC} ${JCFLAGS} $<
 
+papillon.jar: build/Main.class
+	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C . res -C libs . 
+
 
 # Exécution du programme
-run: jar
+run: 
 	${JVM} -jar papillon.jar
 
+build:
+	mkdir -p build
 
 # Création de la javadoc
 javadoc:
@@ -131,7 +133,7 @@ javadoc:
 	firefox doc/index.html
 
 # Création de l'archive jar
-jar: build build/Main.class
+jar: build/Main.class
 	jar cvfe papillon.jar fr.iutfbleau.papillon.Main -C build . -C . res -C libs . 
 
 # Nettoyage des fichiers compilés
