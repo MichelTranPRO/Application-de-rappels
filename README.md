@@ -37,7 +37,6 @@ Pour exécuter le projet on utilise aussi le fichier `Makefile` avec la commande
 ```bash
 make run
 ```
-```
 
 ### Création de l'archive .jar
 Grâce au Makefile on génère une archive exécutable avec : 
