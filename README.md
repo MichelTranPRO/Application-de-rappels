@@ -1,4 +1,4 @@
-# Papillon 🦋
+# Papillon 2026
 
 Notre projet "**Papillon**", un logiciel de gestion de rappel, qui reste en permanence au premier plan, comme un papillon collé sur le moniteur. Ce projet a été réalisé dans le cadre de la SAÉ 3.1 FA de l'IUT Sénart-Fontainebleau.
 
